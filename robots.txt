@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# 允许爬取所有页面
+Allow: /index.html
+Allow: /reviews.html
+Allow: /contact.html
+Allow: /faq.html
+Allow: /changelog.html
+Allow: /blog.html
+Allow: /feedback.html
+Allow: /blog-post-1.html
+Allow: /blog-post-2.html
+Allow: /blog-post-3.html
+Allow: /blog-post-4.html
+Allow: /blog-post-5.html
+Allow: /blog-post-6.html
+
+# 允许爬取资源文件
+Allow: /assets/
+Allow: /styles.css
+Allow: /main.js
+
+# 禁止爬取系统文件
+Disallow: /.git/
+Disallow: /.DS_Store
+Disallow: /node_modules/
+
+# 爬取延迟（可选）
+Crawl-delay: 1
+
+# Sitemap位置
+Sitemap: https://hideall.com/sitemap.xml 
