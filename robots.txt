@@ -30,4 +30,4 @@ Disallow: /node_modules/
 Crawl-delay: 1
 
 # Sitemap位置
-Sitemap: https://hideall.com/sitemap.xml 
+Sitemap: https://hideall.cc/sitemap.xml 
