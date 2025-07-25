@@ -29,5 +29,9 @@ Disallow: /node_modules/
 # 爬取延迟（可选）
 Crawl-delay: 1
 
+# 规范URL设置
+# 主域名：https://hideall.cc/
+# 避免重复内容，统一使用HTTPS版本
+
 # Sitemap位置
 Sitemap: https://hideall.cc/sitemap.xml 
