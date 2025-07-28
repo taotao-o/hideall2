@@ -1293,4 +1293,219 @@ body.dark-mode {
 /* 印度尼西亚语字体优化 */
 [lang="id"] {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* User Reviews Section 用户评价模块样式 */
+.testimonials {
+  padding: 96px 0 64px 0;
+  background: #fff;
+}
+
+.testimonials-bg {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
+  width: var(--content-width);
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 80px 40px 40px 40px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* 标题区域 */
+.testimonials-header {
+  margin-bottom: 1.5rem;
+}
+
+.testimonials-badge {
+  display: inline-block;
+  background: #1e293b;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.testimonials-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.testimonials-subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 滚动容器 */
+.testimonials-scroll-container {
+  position: relative;
+  margin: 1rem 0;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.testimonials-scroll {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 0 1rem 0;
+  transition: transform 0.03s linear;
+}
+
+/* 评价卡片 */
+.testimonial-card {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 20rem;
+  flex-shrink: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.testimonial-card:hover {
+  border-color: #2dd4bf;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* 用户头像 */
+.testimonial-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ccfbf1;
+  border: 2px solid #ccfbf1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #0f766e;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* 用户姓名 */
+.testimonial-name {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* 星级评分 */
+.testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-stars i {
+  color: #2dd4bf;
+  font-size: 0.875rem;
+}
+
+.testimonial-stars i.fa-regular {
+  color: #d1d5db;
+}
+
+/* 评价内容 */
+.testimonial-content {
+  color: #374151;
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.testimonial-content::before {
+  content: '"';
+  font-size: 2rem;
+  color: #2dd4bf;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-family: serif;
+}
+
+/* 边缘渐变遮罩 */
+.testimonials-fade-left,
+.testimonials-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.testimonials-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #e2e8f0 0%, transparent 100%);
+}
+
+.testimonials-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #cbd5e1 0%, transparent 100%);
+}
+
+/* 底部评分统计 */
+.testimonials-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1e293b;
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  margin-top: 2rem;
+}
+
+.testimonials-stats i {
+  color: #2dd4bf;
+}
+
+.testimonials-separator {
+  color: #94a3b8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 3rem 0;
+  }
+  
+  .testimonials-bg {
+    padding: 60px 20px 30px 20px;
+    border-radius: 16px;
+  }
+  
+  .testimonials-title {
+    font-size: 1.875rem;
+  }
+  
+  .testimonials-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .testimonial-card {
+    width: 18rem;
+    padding: 1.25rem;
+  }
+  
+  .testimonials-fade-left,
+  .testimonials-fade-right {
+    width: 1rem;
+  }
 } 

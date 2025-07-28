@@ -1,6 +1,120 @@
 // Hide All 官网主页主要交互脚本
 // 详细注释，方便新手理解
 
+// 用户评价模块数据
+const testimonialsData = [
+  {
+    avatar: 'EC',
+    name: 'Emily Chen',
+    stars: 5,
+    content: 'This app has been a game-changer for managing my privacy concerns! The fingerprint unlock feature is incredibly convenient, and the interface is intuitive—perfect for when I need to hide apps and keep work and personal ones separate. Highly recommend for anyone serious about using an app to hide apps!'
+  },
+  {
+    avatar: 'MW',
+    name: 'Michael Wang',
+    stars: 5,
+    content: 'As a business executive, I need robust security for sensitive apps and data—and this app nails it when it comes to hide apps. The calculator disguise feature for hide apps is brilliant, and recent updates have added even more customization options for how I hide apps. Customer support is responsive and helpful. Five stars well deserved!'
+  },
+  {
+    avatar: 'SZ',
+    name: 'Sarah Zhang',
+    stars: 4,
+    content: 'Overall a solid app with great privacy features, especially when I want to hide apps. I mainly use it to hide apps like my social media ones. Took off one star due to occasional lag on my device, but it\'s still a top choice for anyone looking to hide apps. Would love to see more theme options for hide apps in future updates!'
+  },
+  {
+    avatar: 'DL',
+    name: 'David Li',
+    stars: 5,
+    content: 'Been using HideAll for over a year now, and it keeps getting better—especially for when I need to hide apps. The new cloud backup feature is fantastic! No more worrying about losing access to the apps I hide apps when changing phones. Would love to see face recognition added as an unlock option for the apps I hide apps.'
+  },
+  {
+    avatar: 'RL',
+    name: 'Rachel Liu',
+    stars: 5,
+    content: 'Best privacy app I\'ve tried— and it\'s not just about photos or videos, but also to hide apps! The photo and video vault feature adds an extra layer of security, and the new document safe is perfect, but what really stands out is how easy it is to hide apps. The clean interface makes it simple to hide apps, even for non-tech savvy users.'
+  },
+  {
+    avatar: 'WJ',
+    name: 'Wjacob',
+    stars: 5,
+    content: 'As a corporate executive, I have many sensitive information and apps on my phone. HideAll\'s security gives me great peace of mind, especially the clever calculator disguise feature. Recent updates have added more customization options, making the user experience better and better. Customer service is also very responsive. Five stars!'
+  }
+];
+
+// 初始化用户评价模块
+function initTestimonials() {
+  const scrollContainer = document.getElementById('testimonials-scroll');
+  if (!scrollContainer) return;
+
+  // 生成评价卡片HTML
+  function generateTestimonialCard(testimonial) {
+    const starsHTML = Array.from({ length: 5 }, (_, i) => {
+      if (i < testimonial.stars) {
+        return '<i class="fa-solid fa-star"></i>';
+      } else {
+        return '<i class="fa-regular fa-star"></i>';
+      }
+    }).join('');
+
+    return `
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">${testimonial.avatar}</div>
+        <div class="testimonial-name">${testimonial.name}</div>
+        <div class="testimonial-stars">${starsHTML}</div>
+        <div class="testimonial-content">${testimonial.content}</div>
+      </div>
+    `;
+  }
+
+  // 复制数组以实现无缝循环
+  const duplicatedTestimonials = [...testimonialsData, ...testimonialsData];
+  
+  // 生成所有卡片HTML
+  const cardsHTML = duplicatedTestimonials.map(generateTestimonialCard).join('');
+  scrollContainer.innerHTML = cardsHTML;
+
+  // 自动滚动功能
+  let scrollPosition = 0;
+  const scrollSpeed = 0.8; // 每30ms滚动0.8px，速度适中
+  const scrollInterval = 30;
+  let scrollTimer = null;
+
+  function autoScroll() {
+    scrollPosition += scrollSpeed;
+    
+    // 当滚动到第一组卡片的末尾时，重置到开始位置
+    const firstSetWidth = testimonialsData.length * (320 + 24); // 卡片宽度 + gap
+    if (scrollPosition >= firstSetWidth) {
+      scrollPosition = 0;
+    }
+    
+    scrollContainer.style.transform = `translateX(-${scrollPosition}px)`;
+  }
+
+  function startScroll() {
+    if (scrollTimer) {
+      clearInterval(scrollTimer);
+    }
+    scrollTimer = setInterval(autoScroll, scrollInterval);
+  }
+
+  function stopScroll() {
+    if (scrollTimer) {
+      clearInterval(scrollTimer);
+      scrollTimer = null;
+    }
+  }
+
+  // 启动自动滚动
+  startScroll();
+
+  // 鼠标悬停时暂停滚动
+  scrollContainer.addEventListener('mouseenter', stopScroll);
+
+  // 鼠标离开时恢复滚动
+  scrollContainer.addEventListener('mouseleave', startScroll);
+}
+
 // 多语言配置
 const translations = {
   en: {
@@ -569,4 +683,9 @@ function initLanguageSwitch() {
 // 页面加载时初始化语言切换
 document.addEventListener('DOMContentLoaded', function() {
   initLanguageSwitch();
+  
+  // 初始化用户评价模块（仅在主页）
+  if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+    initTestimonials();
+  }
 }); 
