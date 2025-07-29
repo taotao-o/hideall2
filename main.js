@@ -1,50 +1,182 @@
 // Hide All 官网主页主要交互脚本
 // 详细注释，方便新手理解
 
-// 用户评价模块数据
-const testimonialsData = [
-  {
-    avatar: 'EC',
-    name: 'Emily Chen',
-    stars: 5,
-    content: 'This app has been a game-changer for managing my privacy concerns! The fingerprint unlock feature is incredibly convenient, and the interface is intuitive—perfect for when I need to hide apps and keep work and personal ones separate. Highly recommend for anyone serious about using an app to hide apps!'
-  },
-  {
-    avatar: 'MW',
-    name: 'Michael Wang',
-    stars: 5,
-    content: 'As a business executive, I need robust security for sensitive apps and data—and this app nails it when it comes to hide apps. The calculator disguise feature for hide apps is brilliant, and recent updates have added even more customization options for how I hide apps. Customer support is responsive and helpful. Five stars well deserved!'
-  },
-  {
-    avatar: 'SZ',
-    name: 'Sarah Zhang',
-    stars: 4,
-    content: 'Overall a solid app with great privacy features, especially when I want to hide apps. I mainly use it to hide apps like my social media ones. Took off one star due to occasional lag on my device, but it\'s still a top choice for anyone looking to hide apps. Would love to see more theme options for hide apps in future updates!'
-  },
-  {
-    avatar: 'DL',
-    name: 'David Li',
-    stars: 5,
-    content: 'Been using HideAll for over a year now, and it keeps getting better—especially for when I need to hide apps. The new cloud backup feature is fantastic! No more worrying about losing access to the apps I hide apps when changing phones. Would love to see face recognition added as an unlock option for the apps I hide apps.'
-  },
-  {
-    avatar: 'RL',
-    name: 'Rachel Liu',
-    stars: 5,
-    content: 'Best privacy app I\'ve tried— and it\'s not just about photos or videos, but also to hide apps! The photo and video vault feature adds an extra layer of security, and the new document safe is perfect, but what really stands out is how easy it is to hide apps. The clean interface makes it simple to hide apps, even for non-tech savvy users.'
-  },
-  {
-    avatar: 'WJ',
-    name: 'Wjacob',
-    stars: 5,
-    content: 'As a corporate executive, I have many sensitive information and apps on my phone. HideAll\'s security gives me great peace of mind, especially the clever calculator disguise feature. Recent updates have added more customization options, making the user experience better and better. Customer service is also very responsive. Five stars!'
-  }
-];
+// 用户评价模块数据 - 多语言支持
+const testimonialsData = {
+  en: [
+    {
+      avatar: 'EC',
+      name: 'Emily Chen',
+      stars: 5,
+      content: 'This app has been a game-changer for managing my privacy concerns! The fingerprint unlock feature is incredibly convenient, and the interface is intuitive—perfect for when I need to hide apps and keep work and personal ones separate. Highly recommend for anyone serious about using an app to hide apps!'
+    },
+    {
+      avatar: 'MW',
+      name: 'Michael Wang',
+      stars: 5,
+      content: 'As a business executive, I need robust security for sensitive apps and data—and this app nails it when it comes to hide apps. The calculator disguise feature for hide apps is brilliant, and recent updates have added even more customization options for how I hide apps. Customer support is responsive and helpful. Five stars well deserved!'
+    },
+    {
+      avatar: 'SZ',
+      name: 'Sarah Zhang',
+      stars: 4,
+      content: 'Overall a solid app with great privacy features, especially when I want to hide apps. I mainly use it to hide apps like my social media ones. Took off one star due to occasional lag on my device, but it\'s still a top choice for anyone looking to hide apps. Would love to see more theme options for hide apps in future updates!'
+    },
+    {
+      avatar: 'DL',
+      name: 'David Li',
+      stars: 5,
+      content: 'Been using HideAll for over a year now, and it keeps getting better—especially for when I need to hide apps. The new cloud backup feature is fantastic! No more worrying about losing access to the apps I hide apps when changing phones. Would love to see face recognition added as an unlock option for the apps I hide apps.'
+    },
+    {
+      avatar: 'RL',
+      name: 'Rachel Liu',
+      stars: 5,
+      content: 'Best privacy app I\'ve tried— and it\'s not just about photos or videos, but also to hide apps! The photo and video vault feature adds an extra layer of security, and the new document safe is perfect, but what really stands out is how easy it is to hide apps. The clean interface makes it simple to hide apps, even for non-tech savvy users.'
+    },
+    {
+      avatar: 'WJ',
+      name: 'Wjacob',
+      stars: 5,
+      content: 'As a corporate executive, I have many sensitive information and apps on my phone. HideAll\'s security gives me great peace of mind, especially the clever calculator disguise feature. Recent updates have added more customization options, making the user experience better and better. Customer service is also very responsive. Five stars!'
+    }
+  ],
+  ar: [
+    {
+      avatar: 'EC',
+      name: 'إيميلي تشين',
+      stars: 5,
+      content: 'هذا التطبيق كان تغييراً جذرياً في إدارة مخاوفي بشأن الخصوصية! ميزة فتح البصمة مريحة للغاية، والواجهة بديهية - مثالية عندما أحتاج إلى إخفاء التطبيقات والحفاظ على التطبيقات الشخصية والعمل منفصلة. أوصي بشدة لأي شخص جاد في استخدام تطبيق لإخفاء التطبيقات!'
+    },
+    {
+      avatar: 'MW',
+      name: 'مايكل وانغ',
+      stars: 5,
+      content: 'كمدير تنفيذي في مجال الأعمال، أحتاج إلى أمان قوي للتطبيقات والبيانات الحساسة - وهذا التطبيق ينجح في ذلك عندما يتعلق الأمر بإخفاء التطبيقات. ميزة التمويه الحاسبة لإخفاء التطبيقات رائعة، والتحديثات الأخيرة أضافت المزيد من خيارات التخصيص لكيفية إخفاء التطبيقات. دعم العملاء متجاوب ومفيد. خمس نجوم تستحقها!'
+    },
+    {
+      avatar: 'SZ',
+      name: 'سارة تشانغ',
+      stars: 4,
+      content: 'بشكل عام تطبيق متين بميزات خصوصية رائعة، خاصة عندما أريد إخفاء التطبيقات. أستخدمه بشكل أساسي لإخفاء التطبيقات مثل وسائل التواصل الاجتماعي. خصمت نجمة واحدة بسبب التأخير العرضي على جهازي، لكنه لا يزال خياراً رائعاً لأي شخص يبحث عن إخفاء التطبيقات. أود رؤية المزيد من خيارات السمات لإخفاء التطبيقات في التحديثات المستقبلية!'
+    },
+    {
+      avatar: 'DL',
+      name: 'ديفيد لي',
+      stars: 5,
+      content: 'أستخدم HideAll منذ أكثر من عام، وهو يتحسن باستمرار - خاصة عندما أحتاج إلى إخفاء التطبيقات. ميزة النسخ الاحتياطي السحابي الجديدة رائعة! لا مزيد من القلق بشأن فقدان الوصول إلى التطبيقات التي أخفيها عند تغيير الهواتف. أود رؤية التعرف على الوجه مضافاً كخيار فتح للتطبيقات التي أخفيها.'
+    },
+    {
+      avatar: 'RL',
+      name: 'راشيل ليو',
+      stars: 5,
+      content: 'أفضل تطبيق خصوصية جربته - وليس فقط للصور أو الفيديوهات، ولكن أيضاً لإخفاء التطبيقات! ميزة خزنة الصور والفيديو تضيف طبقة إضافية من الأمان، وخزنة المستندات الجديدة مثالية، لكن ما يميز حقاً هو مدى سهولة إخفاء التطبيقات. الواجهة النظيفة تجعل إخفاء التطبيقات بسيطاً، حتى للمستخدمين غير التقنيين.'
+    },
+    {
+      avatar: 'WJ',
+      name: 'وجاكوب',
+      stars: 5,
+      content: 'كمدير تنفيذي في الشركة، لدي الكثير من المعلومات والتطبيقات الحساسة على هاتفي. أمان HideAll يعطيني راحة بال كبيرة، خاصة ميزة التمويه الحاسبة الذكية. التحديثات الأخيرة أضافت المزيد من خيارات التخصيص، مما يجعل تجربة المستخدم أفضل وأفضل. خدمة العملاء متجاوبة أيضاً. خمس نجوم!'
+    }
+  ],
+  hi: [
+    {
+      avatar: 'EC',
+      name: 'एमिली चेन',
+      stars: 5,
+      content: 'यह ऐप मेरी गोपनीयता चिंताओं को प्रबंधित करने में एक गेम-चेंजर रहा है! फिंगरप्रिंट अनलॉक सुविधा अविश्वसनीय रूप से सुविधाजनक है, और इंटरफेस सहज है - जब मुझे ऐप्स छिपाने और काम और व्यक्तिगत ऐप्स को अलग रखने की आवश्यकता होती है तो यह बिल्कुल सही है। किसी भी व्यक्ति के लिए जो ऐप्स छिपाने के लिए ऐप का उपयोग करने के बारे में गंभीर है, उनके लिए अत्यधिक अनुशंसित!'
+    },
+    {
+      avatar: 'MW',
+      name: 'माइकल वांग',
+      stars: 5,
+      content: 'एक व्यवसाय कार्यकारी के रूप में, मुझे संवेदनशील ऐप्स और डेटा के लिए मजबूत सुरक्षा की आवश्यकता है - और यह ऐप ऐप्स छिपाने के मामले में इसे पूरी तरह से करता है। ऐप्स छिपाने के लिए कैलकुलेटर छद्म सुविधा शानदार है, और हाल के अपडेट ने ऐप्स छिपाने के तरीके के लिए और भी अधिक अनुकूलन विकल्प जोड़े हैं। ग्राहक सहायता उत्तरदायी और सहायक है। पांच सितारे अच्छी तरह से योग्य हैं!'
+    },
+    {
+      avatar: 'SZ',
+      name: 'सारा झांग',
+      stars: 4,
+      content: 'कुल मिलाकर एक ठोस ऐप जिसमें महान गोपनीयता सुविधाएं हैं, विशेष रूप से जब मैं ऐप्स छिपाना चाहती हूं। मैं मुख्य रूप से इसका उपयोग अपने सोशल मीडिया जैसे ऐप्स छिपाने के लिए करती हूं। अपने डिवाइस पर कभी-कभी लैग के कारण एक सितारा कम किया, लेकिन यह अभी भी किसी भी व्यक्ति के लिए एक शीर्ष विकल्प है जो ऐप्स छिपाने की तलाश में है। भविष्य के अपडेट में ऐप्स छिपाने के लिए अधिक थीम विकल्प देखना चाहूंगी!'
+    },
+    {
+      avatar: 'DL',
+      name: 'डेविड ली',
+      stars: 5,
+      content: 'एक साल से अधिक समय से HideAll का उपयोग कर रहा हूं, और यह बेहतर होता जा रहा है - विशेष रूप से जब मुझे ऐप्स छिपाने की आवश्यकता होती है। नई क्लाउड बैकअप सुविधा शानदार है! फोन बदलते समय जिन ऐप्स को मैं छिपाता हूं उन तक पहुंच खोने की चिंता नहीं। मैं चेहरे की पहचान को ऐप्स के लिए एक अनलॉक विकल्प के रूप में जोड़ना चाहूंगा जिन्हें मैं छिपाता हूं।'
+    },
+    {
+      avatar: 'RL',
+      name: 'राहेल लिउ',
+      stars: 5,
+      content: 'मैंने जो सबसे अच्छा गोपनीयता ऐप आजमाया है - और यह सिर्फ फोटो या वीडियो के बारे में नहीं है, बल्कि ऐप्स छिपाने के बारे में भी है! फोटो और वीडियो वॉल्ट सुविधा एक अतिरिक्त सुरक्षा परत जोड़ती है, और नया दस्तावेज़ सेफ बिल्कुल सही है, लेकिन जो वास्तव में बाहर खड़ा है वह है ऐप्स छिपाना कितना आसान है। साफ इंटरफेस गैर-तकनीकी उपयोगकर्ताओं के लिए भी ऐप्स छिपाना सरल बनाता है।'
+    },
+    {
+      avatar: 'WJ',
+      name: 'वजाकोब',
+      stars: 5,
+      content: 'एक कॉर्पोरेट कार्यकारी के रूप में, मेरे फोन पर बहुत सारी संवेदनशील जानकारी और ऐप्स हैं। HideAll की सुरक्षा मुझे बहुत शांति देती है, विशेष रूप से चतुर कैलकुलेटर छद्म सुविधा। हाल के अपडेट ने अधिक अनुकूलन विकल्प जोड़े हैं, जिससे उपयोगकर्ता अनुभव बेहतर और बेहतर हो रहा है। ग्राहक सेवा भी बहुत उत्तरदायी है। पांच सितारे!'
+    }
+  ],
+  id: [
+    {
+      avatar: 'EC',
+      name: 'Emily Chen',
+      stars: 5,
+      content: 'Aplikasi ini telah menjadi game-changer untuk mengelola kekhawatiran privasi saya! Fitur buka kunci sidik jari sangat nyaman, dan antarmukanya intuitif - sempurna untuk saat saya perlu menyembunyikan aplikasi dan menjaga aplikasi kerja dan pribadi terpisah. Sangat direkomendasikan untuk siapa saja yang serius tentang menggunakan aplikasi untuk menyembunyikan aplikasi!'
+    },
+    {
+      avatar: 'MW',
+      name: 'Michael Wang',
+      stars: 5,
+      content: 'Sebagai eksekutif bisnis, saya membutuhkan keamanan yang kuat untuk aplikasi dan data sensitif - dan aplikasi ini berhasil dalam hal menyembunyikan aplikasi. Fitur penyamaran kalkulator untuk menyembunyikan aplikasi brilian, dan pembaruan terbaru telah menambahkan lebih banyak opsi kustomisasi untuk cara saya menyembunyikan aplikasi. Dukungan pelanggan responsif dan membantu. Lima bintang layak didapat!'
+    },
+    {
+      avatar: 'SZ',
+      name: 'Sarah Zhang',
+      stars: 4,
+      content: 'Secara keseluruhan aplikasi yang solid dengan fitur privasi yang hebat, terutama ketika saya ingin menyembunyikan aplikasi. Saya terutama menggunakannya untuk menyembunyikan aplikasi seperti media sosial saya. Mengurangi satu bintang karena lag sesekali di perangkat saya, tetapi masih pilihan terbaik untuk siapa saja yang mencari cara menyembunyikan aplikasi. Ingin melihat lebih banyak opsi tema untuk menyembunyikan aplikasi di pembaruan mendatang!'
+    },
+    {
+      avatar: 'DL',
+      name: 'David Li',
+      stars: 5,
+      content: 'Sudah menggunakan HideAll selama lebih dari setahun, dan terus menjadi lebih baik - terutama untuk saat saya perlu menyembunyikan aplikasi. Fitur cadangan cloud baru fantastis! Tidak perlu khawatir kehilangan akses ke aplikasi yang saya sembunyikan saat mengganti ponsel. Ingin melihat pengenalan wajah ditambahkan sebagai opsi buka kunci untuk aplikasi yang saya sembunyikan.'
+    },
+    {
+      avatar: 'RL',
+      name: 'Rachel Liu',
+      stars: 5,
+      content: 'Aplikasi privasi terbaik yang pernah saya coba - dan bukan hanya tentang foto atau video, tetapi juga untuk menyembunyikan aplikasi! Fitur vault foto dan video menambahkan lapisan keamanan ekstra, dan safe dokumen baru sempurna, tetapi yang benar-benar menonjol adalah betapa mudahnya menyembunyikan aplikasi. Antarmuka yang bersih membuat menyembunyikan aplikasi sederhana, bahkan untuk pengguna non-teknis.'
+    },
+    {
+      avatar: 'WJ',
+      name: 'Wjacob',
+      stars: 5,
+      content: 'Sebagai eksekutif perusahaan, saya memiliki banyak informasi dan aplikasi sensitif di ponsel saya. Keamanan HideAll memberi saya ketenangan pikiran yang besar, terutama fitur penyamaran kalkulator yang cerdas. Pembaruan terbaru telah menambahkan lebih banyak opsi kustomisasi, membuat pengalaman pengguna lebih baik dan lebih baik. Layanan pelanggan juga sangat responsif. Lima bintang!'
+    }
+  ]
+};
+
+// 全局变量用于管理testimonials滚动
+let testimonialsScrollTimer = null;
+let testimonialsScrollPosition = 0;
+let testimonialsScrollSpeed = 0.8;
+let testimonialsScrollInterval = 30;
 
 // 初始化用户评价模块
 function initTestimonials() {
   const scrollContainer = document.getElementById('testimonials-scroll');
   if (!scrollContainer) return;
+
+  // 清理之前的滚动定时器
+  if (testimonialsScrollTimer) {
+    clearInterval(testimonialsScrollTimer);
+    testimonialsScrollTimer = null;
+  }
+
+  // 重置滚动位置
+  testimonialsScrollPosition = 0;
+  scrollContainer.style.transform = 'translateX(0)';
 
   // 生成评价卡片HTML
   function generateTestimonialCard(testimonial) {
@@ -66,44 +198,47 @@ function initTestimonials() {
     `;
   }
 
+  // 获取当前语言，默认为英文
+  const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+  const currentTestimonials = testimonialsData[currentLang] || testimonialsData.en;
+  
   // 复制数组以实现无缝循环
-  const duplicatedTestimonials = [...testimonialsData, ...testimonialsData];
+  const duplicatedTestimonials = [...currentTestimonials, ...currentTestimonials];
   
   // 生成所有卡片HTML
   const cardsHTML = duplicatedTestimonials.map(generateTestimonialCard).join('');
   scrollContainer.innerHTML = cardsHTML;
 
   // 自动滚动功能
-  let scrollPosition = 0;
-  const scrollSpeed = 0.8; // 每30ms滚动0.8px，速度适中
-  const scrollInterval = 30;
-  let scrollTimer = null;
-
   function autoScroll() {
-    scrollPosition += scrollSpeed;
+    testimonialsScrollPosition += testimonialsScrollSpeed;
     
     // 当滚动到第一组卡片的末尾时，重置到开始位置
-    const firstSetWidth = testimonialsData.length * (320 + 24); // 卡片宽度 + gap
-    if (scrollPosition >= firstSetWidth) {
-      scrollPosition = 0;
+    const firstSetWidth = currentTestimonials.length * (320 + 24); // 卡片宽度 + gap
+    if (testimonialsScrollPosition >= firstSetWidth) {
+      testimonialsScrollPosition = 0;
     }
     
-    scrollContainer.style.transform = `translateX(-${scrollPosition}px)`;
+    scrollContainer.style.transform = `translateX(-${testimonialsScrollPosition}px)`;
   }
 
   function startScroll() {
-    if (scrollTimer) {
-      clearInterval(scrollTimer);
+    if (testimonialsScrollTimer) {
+      clearInterval(testimonialsScrollTimer);
     }
-    scrollTimer = setInterval(autoScroll, scrollInterval);
+    testimonialsScrollTimer = setInterval(autoScroll, testimonialsScrollInterval);
   }
 
   function stopScroll() {
-    if (scrollTimer) {
-      clearInterval(scrollTimer);
-      scrollTimer = null;
+    if (testimonialsScrollTimer) {
+      clearInterval(testimonialsScrollTimer);
+      testimonialsScrollTimer = null;
     }
   }
+
+  // 移除之前的事件监听器（如果存在）
+  scrollContainer.removeEventListener('mouseenter', stopScroll);
+  scrollContainer.removeEventListener('mouseleave', startScroll);
 
   // 启动自动滚动
   startScroll();
@@ -134,21 +269,21 @@ const translations = {
     // Why Choose区域
     why_title: "Why Choose HIDE ALL?",
     why_card1_title: "Hide Apps & Data with Stealth Technology",
-    why_card1_desc: "Utilize military-grade encryption and advanced stealth technology to completely hide your sensitive apps and personal data. Our innovative solution ensures your privacy remains uncompromised, making your private content invisible to others.",
+    why_card1_desc: "Hide All stands out with its unique ability to hide apps discreetly, keeping your sensitive information away from prying eyes. Unlike other hide apps tools, our advanced technology ensures your apps and data are completely invisible. With our app hider feature, selected apps will vanish from your phone's home screen, leaving no trace of their existence. Accessible only through a secret PIN or pattern, your sensitive apps are fully protected inside a secure calculator vault.",
     why_card2_title: "Manage Multiple Accounts Simultaneously",
-    why_card2_desc: "Seamlessly switch between multiple social media and messaging accounts. Perfect for maintaining separate personal and professional profiles while ensuring complete privacy and organization.",
+    why_card2_desc: "With Hide All, you can run multiple accounts of hide apps for almost any app at the same time, without worrying about data interference. Hide apps in different accounts for social media, games, or business apps, and switch between them easily without logging in and out. This feature supports popular platforms like Facebook, Instagram, Snapchat, Telegram, and gaming apps such as Roblox, Call of Duty, Free Fire and MONOPOLY GO.",
     why_card3_title: "Private Photos & Videos: Securely Stored and Easily Browsed",
-    why_card3_desc: "Create a secure vault for your private photos and videos with intuitive organization and instant access. Advanced encryption ensures your memories stay private while maintaining quick and easy browsing capabilities.",
+    why_card3_desc: "Hide All not only allows you to hide apps, but it also helps you protect your personal media. You can securely store private photos, videos, and files in the vault, and access them anytime you want. The sleek interface offers a refined browsing experience, utilize a private vault or hide apps for encrypted storage, accessed discreetly via a secret calculator masquerading as a standard app, ensuring your media is hidden yet easily accessible when needed.",
     why_card4_title: "Stealth Installation: No One Will Ever Know",
-    why_card4_desc: "Our unique stealth installation process ensures the app remains completely hidden from the device's app list. With customizable disguise options, Hide All maintains perfect camouflage while providing full functionality.",
+    why_card4_desc: "One of the most sought-after features of Hide All is the stealth installation. When you hide apps, you can ensure they leave no trace in the phone system, no recent tasks, and no installation records. This discreet operation guarantees that even someone with advanced technical knowledge won't be able to uncover your hide apps. Shield private apps with app hider and safeguard layers. A secret app vault disguises itself as a simple calculator app, providing an extra layer of security through the \"fake calculator\" facade to hide apps.",
     why_card5_title: "Robust Security Features for Ultimate Privacy",
-    why_card5_desc: "Benefit from password protection, pattern locks, and fingerprint authentication. Only you can access your hidden apps and content, ensuring your data is always safe.",
+    why_card5_desc: "Hide apps securely with features like password protection, pattern locks, or even fingerprint authentication. Only you can access the hide apps and content, ensuring that no one else can break into your vault. This multi-layered protection keeps your data private, giving you peace of mind in a digital world where privacy threats are ever-present.",
     why_card6_title: "Customizable User Interface for Seamless Operation",
-    why_card6_desc: "Personalize your experience with customizable themes, layouts, and organization options. Create a seamless workflow that matches your preferences and enhances your productivity.",
+    why_card6_desc: "Hide All's hide apps solution is designed with ease of use in mind. Customize your device's interface to match your personal preferences, including organizing hide apps into smart categories (Work, Health, Social) and creating hidden pages for even more privacy. With options for dark/light themes, pixel-perfect icon packs, and even animated transitions, you can make hide apps efficient and fits your workflow and aesthetic preferences.",
     why_card7_title: "Switch Accounts with Ease",
-    why_card7_desc: "Quickly toggle between different accounts with just one tap. Whether you're managing social media profiles, running dual accounts for gaming, or working with multiple hide apps, Hide All lets you navigate between different accounts effortlessly.",
+    why_card7_desc: "Quickly toggle between different accounts with just one tap. Whether you're managing social media profiles, running dual accounts for gaming, or working with multiple hide apps, Hide All lets you navigate between different accounts effortlessly. This ensures you never miss important messages or notifications, regardless of which account you're using.",
     why_card8_title: "Enhanced Productivity and Flexibility",
-    why_card8_desc: "People are always troubled by how to hide apps on android or iPhones? Thanks to the app's powerful features, you can boost productivity by creating quick access to storage stats, notes, or shortcuts to your encrypted vault.",
+    why_card8_desc: "People are always troubled by how to hide apps on android or iPhones? Thanks to the app's powerful features, you can boost productivity by creating quick access to storage stats, notes, or shortcuts to your encrypted vault. Organize your personal apps in a way that works best for you, whether through sorting by frequency, color, or alphabetically. With one-tap split-screen pairing, you can maximize your device's screen real estate for multitasking.",
     
     // Features区域
     features_title: "Features of HIDE ALL",
@@ -170,13 +305,23 @@ const translations = {
     feature8_desc: "Boost productivity with quick access to storage stats, notes, and shortcuts to your encrypted vault. Organize apps your way for maximum efficiency.",
     
     // Footer
-    footer_description: "Hide All is your ultimate privacy companion, offering advanced app hiding and data protection features. Keep your personal information secure with our innovative stealth technology.",
-    footer_links_title1: "Product",
-    footer_links_title2: "Support",
-    footer_links_title3: "Company",
-    footer_links_title4: "Social",
-    footer_copyright: "© 2025 Hide All. All rights reserved.",
-    footer_download_text: "Download on Google Play",
+    footer_slogan: "The Most Powerful App Hiding and Privacy Protection Tool",
+    footer_feature1: "Protected Privacy for 200,000+ Users",
+    footer_feature2: "SSL Secure, Zero Data Collection",
+    footer_feature3: "Official Certified by Global Privacy Standards",
+    footer_title_product: "Product Information",
+    footer_title_support: "Support Center",
+    footer_title_community: "Community",
+    footer_link_reviews: "User Reviews",
+    footer_link_changelog: "Changelog",
+    footer_link_blog: "Blog",
+    footer_link_faq: "FAQ",
+    footer_link_guide: "User Guide",
+    footer_link_feedback: "Feedback",
+    footer_link_contact: "Contact Support",
+    footer_copyright: "© 2025 Hide All. All Rights Reserved",
+    footer_privacy_policy: "Privacy Policy",
+    footer_terms_of_service: "Terms of Service",
     
     // User Reviews页面
     reviews_back: "Back",
@@ -224,21 +369,21 @@ const translations = {
     // Why Choose区域
     why_title: "لماذا تختار إخفاء الكل؟",
     why_card1_title: "إخفاء التطبيقات والبيانات بتقنية التخفي",
-    why_card1_desc: "استخدم التشفير العسكري وتقنية التخفي المتقدمة لإخفاء تطبيقاتك الحساسة وبياناتك الشخصية تماماً. يضمن حلنا المبتكر عدم المساس بخصوصيتك، مما يجعل محتواك الخاص غير مرئي للآخرين.",
+    why_card1_desc: "يتميز إخفاء الكل بقدرته الفريدة على إخفاء التطبيقات بسرية، مما يحافظ على معلوماتك الحساسة بعيداً عن الأعين المتطفلة. على عكس أدوات إخفاء التطبيقات الأخرى، تضمن تقنيتنا المتقدمة أن تطبيقاتك وبياناتك غير مرئية تماماً. مع ميزة إخفاء التطبيقات لدينا، ستختفي التطبيقات المحددة من الشاشة الرئيسية لهاتفك، دون ترك أي أثر لوجودها. يمكن الوصول إليها فقط من خلال رمز PIN سري أو نمط، وتكون تطبيقاتك الحساسة محمية بالكامل داخل خزنة حاسبة آمنة.",
     why_card2_title: "إدارة حسابات متعددة في وقت واحد",
-    why_card2_desc: "انتقل بسلاسة بين حسابات وسائل التواصل الاجتماعي والرسائل المتعددة. مثالي للحفاظ على ملفات شخصية ومهنية منفصلة مع ضمان الخصوصية الكاملة والتنظيم.",
+    why_card2_desc: "مع إخفاء الكل، يمكنك تشغيل حسابات متعددة لإخفاء التطبيقات لأي تطبيق تقريباً في نفس الوقت، دون القلق بشأن تداخل البيانات. أخفِ التطبيقات في حسابات مختلفة لوسائل التواصل الاجتماعي أو الألعاب أو تطبيقات الأعمال، وانتقل بينها بسهولة دون تسجيل الدخول والخروج. تدعم هذه الميزة منصات شائعة مثل فيسبوك وإنستغرام وسناب شات وتيليجرام وتطبيقات الألعاب مثل روبلوكس وكول أوف ديوتي وفري فاير ومونوبولي جو.",
     why_card3_title: "الصور والفيديوهات الخاصة: مخزنة بأمان ومتصفحة بسهولة",
-    why_card3_desc: "أنشئ خزنة آمنة لصورك وفيديوهاتك الخاصة مع التنظيم البديهي والوصول الفوري. يضمن التشفير المتقدم أن تبقى ذكرياتك خاصة مع الحفاظ على إمكانيات التصفح السريع والسهل.",
+    why_card3_desc: "لا يسمح إخفاء الكل بإخفاء التطبيقات فحسب، بل يساعدك أيضاً في حماية وسائطك الشخصية. يمكنك تخزين الصور والفيديوهات والملفات الخاصة بأمان في الخزنة، والوصول إليها في أي وقت تريده. توفر الواجهة الأنيقة تجربة تصفح محسنة، واستخدم خزنة خاصة أو أخفِ التطبيقات للتخزين المشفر، مع الوصول بسرية عبر حاسبة سرية تتظاهر كتطبيق عادي، مما يضمن أن وسائطك مخفية ولكن يسهل الوصول إليها عند الحاجة.",
     why_card4_title: "التثبيت المتخفي: لن يعرف أحد أبداً",
-    why_card4_desc: "تضمن عملية التثبيت المتخفي الفريدة لدينا أن يبقى التطبيق مخفياً تماماً من قائمة تطبيقات الجهاز. مع خيارات التمويه القابلة للتخصيص، يحافظ إخفاء الكل على التمويه المثالي مع توفير الوظائف الكاملة.",
+    why_card4_desc: "إحدى أكثر الميزات المطلوبة في إخفاء الكل هي التثبيت المتخفي. عندما تخفي التطبيقات، يمكنك التأكد من أنها لا تترك أي أثر في نظام الهاتف، ولا مهام حديثة، ولا سجلات تثبيت. تضمن هذه العملية السرية أنه حتى شخص لديه معرفة تقنية متقدمة لن يتمكن من اكتشاف تطبيقاتك المخفية. احمِ التطبيقات الخاصة مع إخفاء التطبيقات وطبقات الحماية. تتظاهر خزنة التطبيقات السرية كتطبيق حاسبة بسيط، مما يوفر طبقة إضافية من الأمان من خلال واجهة \"الحاسبة المزيفة\" لإخفاء التطبيقات.",
     why_card5_title: "ميزات أمان قوية للخصوصية القصوى",
-    why_card5_desc: "استفد من حماية كلمة المرور، أقفال النمط، ومصادقة البصمة. فقط أنت يمكنك الوصول إلى تطبيقاتك المخفية ومحتواك، مما يضمن أن بياناتك آمنة دائماً.",
+    why_card5_desc: "أخفِ التطبيقات بأمان مع ميزات مثل حماية كلمة المرور وأقفال النمط أو حتى مصادقة البصمة. فقط أنت يمكنك الوصول إلى التطبيقات المخفية والمحتوى، مما يضمن أن لا أحد آخر يمكنه اختراق خزنتك. تحافظ هذه الحماية متعددة الطبقات على خصوصية بياناتك، مما يمنحك راحة البال في عالم رقمي حيث تهديدات الخصوصية موجودة دائماً.",
     why_card6_title: "واجهة مستخدم قابلة للتخصيص للتشغيل السلس",
-    why_card6_desc: "خصص تجربتك مع السمات والتخطيطات وخيارات التنظيم القابلة للتخصيص. أنشئ سير عمل سلس يتطابق مع تفضيلاتك ويعزز إنتاجيتك.",
+    why_card6_desc: "تم تصميم حل إخفاء التطبيقات من إخفاء الكل مع مراعاة سهولة الاستخدام. خصص واجهة جهازك لتتطابق مع تفضيلاتك الشخصية، بما في ذلك تنظيم التطبيقات المخفية في فئات ذكية (العمل، الصحة، الاجتماعي) وإنشاء صفحات مخفية لمزيد من الخصوصية. مع خيارات السمات الداكنة/الفاتحة وحزم الأيقونات المثالية والانتقالات المتحركة، يمكنك جعل إخفاء التطبيقات فعالاً ويتناسب مع سير عملك وتفضيلاتك الجمالية.",
     why_card7_title: "تبديل الحسابات بسهولة",
-    why_card7_desc: "انتقل بسرعة بين الحسابات المختلفة بنقرة واحدة فقط. سواء كنت تدير ملفات وسائل التواصل الاجتماعي، أو تشغل حسابات مزدوجة للألعاب، أو تعمل مع تطبيقات إخفاء متعددة، يتيح لك إخفاء الكل التنقل بين الحسابات المختلفة بسهولة.",
+    why_card7_desc: "انتقل بسرعة بين الحسابات المختلفة بنقرة واحدة فقط. سواء كنت تدير ملفات وسائل التواصل الاجتماعي، أو تشغل حسابات مزدوجة للألعاب، أو تعمل مع تطبيقات إخفاء متعددة، يتيح لك إخفاء الكل التنقل بين الحسابات المختلفة بسهولة. هذا يضمن أنك لن تفوت أبداً الرسائل أو الإشعارات المهمة، بغض النظر عن الحساب الذي تستخدمه.",
     why_card8_title: "إنتاجية ومرونة محسنة",
-    why_card8_desc: "الناس دائماً منزعجون من كيفية إخفاء التطبيقات على أندرويد أو آيفون؟ بفضل الميزات القوية للتطبيق، يمكنك تعزيز الإنتاجية من خلال إنشاء وصول سريع لإحصائيات التخزين والملاحظات أو اختصارات لخزنتك المشفرة.",
+    why_card8_desc: "الناس دائماً منزعجون من كيفية إخفاء التطبيقات على أندرويد أو آيفون؟ بفضل الميزات القوية للتطبيق، يمكنك تعزيز الإنتاجية من خلال إنشاء وصول سريع لإحصائيات التخزين والملاحظات أو اختصارات لخزنتك المشفرة. نظم تطبيقاتك الشخصية بالطريقة التي تناسبك بشكل أفضل، سواء من خلال الفرز حسب التكرار أو اللون أو الأبجدية. مع إقران الشاشة المقسمة بنقرة واحدة، يمكنك تعظيم مساحة شاشة جهازك للعمل متعدد المهام.",
     
     // Features区域
     features_title: "ميزات إخفاء الكل",
@@ -260,8 +405,23 @@ const translations = {
     feature8_desc: "تعزيز الإنتاجية من خلال الوصول السريع لإحصائيات التخزين والملاحظات والاختصارات لخزنتك المشفرة. نظم التطبيقات بطريقتك لأقصى كفاءة.",
     
     // Footer
-    footer_description: "إخفاء الكل هو رفيقك النهائي للخصوصية، يقدم ميزات إخفاء التطبيقات المتقدمة وحماية البيانات. حافظ على أمان معلوماتك الشخصية مع تقنية التخفي المبتكرة لدينا.",
-    footer_links_title1: "المنتج",
+    footer_slogan: "أقوى أداة لإخفاء التطبيقات وحماية الخصوصية",
+    footer_feature1: "خصوصية محمية لأكثر من 200,000 مستخدم",
+    footer_feature2: "أمان SSL، عدم جمع البيانات",
+    footer_feature3: "معتمد رسمياً من معايير الخصوصية العالمية",
+    footer_title_product: "معلومات المنتج",
+    footer_title_support: "مركز الدعم",
+    footer_title_community: "المجتمع",
+    footer_link_reviews: "تقييمات المستخدمين",
+    footer_link_changelog: "سجل التغييرات",
+    footer_link_blog: "المدونة",
+    footer_link_faq: "الأسئلة الشائعة",
+    footer_link_guide: "دليل المستخدم",
+    footer_link_feedback: "التعليقات",
+    footer_link_contact: "اتصل بالدعم",
+    footer_copyright: "© 2025 إخفاء الكل. جميع الحقوق محفوظة",
+    footer_privacy_policy: "سياسة الخصوصية",
+    footer_terms_of_service: "شروط الخدمة",
     footer_links_title2: "الدعم",
     footer_links_title3: "الشركة",
     footer_links_title4: "التواصل الاجتماعي",
@@ -314,21 +474,21 @@ const translations = {
     // Why Choose区域
     why_title: "हाइड ऑल क्यों चुनें?",
     why_card1_title: "स्टील्थ तकनीक के साथ ऐप्स और डेटा छिपाएं",
-    why_card1_desc: "अपने संवेदनशील ऐप्स और व्यक्तिगत डेटा को पूरी तरह से छिपाने के लिए सैन्य-स्तरीय एन्क्रिप्शन और उन्नत स्टील्थ तकनीक का उपयोग करें। हमारा नवीन समाधान सुनिश्चित करता है कि आपकी गोपनीयता बरकरार रहे।",
+    why_card1_desc: "हाइड ऑल अपनी अनूठी क्षमता के साथ बाहर निकलता है जो ऐप्स को सावधानीपूर्वक छिपाता है, आपकी संवेदनशील जानकारी को जासूसी आंखों से दूर रखता है। अन्य ऐप छिपाने वाले टूल्स के विपरीत, हमारी उन्नत तकनीक सुनिश्चित करती है कि आपके ऐप्स और डेटा पूरी तरह से अदृश्य हों। हमारी ऐप हाइडर सुविधा के साथ, चयनित ऐप्स आपके फोन की होम स्क्रीन से गायब हो जाएंगे, उनके अस्तित्व का कोई निशान नहीं छोड़ेंगे। केवल एक गुप्त PIN या पैटर्न के माध्यम से सुलभ, आपके संवेदनशील ऐप्स एक सुरक्षित कैलकुलेटर वॉल्ट के अंदर पूरी तरह से संरक्षित हैं।",
     why_card2_title: "एक साथ कई खातों का प्रबंधन करें",
-    why_card2_desc: "कई सोशल मीडिया और मैसेजिंग खातों के बीच निर्बाध रूप से स्विच करें। अलग-अलग व्यक्तिगत और पेशेवर प्रोफाइल बनाए रखने के लिए परफेक्ट।",
+    why_card2_desc: "हाइड ऑल के साथ, आप लगभग किसी भी ऐप के लिए एक साथ कई खातों को चला सकते हैं, डेटा हस्तक्षेप की चिंता किए बिना। सोशल मीडिया, गेम्स, या बिजनेस ऐप्स के लिए अलग-अलग खातों में ऐप्स छिपाएं, और लॉगिन और लॉगआउट के बिना आसानी से उनके बीच स्विच करें। यह सुविधा फेसबुक, इंस्टाग्राम, स्नैपचैट, टेलीग्राम जैसे लोकप्रिय प्लेटफॉर्म और रोब्लॉक्स, कॉल ऑफ ड्यूटी, फ्री फायर और मोनोपॉली गो जैसे गेमिंग ऐप्स का समर्थन करती है।",
     why_card3_title: "निजी फोटो और वीडियो: सुरक्षित रूप से संग्रहित और आसानी से ब्राउज़ किए गए",
-    why_card3_desc: "अंतर्ज्ञानी संगठन और तत्काल पहुंच के साथ अपने निजी फोटो और वीडियो के लिए एक सुरक्षित वॉल्ट बनाएं।",
+    why_card3_desc: "हाइड ऑल न केवल आपको ऐप्स छिपाने की अनुमति देता है, बल्कि यह आपकी व्यक्तिगत मीडिया की रक्षा करने में भी मदद करता है। आप निजी फोटो, वीडियो और फाइलों को वॉल्ट में सुरक्षित रूप से संग्रहित कर सकते हैं, और जब भी चाहें उन तक पहुंच सकते हैं। स्टाइलिश इंटरफेस एक परिष्कृत ब्राउज़िंग अनुभव प्रदान करता है, एन्क्रिप्टेड स्टोरेज के लिए निजी वॉल्ट या ऐप्स छिपाने का उपयोग करें, एक गुप्त कैलकुलेटर के माध्यम से सावधानीपूर्वक एक्सेस किया जाता है जो एक मानक ऐप के रूप में प्रच्छन्न होता है, यह सुनिश्चित करता है कि आपकी मीडिया छिपी हुई है लेकिन जरूरत पड़ने पर आसानी से सुलभ है।",
     why_card4_title: "स्टील्थ इंस्टॉलेशन: कोई कभी नहीं जानेगा",
-    why_card4_desc: "हमारी अनूठी स्टील्थ इंस्टॉलेशन प्रक्रिया सुनिश्चित करती है कि ऐप डिवाइस की ऐप सूची से पूरी तरह से छिपा रहे।",
+    why_card4_desc: "हाइड ऑल की सबसे मांग वाली सुविधाओं में से एक स्टील्थ इंस्टॉलेशन है। जब आप ऐप्स छिपाते हैं, तो आप सुनिश्चित कर सकते हैं कि वे फोन सिस्टम में कोई निशान नहीं छोड़ते, कोई हाल के कार्य नहीं, और कोई इंस्टॉलेशन रिकॉर्ड नहीं। यह सावधानीपूर्वक संचालन गारंटी देता है कि यहां तक कि उन्नत तकनीकी ज्ञान वाला कोई भी व्यक्ति आपके छिपे हुए ऐप्स को उजागर नहीं कर पाएगा। ऐप हाइडर और सुरक्षा परतों के साथ निजी ऐप्स को ढालें। एक गुप्त ऐप वॉल्ट खुद को एक सरल कैलकुलेटर ऐप के रूप में प्रच्छन्न करता है, ऐप्स छिपाने के लिए \"फेक कैलकुलेटर\" फैकेड के माध्यम से सुरक्षा की एक अतिरिक्त परत प्रदान करता है।",
     why_card5_title: "अंतिम गोपनीयता के लिए मजबूत सुरक्षा सुविधाएं",
-    why_card5_desc: "पासवर्ड सुरक्षा, पैटर्न लॉक और फिंगरप्रिंट प्रमाणीकरण से लाभ उठाएं। केवल आप अपने छिपे हुए ऐप्स और सामग्री तक पहुंच सकते हैं।",
+    why_card5_desc: "पासवर्ड सुरक्षा, पैटर्न लॉक, या यहां तक कि फिंगरप्रिंट प्रमाणीकरण जैसी सुविधाओं के साथ ऐप्स को सुरक्षित रूप से छिपाएं। केवल आप छिपे हुए ऐप्स और सामग्री तक पहुंच सकते हैं, यह सुनिश्चित करते हुए कि कोई और आपके वॉल्ट में नहीं घुस सकता। यह बहु-स्तरीय सुरक्षा आपके डेटा को निजी रखती है, आपको एक डिजिटल दुनिया में मन की शांति देती है जहां गोपनीयता के खतरे हमेशा मौजूद हैं।",
     why_card6_title: "निर्बाध संचालन के लिए अनुकूलन योग्य उपयोगकर्ता इंटरफेस",
-    why_card6_desc: "अनुकूलन योग्य थीम, लेआउट और संगठन विकल्पों के साथ अपने अनुभव को व्यक्तिगत बनाएं।",
+    why_card6_desc: "हाइड ऑल का ऐप छिपाने का समाधान उपयोग में आसानी को ध्यान में रखकर डिज़ाइन किया गया है। अपने व्यक्तिगत वरीयताओं के अनुरूप अपने डिवाइस के इंटरफेस को अनुकूलित करें, जिसमें स्मार्ट श्रेणियों (कार्य, स्वास्थ्य, सामाजिक) में ऐप्स छिपाने का आयोजन और और भी अधिक गोपनीयता के लिए छिपे हुए पेज बनाना शामिल है। डार्क/लाइट थीम, पिक्सेल-परफेक्ट आइकन पैक, और यहां तक कि एनिमेटेड ट्रांजिशन के विकल्पों के साथ, आप ऐप्स छिपाने को कुशल बना सकते हैं और यह आपके वर्कफ्लो और सौंदर्य वरीयताओं के अनुरूप होता है।",
     why_card7_title: "आसानी से खाते बदलें",
-    why_card7_desc: "केवल एक टैप के साथ विभिन्न खातों के बीच तुरंत टॉगल करें। चाहे आप सोशल मीडिया प्रोफाइल प्रबंधित कर रहे हों।",
+    why_card7_desc: "केवल एक टैप के साथ विभिन्न खातों के बीच तुरंत टॉगल करें। चाहे आप सोशल मीडिया प्रोफाइल प्रबंधित कर रहे हों, गेमिंग के लिए दोहरे खाते चला रहे हों, या कई ऐप्स छिपाने के साथ काम कर रहे हों, हाइड ऑल आपको विभिन्न खातों के बीच आसानी से नेविगेट करने देता है। यह सुनिश्चित करता है कि आप कभी भी महत्वपूर्ण संदेशों या सूचनाओं को न चूकें, भले ही आप किस खाते का उपयोग कर रहे हों।",
     why_card8_title: "बेहतर उत्पादकता और लचीलापन",
-    why_card8_desc: "लोग हमेशा परेशान रहते हैं कि एंड्रॉइड या आईफोन पर ऐप्स कैसे छिपाएं? ऐप की शक्तिशाली सुविधाओं के लिए धन्यवाद।",
+    why_card8_desc: "लोग हमेशा परेशान रहते हैं कि एंड्रॉइड या आईफोन पर ऐप्स कैसे छिपाएं? ऐप की शक्तिशाली सुविधाओं के लिए धन्यवाद, आप अपने एन्क्रिप्टेड वॉल्ट के स्टोरेज स्टैट्स, नोट्स, या शॉर्टकट के त्वरित एक्सेस बनाकर उत्पादकता बढ़ा सकते हैं। अपने व्यक्तिगत ऐप्स को उस तरीके से व्यवस्थित करें जो आपके लिए सबसे अच्छा काम करता है, चाहे वह आवृत्ति, रंग, या वर्णानुक्रम के अनुसार छंटाई के माध्यम से हो। एक-टैप स्प्लिट-स्क्रीन पेयरिंग के साथ, आप मल्टीटास्किंग के लिए अपने डिवाइस की स्क्रीन रियल एस्टेट को अधिकतम कर सकते हैं।",
     
     // Features区域
     features_title: "हाइड ऑल की विशेषताएं",
@@ -350,13 +510,23 @@ const translations = {
     feature8_desc: "स्टोरेज स्टैट्स, नोट्स और आपके एन्क्रिप्टेड वॉल्ट के शॉर्टकट के त्वरित एक्सेस के साथ उत्पादकता बढ़ाएं। अधिकतम दक्षता के लिए अपने तरीके से ऐप्स को व्यवस्थित करें।",
     
     // Footer
-    footer_description: "हाइड ऑल आपका अंतिम गोपनीयता साथी है, जो उन्नत ऐप छिपाने और डेटा सुरक्षा सुविधाएं प्रदान करता है। हमारी नवीन स्टील्थ तकनीक के साथ अपनी व्यक्तिगत जानकारी को सुरक्षित रखें।",
-    footer_links_title1: "उत्पाद",
-    footer_links_title2: "सहायता",
-    footer_links_title3: "कंपनी",
-    footer_links_title4: "सोशल",
-    footer_copyright: "© 2025 हाइड ऑल। सर्वाधिकार सुरक्षित।",
-    footer_download_text: "Google Play पर डाउनलोड करें",
+    footer_slogan: "सबसे शक्तिशाली ऐप छिपाने और गोपनीयता सुरक्षा उपकरण",
+    footer_feature1: "200,000+ उपयोगकर्ताओं के लिए संरक्षित गोपनीयता",
+    footer_feature2: "SSL सुरक्षित, शून्य डेटा संग्रह",
+    footer_feature3: "वैश्विक गोपनीयता मानकों द्वारा आधिकारिक प्रमाणित",
+    footer_title_product: "उत्पाद जानकारी",
+    footer_title_support: "सहायता केंद्र",
+    footer_title_community: "समुदाय",
+    footer_link_reviews: "उपयोगकर्ता समीक्षाएं",
+    footer_link_changelog: "परिवर्तन लॉग",
+    footer_link_blog: "ब्लॉग",
+    footer_link_faq: "अक्सर पूछे जाने वाले प्रश्न",
+    footer_link_guide: "उपयोगकर्ता गाइड",
+    footer_link_feedback: "प्रतिक्रिया",
+    footer_link_contact: "संपर्क सहायता",
+    footer_copyright: "© 2025 हाइड ऑल। सर्वाधिकार सुरक्षित",
+    footer_privacy_policy: "गोपनीयता नीति",
+    footer_terms_of_service: "सेवा की शर्तें",
     
     // User Reviews页面
     reviews_back: "वापस",
@@ -404,21 +574,21 @@ const translations = {
     // Why Choose区域
     why_title: "Mengapa Memilih HIDE ALL?",
     why_card1_title: "Sembunyikan Aplikasi & Data dengan Teknologi Stealth",
-    why_card1_desc: "Manfaatkan enkripsi tingkat militer dan teknologi stealth canggih untuk benar-benar menyembunyikan aplikasi sensitif dan data pribadi Anda. Solusi inovatif kami memastikan privasi Anda tetap tidak terganggu.",
+    why_card1_desc: "Hide All menonjol dengan kemampuan uniknya untuk menyembunyikan aplikasi dengan hati-hati, menjaga informasi sensitif Anda jauh dari mata yang mengintip. Tidak seperti alat menyembunyikan aplikasi lainnya, teknologi canggih kami memastikan aplikasi dan data Anda benar-benar tidak terlihat. Dengan fitur app hider kami, aplikasi yang dipilih akan menghilang dari layar utama ponsel Anda, tidak meninggalkan jejak keberadaan mereka. Hanya dapat diakses melalui PIN rahasia atau pola, aplikasi sensitif Anda sepenuhnya dilindungi di dalam brankas kalkulator yang aman.",
     why_card2_title: "Kelola Beberapa Akun Secara Bersamaan",
-    why_card2_desc: "Beralih dengan lancar antara beberapa akun media sosial dan pesan. Sempurna untuk mempertahankan profil pribadi dan profesional terpisah sambil memastikan privasi dan organisasi lengkap.",
+    why_card2_desc: "Dengan Hide All, Anda dapat menjalankan beberapa akun untuk menyembunyikan aplikasi untuk hampir semua aplikasi pada saat yang sama, tanpa khawatir tentang interferensi data. Sembunyikan aplikasi di akun berbeda untuk media sosial, game, atau aplikasi bisnis, dan beralih di antara mereka dengan mudah tanpa masuk dan keluar. Fitur ini mendukung platform populer seperti Facebook, Instagram, Snapchat, Telegram, dan aplikasi game seperti Roblox, Call of Duty, Free Fire dan MONOPOLY GO.",
     why_card3_title: "Foto & Video Pribadi: Disimpan dengan Aman dan Mudah Diperiksa",
-    why_card3_desc: "Buat brankas aman untuk foto dan video pribadi Anda dengan organisasi intuitif dan akses instan. Enkripsi canggih memastikan kenangan Anda tetap pribadi.",
+    why_card3_desc: "Hide All tidak hanya memungkinkan Anda menyembunyikan aplikasi, tetapi juga membantu Anda melindungi media pribadi Anda. Anda dapat menyimpan foto, video, dan file pribadi dengan aman di brankas, dan mengaksesnya kapan saja Anda inginkan. Antarmuka yang elegan menawarkan pengalaman browsing yang halus, gunakan brankas pribadi atau sembunyikan aplikasi untuk penyimpanan terenkripsi, diakses dengan hati-hati melalui kalkulator rahasia yang menyamar sebagai aplikasi standar, memastikan media Anda tersembunyi namun mudah diakses saat dibutuhkan.",
     why_card4_title: "Instalasi Stealth: Tidak Ada yang Akan Tahu",
-    why_card4_desc: "Proses instalasi stealth unik kami memastikan aplikasi tetap benar-benar tersembunyi dari daftar aplikasi perangkat. Dengan opsi penyamaran yang dapat disesuaikan.",
+    why_card4_desc: "Salah satu fitur paling dicari dari Hide All adalah instalasi stealth. Ketika Anda menyembunyikan aplikasi, Anda dapat memastikan mereka tidak meninggalkan jejak di sistem ponsel, tidak ada tugas terbaru, dan tidak ada catatan instalasi. Operasi rahasia ini menjamin bahwa bahkan seseorang dengan pengetahuan teknis lanjutan tidak akan dapat mengungkap aplikasi tersembunyi Anda. Lindungi aplikasi pribadi dengan app hider dan lapisan pengaman. Brankas aplikasi rahasia menyamar sebagai aplikasi kalkulator sederhana, memberikan lapisan keamanan tambahan melalui fasad \"kalkulator palsu\" untuk menyembunyikan aplikasi.",
     why_card5_title: "Fitur Keamanan Kuat untuk Privasi Maksimal",
-    why_card5_desc: "Manfaatkan perlindungan kata sandi, kunci pola, dan autentikasi sidik jari. Hanya Anda yang dapat mengakses aplikasi dan konten tersembunyi Anda.",
+    why_card5_desc: "Sembunyikan aplikasi dengan aman dengan fitur seperti perlindungan kata sandi, kunci pola, atau bahkan autentikasi sidik jari. Hanya Anda yang dapat mengakses aplikasi tersembunyi dan konten, memastikan bahwa tidak ada orang lain yang dapat masuk ke brankas Anda. Perlindungan berlapis ini menjaga data Anda tetap pribadi, memberi Anda ketenangan pikiran di dunia digital di mana ancaman privasi selalu ada.",
     why_card6_title: "Antarmuka Pengguna yang Dapat Disesuaikan untuk Operasi Lancar",
-    why_card6_desc: "Personalisasi pengalaman Anda dengan tema, tata letak, dan opsi organisasi yang dapat disesuaikan. Buat alur kerja yang lancar yang sesuai dengan preferensi Anda.",
+    why_card6_desc: "Solusi menyembunyikan aplikasi Hide All dirancang dengan kemudahan penggunaan dalam pikiran. Sesuaikan antarmuka perangkat Anda agar sesuai dengan preferensi pribadi Anda, termasuk mengorganisir aplikasi tersembunyi ke dalam kategori pintar (Kerja, Kesehatan, Sosial) dan membuat halaman tersembunyi untuk privasi yang lebih besar. Dengan opsi tema gelap/terang, paket ikon pixel-perfect, dan bahkan transisi beranimasi, Anda dapat membuat menyembunyikan aplikasi efisien dan sesuai dengan alur kerja dan preferensi estetika Anda.",
     why_card7_title: "Beralih Akun dengan Mudah",
-    why_card7_desc: "Cepat beralih antara akun berbeda dengan hanya satu ketukan. Baik Anda mengelola profil media sosial, menjalankan akun ganda untuk game.",
+    why_card7_desc: "Cepat beralih antara akun berbeda dengan hanya satu ketukan. Baik Anda mengelola profil media sosial, menjalankan akun ganda untuk game, atau bekerja dengan beberapa aplikasi tersembunyi, Hide All memungkinkan Anda menavigasi antara akun berbeda dengan mudah. Ini memastikan Anda tidak pernah melewatkan pesan atau notifikasi penting, terlepas dari akun mana yang Anda gunakan.",
     why_card8_title: "Produktivitas dan Fleksibilitas yang Ditingkatkan",
-    why_card8_desc: "Orang selalu bingung tentang cara menyembunyikan aplikasi di android atau iPhone? Berkat fitur kuat aplikasi, Anda dapat meningkatkan produktivitas.",
+    why_card8_desc: "Orang selalu bingung tentang cara menyembunyikan aplikasi di android atau iPhone? Berkat fitur kuat aplikasi, Anda dapat meningkatkan produktivitas dengan membuat akses cepat ke statistik penyimpanan, catatan, atau pintasan ke brankas terenkripsi Anda. Atur aplikasi pribadi Anda dengan cara yang paling sesuai untuk Anda, baik melalui pengurutan berdasarkan frekuensi, warna, atau alfabet. Dengan pemasangan layar terbagi satu ketukan, Anda dapat memaksimalkan real estate layar perangkat Anda untuk multitasking.",
     
     // Features区域
     features_title: "Fitur HIDE ALL",
@@ -440,13 +610,23 @@ const translations = {
     feature8_desc: "Tingkatkan produktivitas dengan akses cepat ke statistik penyimpanan, catatan, dan pintasan ke brankas terenkripsi Anda. Atur aplikasi sesuai cara Anda untuk efisiensi maksimal.",
     
     // Footer
-    footer_description: "Hide All adalah teman privasi utama Anda, menawarkan fitur menyembunyikan aplikasi canggih dan perlindungan data. Jaga keamanan informasi pribadi Anda dengan teknologi stealth inovatif kami.",
-    footer_links_title1: "Produk",
-    footer_links_title2: "Dukungan",
-    footer_links_title3: "Perusahaan",
-    footer_links_title4: "Sosial",
-    footer_copyright: "© 2025 Hide All. Semua hak dilindungi.",
-    footer_download_text: "Unduh di Google Play",
+    footer_slogan: "Alat Menyembunyikan Aplikasi dan Perlindungan Privasi Paling Kuat",
+    footer_feature1: "Privasi Terlindungi untuk 200,000+ Pengguna",
+    footer_feature2: "SSL Aman, Tanpa Pengumpulan Data",
+    footer_feature3: "Resmi Disertifikasi oleh Standar Privasi Global",
+    footer_title_product: "Informasi Produk",
+    footer_title_support: "Pusat Dukungan",
+    footer_title_community: "Komunitas",
+    footer_link_reviews: "Ulasan Pengguna",
+    footer_link_changelog: "Log Perubahan",
+    footer_link_blog: "Blog",
+    footer_link_faq: "FAQ",
+    footer_link_guide: "Panduan Pengguna",
+    footer_link_feedback: "Umpan Balik",
+    footer_link_contact: "Hubungi Dukungan",
+    footer_copyright: "© 2025 Hide All. Semua Hak Dilindungi",
+    footer_privacy_policy: "Kebijakan Privasi",
+    footer_terms_of_service: "Ketentuan Layanan",
     
     // User Reviews页面
     reviews_back: "Kembali",
@@ -609,9 +789,45 @@ function changeLanguage(lang) {
     `;
   }
   
+  // 重新初始化testimonials模块以更新用户评价内容
+  if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+    initTestimonials();
+  }
+  
   // 更新Footer
-  const footerDesc = document.querySelector('.footer-description');
-  if (footerDesc) footerDesc.textContent = t.footer_description;
+  const footerSlogan = document.querySelector('.footer-slogan');
+  const footerFeature1 = document.querySelector('.footer-features li:nth-child(1)');
+  const footerFeature2 = document.querySelector('.footer-features li:nth-child(2)');
+  const footerFeature3 = document.querySelector('.footer-features li:nth-child(3)');
+  const footerTitleProduct = document.querySelector('.footer-col:nth-child(2) .footer-title');
+  const footerTitleSupport = document.querySelector('.footer-col:nth-child(3) .footer-title');
+  const footerTitleCommunity = document.querySelector('.footer-col:nth-child(4) .footer-title');
+  const footerLinkReviews = document.querySelector('.footer-col:nth-child(2) .footer-links-list li:nth-child(1) a');
+  const footerLinkChangelog = document.querySelector('.footer-col:nth-child(2) .footer-links-list li:nth-child(2) a');
+  const footerLinkBlog = document.querySelector('.footer-col:nth-child(2) .footer-links-list li:nth-child(3) a');
+  const footerLinkFaq = document.querySelector('.footer-col:nth-child(3) .footer-links-list li:nth-child(1) a');
+  const footerLinkGuide = document.querySelector('.footer-col:nth-child(3) .footer-links-list li:nth-child(2) a');
+  const footerLinkFeedback = document.querySelector('.footer-col:nth-child(3) .footer-links-list li:nth-child(3) a');
+  const footerLinkContact = document.querySelector('.footer-col:nth-child(3) .footer-links-list li:nth-child(4) a');
+  const footerCopyright = document.querySelector('.footer-copyright');
+  
+  if (footerSlogan) footerSlogan.textContent = t.footer_slogan;
+  if (footerFeature1) footerFeature1.innerHTML = `<i class="fa-solid fa-shield-halved"></i> ${t.footer_feature1}`;
+  if (footerFeature2) footerFeature2.innerHTML = `<i class="fa-solid fa-lock"></i> ${t.footer_feature2}`;
+  if (footerFeature3) footerFeature3.innerHTML = `<i class="fa-solid fa-certificate"></i> ${t.footer_feature3}`;
+  if (footerTitleProduct) footerTitleProduct.textContent = t.footer_title_product;
+  if (footerTitleSupport) footerTitleSupport.textContent = t.footer_title_support;
+  if (footerTitleCommunity) footerTitleCommunity.textContent = t.footer_title_community;
+  if (footerLinkReviews) footerLinkReviews.innerHTML = `<i class="fa fa-star"></i> ${t.footer_link_reviews}`;
+  if (footerLinkChangelog) footerLinkChangelog.innerHTML = `<i class="fa fa-rotate"></i> ${t.footer_link_changelog}`;
+  if (footerLinkBlog) footerLinkBlog.innerHTML = `<i class="fa fa-file-lines"></i> ${t.footer_link_blog}`;
+  if (footerLinkFaq) footerLinkFaq.innerHTML = `<i class="fa fa-question"></i> ${t.footer_link_faq}`;
+  if (footerLinkGuide) footerLinkGuide.innerHTML = `<i class="fa fa-book"></i> ${t.footer_link_guide}`;
+  if (footerLinkFeedback) footerLinkFeedback.innerHTML = `<i class="fa fa-comment-dots"></i> ${t.footer_link_feedback}`;
+  if (footerLinkContact) footerLinkContact.innerHTML = `<i class="fa fa-headset"></i> ${t.footer_link_contact}`;
+  if (footerCopyright) {
+    footerCopyright.innerHTML = `${t.footer_copyright} &nbsp;|&nbsp; <a href="#">${t.footer_privacy_policy}</a> &nbsp;|&nbsp; <a href="#">${t.footer_terms_of_service}</a>`;
+  }
   
   // 更新User Reviews页面内容
   const reviewsBack = document.querySelector('.back-link');
@@ -649,21 +865,7 @@ function changeLanguage(lang) {
   localStorage.setItem('selectedLanguage', lang);
 }
 
-// 初始化语言切换
-const langSelect = document.getElementById('language-select');
-if (langSelect) {
-  // 从本地存储恢复语言选择
-  const savedLang = localStorage.getItem('selectedLanguage');
-  if (savedLang && translations[savedLang]) {
-    currentLang = savedLang;
-    langSelect.value = savedLang;
-    changeLanguage(savedLang);
-  }
-  
-  langSelect.addEventListener('change', function() {
-    changeLanguage(this.value);
-  });
-}
+// 语言切换初始化已移至initLanguageSwitch函数
 
 // 4. FAQ "手风琴" 效果
 const faqItems = document.querySelectorAll('.faq-item');
@@ -740,10 +942,11 @@ function initLanguageSwitch() {
 
 // 页面加载时初始化语言切换
 document.addEventListener('DOMContentLoaded', function() {
-  initLanguageSwitch();
-  
   // 初始化用户评价模块（仅在主页）
   if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
     initTestimonials();
   }
+  
+  // 初始化语言切换（在testimonials之后）
+  initLanguageSwitch();
 }); 
