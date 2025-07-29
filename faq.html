@@ -38,6 +38,77 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- 引入自定义CSS -->
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- FAQ页面结构化数据 Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does Hide All protect my privacy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hide All uses high-level encryption and stealth technology. Your sensitive information is stored in a secure vault that appears as a simple calculator app, making it invisible to others while remaining easily accessible to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use multiple accounts with Hide All?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Hide All supports multiple accounts for social media, gaming, and business apps. You can switch between accounts seamlessly without logging in and out, keeping personal and professional profiles completely separate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Hide All safe to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. Hide All uses high-level encryption and follows strict privacy standards. We don't collect or share your personal information, and all your information is stored locally on your device without cloud storage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I forget my password?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hide All provides multiple recovery options such as backup codes and security questions. However, for maximum security, we recommend keeping your password in a safe place. Our support team can help you recover access if necessary."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Hide All work on all devices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hide All is designed for Android devices and works on modern phones and tablets. The app is optimized for performance and uses fewer system resources, guaranteed to work smoothly on various device specifications."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://hideall.cc/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FAQ",
+            "item": "https://hideall.cc/faq.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Header 导航栏 (与首页一致) -->

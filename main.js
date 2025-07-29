@@ -166,6 +166,8 @@ const translations = {
     feature6_desc: "Personalize the app's appearance and layout to match your style and workflow.",
     feature7_title: "Seamless Account Switching",
     feature7_desc: "Instantly toggle between accounts with a single tap.",
+    feature8_title: "Enhanced Productivity and Flexibility",
+    feature8_desc: "Boost productivity with quick access to storage stats, notes, and shortcuts to your encrypted vault. Organize apps your way for maximum efficiency.",
     
     // Footer
     footer_description: "Hide All is your ultimate privacy companion, offering advanced app hiding and data protection features. Keep your personal information secure with our innovative stealth technology.",
@@ -182,6 +184,13 @@ const translations = {
     reviews_rating_stars: "4.5",
     reviews_rating_text: "Based on 2,548 reviews",
     reviews_title: "All Reviews",
+    
+    // User Reviews模块（首页）
+    testimonials_badge: "User Reviews",
+    testimonials_title: "What Our Users Say",
+    testimonials_subtitle: "Join thousands of satisfied users who have transformed their digital privacy and focus with Hide All",
+    testimonials_rating: "4.8/5",
+    testimonials_reviews_count: "Based on 2,847 reviews",
     
     // FAQ页面
     faq_title: "Frequently Asked Questions",
@@ -247,6 +256,8 @@ const translations = {
     feature6_desc: "تخصيص مظهر التطبيق وتخطيطه ليتطابق مع أسلوبك وسير عملك.",
     feature7_title: "تبديل الحسابات السلس",
     feature7_desc: "التبديل الفوري بين الحسابات بنقرة واحدة.",
+    feature8_title: "إنتاجية ومرونة محسنة",
+    feature8_desc: "تعزيز الإنتاجية من خلال الوصول السريع لإحصائيات التخزين والملاحظات والاختصارات لخزنتك المشفرة. نظم التطبيقات بطريقتك لأقصى كفاءة.",
     
     // Footer
     footer_description: "إخفاء الكل هو رفيقك النهائي للخصوصية، يقدم ميزات إخفاء التطبيقات المتقدمة وحماية البيانات. حافظ على أمان معلوماتك الشخصية مع تقنية التخفي المبتكرة لدينا.",
@@ -263,6 +274,13 @@ const translations = {
     reviews_rating_stars: "4.5",
     reviews_rating_text: "بناءً على 2,548 تقييم",
     reviews_title: "جميع التقييمات",
+    
+    // User Reviews模块（首页）
+    testimonials_badge: "تقييمات المستخدمين",
+    testimonials_title: "ماذا يقول مستخدمونا",
+    testimonials_subtitle: "انضم إلى آلاف المستخدمين الراضين الذين حولوا خصوصيتهم الرقمية وتركيزهم مع إخفاء الكل",
+    testimonials_rating: "4.8/5",
+    testimonials_reviews_count: "بناءً على 2,847 تقييم",
     
     // FAQ页面
     faq_title: "الأسئلة الشائعة",
@@ -328,6 +346,8 @@ const translations = {
     feature6_desc: "अपनी शैली और कार्यप्रवाह के अनुरूप ऐप की उपस्थिति और लेआउट को व्यक्तिगत बनाएं।",
     feature7_title: "निर्बाध खाता स्विचिंग",
     feature7_desc: "एक ही टैप के साथ खातों के बीच तुरंत टॉगल करें।",
+    feature8_title: "बेहतर उत्पादकता और लचीलापन",
+    feature8_desc: "स्टोरेज स्टैट्स, नोट्स और आपके एन्क्रिप्टेड वॉल्ट के शॉर्टकट के त्वरित एक्सेस के साथ उत्पादकता बढ़ाएं। अधिकतम दक्षता के लिए अपने तरीके से ऐप्स को व्यवस्थित करें।",
     
     // Footer
     footer_description: "हाइड ऑल आपका अंतिम गोपनीयता साथी है, जो उन्नत ऐप छिपाने और डेटा सुरक्षा सुविधाएं प्रदान करता है। हमारी नवीन स्टील्थ तकनीक के साथ अपनी व्यक्तिगत जानकारी को सुरक्षित रखें।",
@@ -344,6 +364,13 @@ const translations = {
     reviews_rating_stars: "4.5",
     reviews_rating_text: "2,548 समीक्षाओं के आधार पर",
     reviews_title: "सभी समीक्षाएं",
+    
+    // User Reviews模块（首页）
+    testimonials_badge: "उपयोगकर्ता समीक्षाएं",
+    testimonials_title: "हमारे उपयोगकर्ता क्या कहते हैं",
+    testimonials_subtitle: "हजारों संतुष्ट उपयोगकर्ताओं में शामिल हों जिन्होंने हाइड ऑल के साथ अपनी डिजिटल गोपनीयता और फोकस को बदल दिया है",
+    testimonials_rating: "4.8/5",
+    testimonials_reviews_count: "2,847 समीक्षाओं के आधार पर",
     
     // FAQ页面
     faq_title: "अक्सर पूछे जाने वाले प्रश्न",
@@ -409,6 +436,8 @@ const translations = {
     feature6_desc: "Personalisasi tampilan dan tata letak aplikasi agar sesuai dengan gaya dan alur kerja Anda.",
     feature7_title: "Beralih Akun Lancar",
     feature7_desc: "Segera beralih antara akun dengan satu ketukan.",
+    feature8_title: "Produktivitas dan Fleksibilitas yang Ditingkatkan",
+    feature8_desc: "Tingkatkan produktivitas dengan akses cepat ke statistik penyimpanan, catatan, dan pintasan ke brankas terenkripsi Anda. Atur aplikasi sesuai cara Anda untuk efisiensi maksimal.",
     
     // Footer
     footer_description: "Hide All adalah teman privasi utama Anda, menawarkan fitur menyembunyikan aplikasi canggih dan perlindungan data. Jaga keamanan informasi pribadi Anda dengan teknologi stealth inovatif kami.",
@@ -425,6 +454,13 @@ const translations = {
     reviews_rating_stars: "4.5",
     reviews_rating_text: "Berdasarkan 2,548 ulasan",
     reviews_title: "Semua Ulasan",
+    
+    // User Reviews模块（首页）
+    testimonials_badge: "Ulasan Pengguna",
+    testimonials_title: "Apa Kata Pengguna Kami",
+    testimonials_subtitle: "Bergabunglah dengan ribuan pengguna yang puas yang telah mengubah privasi digital dan fokus mereka dengan Hide All",
+    testimonials_rating: "4.8/5",
+    testimonials_reviews_count: "Berdasarkan 2,847 ulasan",
     
     // FAQ页面
     faq_title: "Pertanyaan yang Sering Diajukan",
@@ -532,23 +568,45 @@ function changeLanguage(lang) {
   const featuresTitle = document.querySelector('.features h2');
   if (featuresTitle) featuresTitle.textContent = t.features_title;
   
-  // 更新Features卡片
-  const featureCards = document.querySelectorAll('.feature-card');
-  if (featureCards.length >= 7) {
-    featureCards[0].querySelector('.feature-title').textContent = t.feature1_title;
-    featureCards[0].querySelector('.feature-desc').textContent = t.feature1_desc;
-    featureCards[1].querySelector('.feature-title').textContent = t.feature2_title;
-    featureCards[1].querySelector('.feature-desc').textContent = t.feature2_desc;
-    featureCards[2].querySelector('.feature-title').textContent = t.feature3_title;
-    featureCards[2].querySelector('.feature-desc').textContent = t.feature3_desc;
-    featureCards[3].querySelector('.feature-title').textContent = t.feature4_title;
-    featureCards[3].querySelector('.feature-desc').textContent = t.feature4_desc;
-    featureCards[4].querySelector('.feature-title').textContent = t.feature5_title;
-    featureCards[4].querySelector('.feature-desc').textContent = t.feature5_desc;
-    featureCards[5].querySelector('.feature-title').textContent = t.feature6_title;
-    featureCards[5].querySelector('.feature-desc').textContent = t.feature6_desc;
-    featureCards[6].querySelector('.feature-title').textContent = t.feature7_title;
-    featureCards[6].querySelector('.feature-desc').textContent = t.feature7_desc;
+  // 更新Features卡片 - 修复选择器
+  const featureRows = document.querySelectorAll('.feature-row');
+  if (featureRows.length >= 8) {
+    featureRows[0].querySelector('.feature-title').textContent = t.feature1_title;
+    featureRows[0].querySelector('.feature-desc').textContent = t.feature1_desc;
+    featureRows[1].querySelector('.feature-title').textContent = t.feature2_title;
+    featureRows[1].querySelector('.feature-desc').textContent = t.feature2_desc;
+    featureRows[2].querySelector('.feature-title').textContent = t.feature3_title;
+    featureRows[2].querySelector('.feature-desc').textContent = t.feature3_desc;
+    featureRows[3].querySelector('.feature-title').textContent = t.feature4_title;
+    featureRows[3].querySelector('.feature-desc').textContent = t.feature4_desc;
+    featureRows[4].querySelector('.feature-title').textContent = t.feature5_title;
+    featureRows[4].querySelector('.feature-desc').textContent = t.feature5_desc;
+    featureRows[5].querySelector('.feature-title').textContent = t.feature6_title;
+    featureRows[5].querySelector('.feature-desc').textContent = t.feature6_desc;
+    featureRows[6].querySelector('.feature-title').textContent = t.feature7_title;
+    featureRows[6].querySelector('.feature-desc').textContent = t.feature7_desc;
+    featureRows[7].querySelector('.feature-title').textContent = t.feature8_title;
+    featureRows[7].querySelector('.feature-desc').textContent = t.feature8_desc;
+  }
+  
+  // 更新User Reviews模块（首页）
+  const testimonialsBadge = document.querySelector('.testimonials-badge');
+  const testimonialsTitle = document.querySelector('.testimonials-title');
+  const testimonialsSubtitle = document.querySelector('.testimonials-subtitle');
+  const testimonialsStats = document.querySelector('.testimonials-stats');
+  
+  if (testimonialsBadge) testimonialsBadge.textContent = t.testimonials_badge;
+  if (testimonialsTitle) testimonialsTitle.textContent = t.testimonials_title;
+  if (testimonialsSubtitle) testimonialsSubtitle.textContent = t.testimonials_subtitle;
+  if (testimonialsStats) {
+    testimonialsStats.innerHTML = `
+      <i class="fa-solid fa-star"></i>
+      <span>5.0</span>
+      <span class="testimonials-separator">•</span>
+      <span>${t.testimonials_rating}</span>
+      <span class="testimonials-separator">•</span>
+      <span>${t.testimonials_reviews_count}</span>
+    `;
   }
   
   // 更新Footer

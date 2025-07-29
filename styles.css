@@ -1508,4 +1508,904 @@ body.dark-mode {
   .testimonials-fade-right {
     width: 1rem;
   }
+}
+
+/* ============================================ */
+/* 移动端优化适配 - 全面响应式设计 */
+/* ============================================ */
+
+/* 平板设备适配 (768px - 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --content-width: 95%;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* 导航栏优化 */
+  .nav-container {
+    padding: 0 20px;
+  }
+  
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  /* Banner区域 */
+  .banner {
+    padding: 60px 0;
+  }
+  
+  .banner-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .banner-content p {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+  
+  /* Why Choose区域 */
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  /* Features区域 */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  /* 用户评价模块 */
+  .testimonials-bg {
+    padding: 60px 30px 30px 30px;
+  }
+  
+  .testimonial-card {
+    width: 18rem;
+  }
+}
+
+/* 移动设备适配 (最大宽度 768px) */
+@media (max-width: 768px) {
+  :root {
+    --content-width: 100%;
+    --font-title: 'Montserrat', sans-serif;
+    --font-main: 'Inter', sans-serif;
+  }
+  
+  /* 全局容器 */
+  .container {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+  
+  /* ========== 导航栏移动端优化 ========== */
+  .nav-container {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    min-height: auto;
+  }
+  
+  .logo {
+    order: 1;
+    margin-bottom: 8px;
+  }
+  
+  .logo span {
+    font-size: 1.5rem;
+  }
+  
+  .lang-switch {
+    order: 2;
+    margin-bottom: 8px;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(247, 249, 251, 0.8);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu a:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /* ========== Banner区域移动端优化 ========== */
+  .banner {
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  .banner-flex {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .banner-left {
+    order: 2;
+  }
+  
+  .banner-right {
+    order: 1;
+    width: 100%;
+  }
+  
+  .banner-content h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  
+  .banner-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+  
+  .banner-buttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .banner-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin: 0 auto;
+  }
+  
+  /* ========== Why Choose区域移动端优化 ========== */
+  .why-choose {
+    padding: 60px 0;
+  }
+  
+  .why-bg {
+    padding: 50px 20px 30px 20px;
+    border-radius: 16px;
+  }
+  
+  .why-choose h2 {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .why-card {
+    padding: 24px 16px 20px 16px;
+    text-align: left;
+  }
+  
+  .why-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  
+  .why-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .why-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  /* ========== Features区域移动端优化 ========== */
+  .features {
+    padding: 60px 0;
+  }
+  
+  .features-bg {
+    padding: 50px 20px 30px 20px;
+    border-radius: 16px;
+  }
+  
+  .features-bg h2 {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-row {
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  
+  .feature-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  
+  .feature-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  /* ========== 用户评价模块移动端优化 ========== */
+  .testimonials {
+    padding: 60px 0;
+  }
+  
+  .testimonials-bg {
+    padding: 40px 16px 30px 16px;
+    border-radius: 16px;
+  }
+  
+  .testimonials-title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .testimonials-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+  
+  .testimonials-scroll-container {
+    margin: 1.5rem 0;
+  }
+  
+  .testimonial-card {
+    width: 16rem;
+    padding: 20px 16px;
+    margin-right: 16px;
+  }
+  
+  .testimonial-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .testimonial-name {
+    font-size: 0.95rem;
+  }
+  
+  .testimonial-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .testimonials-stats {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  /* ========== Footer移动端优化 ========== */
+  footer {
+    padding: 40px 16px 20px 16px;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+  
+  .brand-col {
+    order: 1;
+    text-align: center;
+  }
+  
+  .footer-logo-row {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .footer-logo {
+    height: 32px;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .footer-col {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .footer-col h3 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+  
+  .footer-download {
+    order: 2;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .google-play-btn {
+    height: 40px;
+    max-width: 160px;
+  }
+  
+  .footer-bottom {
+    padding-top: 24px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.85rem;
+  }
+}
+
+/* 小屏幕移动设备适配 (最大宽度 480px) */
+@media (max-width: 480px) {
+  /* 更紧凑的布局 */
+  .container {
+    padding: 0 12px;
+  }
+  
+  /* 导航栏 */
+  .nav-container {
+    padding: 10px 12px;
+  }
+  
+  .nav-menu {
+    gap: 6px;
+  }
+  
+  .nav-menu a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  
+  /* Banner */
+  .banner {
+    padding: 30px 0;
+  }
+  
+  .banner-content h1 {
+    font-size: 1.7rem;
+    line-height: 1.3;
+  }
+  
+  .banner-content p {
+    font-size: 0.95rem;
+    padding: 0 4px;
+  }
+  
+  .btn {
+    max-width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  /* 卡片布局 */
+  .why-bg,
+  .features-bg,
+  .testimonials-bg {
+    padding: 40px 12px 24px 12px;
+    border-radius: 12px;
+  }
+  
+  .why-choose h2,
+  .features-bg h2,
+  .testimonials-title {
+    font-size: 1.6rem;
+  }
+  
+  .why-card,
+  .testimonial-card {
+    padding: 20px 12px 16px 12px;
+  }
+  
+  .testimonial-card {
+    width: 14rem;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 32px 12px 16px 12px;
+  }
+  
+  .footer-top {
+    gap: 24px;
+  }
+  
+  .footer-col h3 {
+    font-size: 0.95rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+}
+
+/* 极小屏幕设备适配 (最大宽度 360px) */
+@media (max-width: 360px) {
+  .banner-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .why-choose h2,
+  .features-bg h2,
+  .testimonials-title {
+    font-size: 1.4rem;
+  }
+  
+  .testimonial-card {
+    width: 12rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================ */
+/* 特定页面移动端优化 */
+/* ============================================ */
+
+/* User Reviews页面移动端优化 */
+@media (max-width: 768px) {
+  .reviews-page {
+    padding: 20px 16px 40px 16px;
+  }
+  
+  .back-link {
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+  }
+  
+  .reviews-summary {
+    padding: 0 16px;
+    margin-bottom: 32px;
+  }
+  
+  .reviews-main-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .reviews-rating {
+    font-size: 2.5rem;
+  }
+  
+  .reviews-stars {
+    font-size: 1.2rem;
+    margin: 8px 0;
+  }
+  
+  .reviews-count {
+    font-size: 0.9rem;
+  }
+  
+  .all-reviews-title {
+    font-size: 1.4rem;
+    margin: 32px 0 24px 0;
+  }
+  
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 8px;
+  }
+  
+  .review-card {
+    padding: 20px 16px;
+    margin-bottom: 16px;
+  }
+  
+  .review-header {
+    margin-bottom: 16px;
+  }
+  
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  
+  .review-name {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .review-stars {
+    font-size: 0.9rem;
+  }
+  
+  .review-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+  
+  .review-date {
+    font-size: 0.8rem;
+  }
+}
+
+/* Contact页面移动端优化 */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 40px 16px;
+  }
+  
+  .contact-container {
+    padding: 0;
+  }
+  
+  .contact-title {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .contact-methods {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .contact-method {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    margin: 0 auto 16px auto;
+  }
+  
+  .contact-method h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .contact-method p,
+  .contact-method a {
+    font-size: 0.9rem;
+  }
+}
+
+/* FAQ页面移动端优化 */
+@media (max-width: 768px) {
+  .faq-page {
+    padding: 40px 16px;
+  }
+  
+  .faq-container {
+    padding: 0;
+  }
+  
+  .faq-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .faq-subtitle {
+    font-size: 1rem;
+    margin-bottom: 32px;
+    text-align: center;
+    padding: 0 8px;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    padding: 16px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .faq-answer {
+    padding: 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .faq-answer ul {
+    padding-left: 20px;
+  }
+  
+  .faq-answer li {
+    margin-bottom: 8px;
+  }
+}
+
+/* Blog页面移动端优化 */
+@media (max-width: 768px) {
+  .blog-page {
+    padding: 40px 16px;
+  }
+  
+  .blog-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .blog-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .blog-subtitle {
+    font-size: 1rem;
+    padding: 0 8px;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 8px;
+  }
+  
+  .blog-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+  
+  .blog-date {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .blog-card h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  
+  .blog-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .blog-read-more {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+/* Feedback页面移动端优化 */
+@media (max-width: 768px) {
+  .feedback-page {
+    padding: 40px 16px;
+  }
+  
+  .feedback-container {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+  
+  .feedback-title {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .feedback-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .feedback-form label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
+  .feedback-form textarea {
+    min-height: 120px;
+  }
+  
+  .char-count {
+    font-size: 0.8rem;
+    text-align: right;
+    margin-top: 4px;
+  }
+  
+  .feedback-form button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* Changelog页面移动端优化 */
+@media (max-width: 768px) {
+  .changelog-page {
+    padding: 40px 16px;
+  }
+  
+  .changelog-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .changelog-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .changelog-subtitle {
+    font-size: 1rem;
+    padding: 0 8px;
+  }
+  
+  .changelog-item {
+    margin-bottom: 32px;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+  
+  .version-header {
+    margin-bottom: 20px;
+  }
+  
+  .version-number {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .version-date {
+    font-size: 0.8rem;
+  }
+  
+  .changelog-section {
+    margin-bottom: 16px;
+  }
+  
+  .changelog-section h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .changelog-section ul {
+    padding-left: 16px;
+  }
+  
+  .changelog-section li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+}
+
+/* 小屏幕设备额外优化 */
+@media (max-width: 480px) {
+  /* Reviews页面 */
+  .reviews-main-title {
+    font-size: 1.6rem;
+  }
+  
+  .reviews-rating {
+    font-size: 2.2rem;
+  }
+  
+  .all-reviews-title {
+    font-size: 1.2rem;
+  }
+  
+  /* Contact页面 */
+  .contact-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-method {
+    padding: 16px;
+  }
+  
+  /* FAQ页面 */
+  .faq-title {
+    font-size: 1.6rem;
+  }
+  
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 14px;
+  }
+  
+  .faq-answer {
+    font-size: 0.85rem;
+    padding: 14px;
+  }
+  
+  /* Blog页面 */
+  .blog-title {
+    font-size: 1.6rem;
+  }
+  
+  .blog-card h3 {
+    font-size: 1rem;
+  }
+  
+  /* Feedback页面 */
+  .feedback-title {
+    font-size: 1.6rem;
+  }
+  
+  .feedback-container {
+    padding: 24px 16px;
+  }
+  
+  /* Changelog页面 */
+  .changelog-title {
+    font-size: 1.6rem;
+  }
+  
+  .version-number {
+    font-size: 1.1rem;
+  }
+  
+  .changelog-item {
+    padding: 16px 12px;
+  }
 } 

@@ -1,0 +1,41 @@
+# 编辑器和IDE文件
+.vscode/
+.cursor/
+.superdesign/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# 节点模块 (如果使用npm)
+node_modules/
+npm-debug.log*
+
+# 构建输出
+dist/
+build/
+
+# 开发工具配置
+.windsurfrules
+*.sh
+*.py
+
+# 其他临时文件
+.sass-cache/
+.cache/ 
