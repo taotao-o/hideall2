@@ -1250,34 +1250,39 @@ body.dark-mode {
     margin-left: 8px;
   }
   
-  /* 响应式RTL支持 */
-  @media (max-width: 768px) {
-    .nav-container {
-      flex-direction: column;
-    }
-    
-    .banner-flex {
-      flex-direction: column;
-    }
-    
-    .banner-left {
-      text-align: center;
-    }
-    
-    .banner-buttons {
-      justify-content: center;
-    }
-    
-    .why-card,
-    .feature-card {
-      text-align: center;
-    }
-    
-    .footer-top,
-    .footer-bottom {
-      flex-direction: column;
-    }
+  /* 桌面端隐藏汉堡菜单 */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* 响应式RTL支持 */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
   }
+  
+  .banner-flex {
+    flex-direction: column;
+  }
+  
+  .banner-left {
+    text-align: center;
+  }
+  
+  .banner-buttons {
+    justify-content: center;
+  }
+  
+  .why-card,
+  .feature-card {
+    text-align: center;
+  }
+  
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
 }
 
 /* 阿拉伯语字体优化 */
@@ -1587,41 +1592,103 @@ body.dark-mode {
   /* ========== 导航栏移动端优化 ========== */
   .nav-container {
     padding: 12px 16px;
-    flex-wrap: wrap;
-    min-height: auto;
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
   }
   
   .logo {
     order: 1;
-    margin-bottom: 8px;
+    flex-shrink: 0;
   }
   
   .logo span {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .lang-switch {
-    order: 2;
-    margin-bottom: 8px;
+    order: 3;
+    flex-shrink: 0;
+  }
+  
+  .lang-switch select {
+    font-size: 0.85rem;
+    padding: 6px 8px;
   }
   
   .nav-menu {
-    order: 3;
+    order: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+    padding: 16px;
+    flex-direction: column;
+    gap: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu li {
     width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: wrap;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
   }
   
   .nav-menu a {
-    font-size: 0.9rem;
-    padding: 8px 12px;
+    font-size: 1rem;
+    padding: 12px 16px;
     border-radius: 8px;
-    background: rgba(247, 249, 251, 0.8);
+    background: transparent;
+    display: block;
+    width: 100%;
+    text-align: left;
     transition: all 0.3s ease;
   }
   
-  .nav-menu a:hover {
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /* 汉堡菜单按钮 */
+  .mobile-menu-toggle {
+    display: block;
+    order: 2;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+  
+  .mobile-menu-toggle:hover {
+    background: rgba(59, 130, 246, 0.1);
+  }
+  
+  .mobile-menu-toggle.active {
     background: var(--primary-color);
     color: white;
   }
@@ -1646,13 +1713,13 @@ body.dark-mode {
     width: 100%;
   }
   
-  .banner-content h1 {
+  .banner-left h1 {
     font-size: 2rem;
     line-height: 1.3;
     margin-bottom: 16px;
   }
   
-  .banner-content p {
+  .banner-left p {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 24px;
@@ -1706,20 +1773,20 @@ body.dark-mode {
     text-align: left;
   }
   
-  .why-card-icon {
+  .why-icon {
     width: 40px;
     height: 40px;
     font-size: 1.4rem;
     margin-bottom: 16px;
   }
   
-  .why-card h3 {
+  .why-title {
     font-size: 1.1rem;
     margin-bottom: 12px;
     line-height: 1.4;
   }
   
-  .why-card p {
+  .why-desc {
     font-size: 0.9rem;
     line-height: 1.6;
   }

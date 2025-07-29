@@ -940,6 +940,48 @@ function initLanguageSwitch() {
   }
 }
 
+// 移动端汉堡菜单功能
+function initMobileMenu() {
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      mobileMenuToggle.classList.toggle('active');
+      
+      // 切换图标
+      const icon = mobileMenuToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.className = 'fa-solid fa-times';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    });
+    
+    // 点击菜单项时关闭菜单
+    const menuLinks = navMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        icon.className = 'fa-solid fa-bars';
+      });
+    });
+    
+    // 点击外部区域关闭菜单
+    document.addEventListener('click', function(event) {
+      if (!navMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+        navMenu.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        const icon = mobileMenuToggle.querySelector('i');
+        icon.className = 'fa-solid fa-bars';
+      }
+    });
+  }
+}
+
 // 页面加载时初始化语言切换
 document.addEventListener('DOMContentLoaded', function() {
   // 初始化用户评价模块（仅在主页）
@@ -949,4 +991,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 初始化语言切换（在testimonials之后）
   initLanguageSwitch();
+  
+  // 初始化移动端菜单
+  initMobileMenu();
 }); 
