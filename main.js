@@ -1,4 +1,4 @@
-// Hide All 官网主页主要交互脚本 v2.0.7
+// Hide All 官网主页主要交互脚本 v2.0.8
 // 详细注释，方便新手理解
 
 // 用户评价模块数据 - 多语言支持
@@ -1408,9 +1408,106 @@ document.addEventListener('DOMContentLoaded', function() {
   initPrivacyFeaturesData();
   initPrivacyFeatures();
   
+  // 初始化视频播放器
+  initVideoPlayer();
+  
   // 初始化页面滚动阴影效果
   updateHeaderShadow();
   window.addEventListener('scroll', updateHeaderShadow);
   
   console.log('All features initialized successfully');
 });
+
+// VideoPlayerSection 视频播放器功能
+function initVideoPlayer() {
+  const videoContainer = document.getElementById('video-container');
+  const video = document.getElementById('demo-video');
+  const playButton = videoContainer?.querySelector('.play-button');
+  
+  if (!videoContainer || !video || !playButton) {
+    console.log('Video player elements not found');
+    console.log('videoContainer:', videoContainer);
+    console.log('video:', video);
+    console.log('playButton:', playButton);
+    return;
+  }
+  
+  console.log('Video player initialized successfully');
+  
+  // 自动播放功能
+  function autoPlayVideo() {
+    console.log('Attempting auto-play...');
+    // 隐藏播放按钮
+    playButton.style.display = 'none';
+    // 显示视频元素
+    video.classList.remove('hidden');
+    video.classList.add('active');
+    
+    // 开始播放视频
+    video.play().catch(function(error) {
+      console.log('Auto-play failed (browser policy):', error);
+      // 如果自动播放失败，恢复播放按钮等待用户交互
+      playButton.style.display = 'flex';
+      video.classList.add('hidden');
+      video.classList.remove('active');
+    });
+  }
+  
+  // 视频加载完成后自动播放
+  video.addEventListener('loadeddata', function() {
+    console.log('Video loaded successfully, starting auto-play');
+    autoPlayVideo();
+  });
+  
+  // 如果视频已经加载完成，立即播放
+  if (video.readyState >= 2) {
+    console.log('Video already loaded, starting auto-play immediately');
+    autoPlayVideo();
+  }
+  
+  // 点击播放按钮时播放视频（备用方案）
+  videoContainer.addEventListener('click', function() {
+    console.log('Video container clicked, video paused:', video.paused);
+    if (video.paused) {
+      // 显示视频元素
+      video.classList.remove('hidden');
+      video.classList.add('active');
+      
+      // 隐藏播放按钮
+      playButton.style.display = 'none';
+      
+      // 播放视频
+      video.play().catch(function(error) {
+        console.log('Video play failed:', error);
+        // 如果播放失败，恢复播放按钮
+        playButton.style.display = 'flex';
+        video.classList.add('hidden');
+        video.classList.remove('active');
+      });
+    }
+  });
+  
+  // 视频结束时恢复播放按钮
+  video.addEventListener('ended', function() {
+    console.log('Video ended');
+    playButton.style.display = 'flex';
+    video.classList.add('hidden');
+    video.classList.remove('active');
+  });
+  
+  // 视频暂停时恢复播放按钮
+  video.addEventListener('pause', function() {
+    console.log('Video paused');
+    playButton.style.display = 'flex';
+    video.classList.add('hidden');
+    video.classList.remove('active');
+  });
+  
+  // 视频加载错误时的处理
+  video.addEventListener('error', function() {
+    console.log('Video loading error');
+    playButton.style.display = 'flex';
+    video.classList.add('hidden');
+    video.classList.remove('active');
+  });
+}

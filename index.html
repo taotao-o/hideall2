@@ -58,7 +58,7 @@
   <!-- Font Awesome 图标库（用于社交媒体等图标） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- 引入自定义CSS -->
-  <link rel="stylesheet" href="styles.css?v=2.0.8">
+  <link rel="stylesheet" href="styles.css?v=2.0.11">
   
   <!-- 移动端菜单修复由 mobile-menu-fix.js 处理 -->
   
@@ -500,6 +500,138 @@
     </div>
   </section>
 
+  <!-- VideoPlayerSection - Complete Feature Walkthrough -->
+  <section class="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+    <div class="container mx-auto px-4">
+      <!-- 主标题和副标题 -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-slate-800 mb-4">Complete Feature Walkthrough</h2>
+        <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+          Watch our comprehensive demo video to see all of Hide All's powerful privacy features in action
+        </p>
+      </div>
+
+      <!-- 响应式网格布局 -->
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- 左侧：视频播放器 -->
+          <div class="overflow-hidden shadow-lg bg-white rounded-2xl border-2 border-slate-200">
+            <div class="max-w-sm mx-auto">
+              <div class="aspect-[9/16] bg-blue-500 cursor-pointer group relative" id="video-container">
+                <!-- 视频标签 -->
+                <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium z-10">
+                  App Demo
+                </div>
+                
+                <!-- 播放按钮 -->
+                <div class="absolute inset-0 flex items-center justify-center play-button">
+                  <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all duration-300 shadow-lg">
+                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                <!-- 视频元素 -->
+                <video id="demo-video" class="w-full h-full object-cover hidden" controls autoplay muted playsinline>
+                  <source src="assets/video1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧：核心安全功能 -->
+          <div>
+            <h3 class="text-3xl font-bold text-slate-800 mb-6">Core Security Features</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Industry-Leading Hide Apps System</div>
+                  <div class="text-slate-600 text-base">Completely conceal applications (50+ support)</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Military App Lock Protection</div>
+                  <div class="text-slate-600 text-base">Biometric/PIN security (16 layers)</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Stealth Calculator Vault</div>
+                  <div class="text-slate-600 text-base">Disguised entry point</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Cross-Profile Isolation</div>
+                  <div class="text-slate-600 text-base">Securely hide apps in workspaces</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Auto-Cloaking Technology</div>
+                  <div class="text-slate-600 text-base">Smart triggers to hide apps during risks</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Zero Digital Footprint</div>
+                  <div class="text-slate-600 text-base">No traces when you hide apps</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Private Media Encryption</div>
+                  <div class="text-slate-600 text-base">Lock galleries after you hide apps</div>
+                </div>
+              </li>
+              
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <div class="font-bold text-slate-800 text-lg mb-1">Custom Security Profiles</div>
+                  <div class="text-slate-600 text-base">Save configurations to hide apps</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- User Reviews Section -->
   <section class="testimonials">
     <div class="testimonials-bg">
@@ -727,7 +859,7 @@
     console.log('🚀 AITDK SEO Extension 完全兼容性脚本加载完成');
   </script>
   
-  <script src="main.js?v=2.0.7"></script>
+  <script src="main.js?v=2.1.0"></script>
   <script src="mobile-menu-fix.js?v=2.0.1"></script>
 </body>
 </html> 
