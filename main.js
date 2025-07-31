@@ -450,7 +450,13 @@ const translations = {
     how_works_card2_title: "Privacy Protection",
     how_works_card3_title: "App Hiding",
     how_works_card4_title: "Lock Calc",
-    how_works_card5_title: "Disguise as a Calculator"
+    how_works_card5_title: "Disguise as a Calculator",
+    
+    // VideoPlayerSection模块更新
+    video_walkthrough_title: "Video Walkthrough",
+    video_walkthrough_subtitle: "See how Hide All works",
+    video_demo_label: "Watch Demo",
+    core_security_features: "Core Security Features"
   },
   
   ar: {
@@ -602,7 +608,13 @@ const translations = {
     how_works_card2_title: "حماية الخصوصية",
     how_works_card3_title: "إخفاء التطبيقات",
     how_works_card4_title: "إخفاء الكل",
-    how_works_card5_title: "إخفاء الكل كتطبيق حاسبة"
+    how_works_card5_title: "إخفاء الكل كتطبيق حاسبة",
+    
+    // VideoPlayerSection模块更新
+    video_walkthrough_title: "فيديو التوضيح",
+    video_walkthrough_subtitle: "كيف تعمل إخفاء الكل؟",
+    video_demo_label: "مشاهدة العرض التوضيحي",
+    core_security_features: "ميزات الأمان المركزية"
   },
   
   hi: {
@@ -749,7 +761,13 @@ const translations = {
     how_works_card2_title: "गोपनीयता सुरक्षा",
     how_works_card3_title: "ऐप छिपाना",
     how_works_card4_title: "लॉक कैल्क",
-    how_works_card5_title: "कैलकुलेटर के रूप में छिपाना"
+    how_works_card5_title: "कैलकुलेटर के रूप में छिपाना",
+    
+    // VideoPlayerSection模块更新
+    video_walkthrough_title: "वीडियो ट्यूटोरियल",
+    video_walkthrough_subtitle: "हाइड ऑल कैसे काम करता है",
+    video_demo_label: "डेमो देखें",
+    core_security_features: "कोर सुरक्षा विशेषताएं"
   },
   
   id: {
@@ -896,7 +914,13 @@ const translations = {
     how_works_card2_title: "Perlindungan Privasi",
     how_works_card3_title: "Menyembunyikan Aplikasi",
     how_works_card4_title: "Kunci Kalkulator",
-    how_works_card5_title: "Menyamar sebagai Kalkulator"
+    how_works_card5_title: "Menyamar sebagai Kalkulator",
+    
+    // VideoPlayerSection模块更新
+    video_walkthrough_title: "Video Walkthrough",
+    video_walkthrough_subtitle: "How Hide All Works",
+    video_demo_label: "Watch Demo",
+    core_security_features: "Core Security Features"
   }
 };
 
@@ -998,7 +1022,13 @@ function changeLanguage(lang) {
     
     // How Hide All Works模块更新
     { selector: '.text-4xl.font-bold.text-slate-800.mb-4', text: t.how_works_title },
-    { selector: '.text-lg.text-slate-600.max-w-3xl.mx-auto', text: t.how_works_subtitle }
+    { selector: '.text-lg.text-slate-600.max-w-3xl.mx-auto', text: t.how_works_subtitle },
+    
+    // VideoPlayerSection模块更新
+    { selector: '.video-walkthrough-title', text: t.video_walkthrough_title },
+    { selector: '.video-walkthrough-subtitle', text: t.video_walkthrough_subtitle },
+    { selector: '.video-demo-label', text: t.video_demo_label },
+    { selector: '.core-security-features-title', text: t.core_security_features }
   ];
   
   // 批量执行更新
@@ -1163,7 +1193,112 @@ function changeLanguage(lang) {
   
   // 更新How Hide All Works模块卡片标题
   const howWorksCards = document.querySelectorAll('.bg-white.shadow-lg.rounded-2xl.border-2.border-slate-200.text-center.p-6 h3');
-  if (howWorksCards.length >= 5) {
+  
+  // 更新VideoPlayerSection的8个功能特性
+  const videoFeatureItems = document.querySelectorAll('.feature-item-1, .feature-item-2, .feature-item-3, .feature-item-4, .feature-item-5, .feature-item-6, .feature-item-7, .feature-item-8');
+  
+  if (videoFeatureItems.length >= 8) {
+    const featureTitles = {
+      en: [
+        "Industry-Leading Hide Apps System",
+        "Military App Lock Protection",
+        "Stealth Calculator Vault",
+        "Cross-Profile Isolation",
+        "Auto-Cloaking Technology",
+        "Zero Digital Footprint",
+        "Private Media Encryption",
+        "Custom Security Profiles"
+      ],
+      ar: [
+        "نظام إخفاء التطبيقات الرائد في الصناعة",
+        "حماية قفل التطبيقات العسكرية",
+        "خزنة الحاسبة المتخفية",
+        "عزل متعدد الملفات الشخصية",
+        "تقنية الإخفاء التلقائي",
+        "بصمة رقمية صفرية",
+        "تشفير الوسائط الخاصة",
+        "ملفات الأمان المخصصة"
+      ],
+      hi: [
+        "उद्योग की अग्रणी ऐप छुपाने की प्रणाली",
+        "सैन्य ऐप लॉक सुरक्षा",
+        "गुप्त कैलकुलेटर वॉल्ट",
+        "क्रॉस-प्रोफाइल आइसोलेशन",
+        "ऑटो-क्लोकिंग तकनीक",
+        "शून्य डिजिटल फुटप्रिंट",
+        "निजी मीडिया एन्क्रिप्शन",
+        "कस्टम सुरक्षा प्रोफाइल"
+      ],
+      id: [
+        "Sistem Sembunyikan Aplikasi Terdepan di Industri",
+        "Perlindungan Kunci Aplikasi Militer",
+        "Vault Kalkulator Tersembunyi",
+        "Isolasi Lintas-Profil",
+        "Teknologi Auto-Cloaking",
+        "Jejak Digital Zero",
+        "Enkripsi Media Pribadi",
+        "Profil Keamanan Kustom"
+      ]
+    };
+    
+    const featureDescs = {
+      en: [
+        "Completely conceal applications (50+ support)",
+        "Biometric/PIN security (16 layers)",
+        "Disguised entry point",
+        "Securely hide apps in workspaces",
+        "Smart triggers to hide apps during risks",
+        "No traces when you hide apps",
+        "Lock galleries after you hide apps",
+        "Save configurations to hide apps"
+      ],
+      ar: [
+        "إخفاء التطبيقات بالكامل (دعم أكثر من 50)",
+        "أمان بيومتري/رقم سري (16 طبقة)",
+        "نقطة دخول متنكرة",
+        "إخفاء التطبيقات بأمان في مساحات العمل",
+        "محفزات ذكية لإخفاء التطبيقات أثناء المخاطر",
+        "لا توجد آثار عند إخفاء التطبيقات",
+        "قفل المعارض بعد إخفاء التطبيقات",
+        "حفظ التكوينات لإخفاء التطبيقات"
+      ],
+      hi: [
+        "एप्लिकेशन को पूरी तरह छुपाएं (50+ समर्थन)",
+        "बायोमेट्रिक/पिन सुरक्षा (16 परतें)",
+        "छुपे हुए प्रवेश बिंदु",
+        "कार्यक्षेत्रों में ऐप्स को सुरक्षित रूप से छुपाएं",
+        "जोखिम के दौरान ऐप्स छुपाने के लिए स्मार्ट ट्रिगर",
+        "ऐप्स छुपाने पर कोई निशान नहीं",
+        "ऐप्स छुपाने के बाद गैलरी लॉक करें",
+        "ऐप्स छुपाने के लिए कॉन्फ़िगरेशन सहेजें"
+      ],
+      id: [
+        "Sembunyikan aplikasi sepenuhnya (50+ dukungan)",
+        "Keamanan biometrik/PIN (16 lapisan)",
+        "Titik masuk tersamar",
+        "Sembunyikan aplikasi dengan aman di ruang kerja",
+        "Pemicu cerdas untuk menyembunyikan aplikasi saat risiko",
+        "Tidak ada jejak saat menyembunyikan aplikasi",
+        "Kunci galeri setelah menyembunyikan aplikasi",
+        "Simpan konfigurasi untuk menyembunyikan aplikasi"
+      ]
+    };
+    
+    const currentTitles = featureTitles[lang] || featureTitles.en;
+    const currentDescs = featureDescs[lang] || featureDescs.en;
+    
+    videoFeatureItems.forEach((item, index) => {
+      const titleElement = item.querySelector('.feature-title');
+      const descElement = item.querySelector('.feature-desc');
+      
+      if (titleElement && currentTitles[index]) {
+        titleElement.textContent = currentTitles[index];
+      }
+      if (descElement && currentDescs[index]) {
+        descElement.textContent = currentDescs[index];
+      }
+    });
+  }  if (howWorksCards.length >= 5) {
     howWorksCards[0].textContent = t.how_works_card1_title;
     howWorksCards[1].textContent = t.how_works_card2_title;
     howWorksCards[2].textContent = t.how_works_card3_title;
@@ -1484,15 +1619,20 @@ function initVideoPlayer() {
         video.classList.add('hidden');
         video.classList.remove('active');
       });
+    } else {
+      // 如果视频正在播放，暂停它
+      video.pause();
+      // 显示播放按钮
+      playButton.style.display = 'flex';
+      video.classList.add('hidden');
+      video.classList.remove('active');
     }
   });
   
-  // 视频结束时恢复播放按钮
+  // 视频结束时恢复播放按钮（由于设置了loop，这个事件可能不会触发）
   video.addEventListener('ended', function() {
     console.log('Video ended');
-    playButton.style.display = 'flex';
-    video.classList.add('hidden');
-    video.classList.remove('active');
+    // 由于设置了loop，视频会自动重新开始播放
   });
   
   // 视频暂停时恢复播放按钮
@@ -1511,3 +1651,4 @@ function initVideoPlayer() {
     video.classList.remove('active');
   });
 }
+
