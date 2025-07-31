@@ -1,4 +1,4 @@
-// Hide All 官网主页主要交互脚本
+// Hide All 官网主页主要交互脚本 v2.0.7
 // 详细注释，方便新手理解
 
 // 用户评价模块数据 - 多语言支持
@@ -441,7 +441,16 @@ const translations = {
     privacy_small_text5: "Undetectable",
     privacy_small_text6: "Automation",
     privacy_small_text7: "Customizable",
-    privacy_small_text8: "Instant"
+    privacy_small_text8: "Instant",
+    
+    // How Hide All Works模块
+    how_works_title: "How Hide All Works",
+    how_works_subtitle: "Discover the simple steps to enhance your digital privacy and focus—with App Lock securing apps and Hide All hiding them all.",
+    how_works_card1_title: "Customizable Home Screen",
+    how_works_card2_title: "Privacy Protection",
+    how_works_card3_title: "App Hiding",
+    how_works_card4_title: "Lock Calc",
+    how_works_card5_title: "Disguise as a Calculator"
   },
   
   ar: {
@@ -584,7 +593,16 @@ const translations = {
     privacy_small_text5: "غير قابل للكشف",
     privacy_small_text6: "أتمتة",
     privacy_small_text7: "قابل للتخصيص",
-    privacy_small_text8: "فوري"
+    privacy_small_text8: "فوري",
+    
+    // How Hide All Works模块
+    how_works_title: "كيف تعمل إخفاء الكل؟",
+    how_works_subtitle: "اكتشف الخطوات البسيطة لتحسين خصوصيتك الرقمية وتركيزك - مع إخفاء الكل يحمي التطبيقات وإخفاء الكل يخفيها جميعاً.",
+    how_works_card1_title: "شاشة مخصصة",
+    how_works_card2_title: "حماية الخصوصية",
+    how_works_card3_title: "إخفاء التطبيقات",
+    how_works_card4_title: "إخفاء الكل",
+    how_works_card5_title: "إخفاء الكل كتطبيق حاسبة"
   },
   
   hi: {
@@ -722,7 +740,16 @@ const translations = {
     privacy_small_text5: "अविश्वसनीय",
     privacy_small_text6: "अटॉमेशन",
     privacy_small_text7: "कस्टमाइज़ेबल",
-    privacy_small_text8: "तत्काल"
+    privacy_small_text8: "तत्काल",
+    
+    // How Hide All Works模块
+    how_works_title: "हाइड ऑल कैसे काम करता है",
+    how_works_subtitle: "अपनी डिजिटल गोपनीयता और फोकस को बढ़ाने के सरल कदम खोजें - ऐप लॉक के साथ ऐप्स को सुरक्षित करें और हाइड ऑल सभी को छिपाएं।",
+    how_works_card1_title: "कस्टमाइज़ेबल होम स्क्रीन",
+    how_works_card2_title: "गोपनीयता सुरक्षा",
+    how_works_card3_title: "ऐप छिपाना",
+    how_works_card4_title: "लॉक कैल्क",
+    how_works_card5_title: "कैलकुलेटर के रूप में छिपाना"
   },
   
   id: {
@@ -860,7 +887,16 @@ const translations = {
     privacy_small_text5: "Tidak Terdeteksi",
     privacy_small_text6: "Otomasi",
     privacy_small_text7: "Dapat Disesuaikan",
-    privacy_small_text8: "Instan"
+    privacy_small_text8: "Instan",
+    
+    // How Hide All Works模块
+    how_works_title: "Bagaimana Hide All Bekerja",
+    how_works_subtitle: "Temukan langkah-langkah sederhana untuk meningkatkan privasi digital dan fokus Anda - dengan App Lock mengamankan aplikasi dan Hide All menyembunyikan semuanya.",
+    how_works_card1_title: "Layar Beranda yang Dapat Disesuaikan",
+    how_works_card2_title: "Perlindungan Privasi",
+    how_works_card3_title: "Menyembunyikan Aplikasi",
+    how_works_card4_title: "Kunci Kalkulator",
+    how_works_card5_title: "Menyamar sebagai Kalkulator"
   }
 };
 
@@ -958,7 +994,11 @@ function changeLanguage(lang) {
       <span>${t.testimonials_rating}</span>
       <span class="testimonials-separator">•</span>
       <span>${t.testimonials_reviews_count}</span>
-    `}
+    `},
+    
+    // How Hide All Works模块更新
+    { selector: '.text-4xl.font-bold.text-slate-800.mb-4', text: t.how_works_title },
+    { selector: '.text-lg.text-slate-600.max-w-3xl.mx-auto', text: t.how_works_subtitle }
   ];
   
   // 批量执行更新
@@ -1119,6 +1159,16 @@ function changeLanguage(lang) {
     privacySmallCards[5].querySelector('.privacy-small-text').textContent = t.privacy_small_text6;
     privacySmallCards[6].querySelector('.privacy-small-text').textContent = t.privacy_small_text7;
     privacySmallCards[7].querySelector('.privacy-small-text').textContent = t.privacy_small_text8;
+  }
+  
+  // 更新How Hide All Works模块卡片标题
+  const howWorksCards = document.querySelectorAll('.bg-white.shadow-lg.rounded-2xl.border-2.border-slate-200.text-center.p-6 h3');
+  if (howWorksCards.length >= 5) {
+    howWorksCards[0].textContent = t.how_works_card1_title;
+    howWorksCards[1].textContent = t.how_works_card2_title;
+    howWorksCards[2].textContent = t.how_works_card3_title;
+    howWorksCards[3].textContent = t.how_works_card4_title;
+    howWorksCards[4].textContent = t.how_works_card5_title;
   }
   
   // 重新初始化testimonials模块以更新用户评价内容
