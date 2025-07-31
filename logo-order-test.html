@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo顺序测试 - 移动端导航栏</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* 额外的测试样式 */
+        .test-info {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .layout-preview {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 2px solid #2196f3;
+        }
+        
+        .expected-order {
+            background: #f0f8ff;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .order-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .order-number {
+            background: #4caf50;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>移动端导航栏 Logo 顺序测试</h1>
+        <p>检查Logo是否在菜单项的上方</p>
+        <p><strong>当前屏幕宽度:</strong> <span id="width"></span>px</p>
+    </div>
+    
+    <!-- 实际的导航栏 -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <!-- Logo区域 -->
+            <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+                <img src="assets/logo-placeholder.png" alt="Hide All Logo" id="site-logo">
+                <span class="logo-handwrite">HideAll</span>
+            </div>
+            <!-- 汉堡菜单按钮 -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <!-- 菜单导航 -->
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">User reviews</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <!-- 语言切换 -->
+            <div class="lang-switch">
+                <select id="language-select">
+                    <option value="en" selected>English</option>
+                    <option value="ar">العربية</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="id">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+    
+    <div class="layout-preview">
+        <div class="expected-order">
+            <h2>期望的移动端布局顺序 (768px以下)</h2>
+            
+            <div class="order-item">
+                <div class="order-number">1</div>
+                <div>
+                    <strong>Logo</strong> - HideAll Logo和文字
+                    <br><small>应该显示在最顶部</small>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div class="order-number">2</div>
+                <div>
+                    <strong>导航菜单</strong> - Home, User reviews, Contact us, FAQ, Blog
+                    <br><small>应该显示在Logo下方，水平排列，居中对齐</small>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div class="order-number">3</div>
+                <div>
+                    <strong>语言选择器</strong> - English下拉菜单
+                    <br><small>应该显示在底部</small>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <h3>CSS Order 设置</h3>
+            <p><code>.logo { order: 1 }</code></p>
+            <p><code>nav { order: 2 }</code></p>
+            <p><code>.lang-switch { order: 3 }</code></p>
+            <p><code>.mobile-menu-toggle { order: 0, display: none }</code></p>
+        </div>
+        
+        <div style="background: #fff3cd; padding: 15px; border-radius: 6px; margin: 15px 0;">
+            <h4>✅ 修复要点</h4>
+            <ul style="text-align: left; margin: 10px 0;">
+                <li>设置 <code>nav</code> 元素的 order 为 2</li>
+                <li>删除 <code>.nav-menu</code> 的 order 设置</li>
+                <li>确保 <code>.nav-container</code> 为 <code>flex-direction: column</code></li>
+                <li>所有元素居中对齐</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function updateWidth() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+        
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        
+        // 添加菜单点击效果
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 

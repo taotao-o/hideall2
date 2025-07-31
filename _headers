@@ -1,0 +1,35 @@
+# 全局缓存控制
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# HTML文件缓存控制
+*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# CSS文件缓存控制（带版本号）
+styles.css
+  Cache-Control: public, max-age=31536000
+
+# JavaScript文件缓存控制（带版本号）
+main.js
+  Cache-Control: public, max-age=31536000
+
+# 图片文件缓存控制
+*.png
+  Cache-Control: public, max-age=31536000
+
+*.jpg
+  Cache-Control: public, max-age=31536000
+
+*.jpeg
+  Cache-Control: public, max-age=31536000
+
+*.gif
+  Cache-Control: public, max-age=31536000
+
+*.svg
+  Cache-Control: public, max-age=31536000 
