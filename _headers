@@ -1,35 +1,51 @@
-# 全局缓存控制
+# 完全移除缓存限制 - 专为AITDK SEO Extension优化
+# 这个配置完全开放，允许任何扩展程序访问
+
+# 全局配置 - 完全开放
 /*
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+  # 完全允许缓存
+  Cache-Control: public, max-age=0
+  # 允许所有来源访问
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Headers: *
+  Access-Control-Allow-Credentials: true
+  # 允许嵌入
+  X-Frame-Options: ALLOWALL
+  # 禁用内容类型嗅探限制
+  X-Content-Type-Options: 
+  # 允许扩展程序完全访问
+  Cross-Origin-Embedder-Policy: unsafe-none
+  Cross-Origin-Opener-Policy: unsafe-none
+  Cross-Origin-Resource-Policy: cross-origin
 
-# HTML文件缓存控制
+# HTML文件 - 无任何限制
 *.html
-  Cache-Control: no-cache, no-store, must-revalidate
-  Pragma: no-cache
-  Expires: 0
+  Cache-Control: public, max-age=0
+  Access-Control-Allow-Origin: *
+  X-Frame-Options: ALLOWALL
 
-# CSS文件缓存控制（带版本号）
-styles.css
-  Cache-Control: public, max-age=31536000
+# CSS和JS文件 - 完全开放
+*.css
+  Cache-Control: public, max-age=0
+  Access-Control-Allow-Origin: *
 
-# JavaScript文件缓存控制（带版本号）
-main.js
-  Cache-Control: public, max-age=31536000
+*.js
+  Cache-Control: public, max-age=0
+  Access-Control-Allow-Origin: *
 
-# 图片文件缓存控制
+# 图片文件 - 允许跨域
 *.png
-  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
 
 *.jpg
-  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
 
 *.jpeg
-  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
 
 *.gif
-  Cache-Control: public, max-age=31536000
+  Access-Control-Allow-Origin: *
 
 *.svg
-  Cache-Control: public, max-age=31536000 
+  Access-Control-Allow-Origin: * 

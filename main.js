@@ -1330,18 +1330,6 @@ function initPrivacyFeatures() {
   startPrivacyAutoPlay();
 }
 
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(initPrivacyFeatures, 100);
-});
-
-// 页面卸载时清理定时器
-window.addEventListener('beforeunload', () => {
-  if (privacyInterval) {
-    clearInterval(privacyInterval);
-  }
-});
-
 // 导航栏系统已移至 mobile-menu-fix.js
 function initNavigation() {
   // 此函数已废弃，导航栏功能由 mobile-menu-fix.js 处理

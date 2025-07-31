@@ -8,6 +8,27 @@
       <meta name="keywords" content="hide apps, app lock, privacy vault, calculator vault, hide apps Android, stealth mode, multi account">
   <meta name="author" content="Hide All">
   <meta name="robots" content="index, follow">
+  
+  <!-- 浏览器扩展程序支持 - 精确命名 -->
+  <meta name="extension-friendly" content="true">
+  <meta name="seo-tools-compatible" content="true">
+  <meta name="aitdk-seo-extension" content="enabled">
+  <meta name="AITDK-SEO-Extension" content="enabled">
+  <meta name="aitdk_seo_extension" content="enabled">
+  
+  <!-- 强制扩展程序兼容性 -->
+  <meta name="chrome-extension-compatible" content="true">
+  <meta name="browser-extension-allowed" content="all">
+  <meta name="content-security-policy" content="">
+  <meta name="referrer" content="unsafe-url">
+  
+  <!-- AITDK专用标识 -->
+  <meta name="aitdk" content="compatible">
+  <meta name="seo-extension" content="ready">
+  <meta name="extension-support" content="full">
+  <meta name="aitdk-compatible" content="true">
+  <meta name="seo-tools-ready" content="true">
+  
   <meta property="og:title" content="Hide Apps Secretly | Cloak&Vault Hider - Hide All Privacy">
   <meta property="og:description" content="Hide any app completely with Vaults, military-grade privacy protection. Manage multiple social, game accounts secretly. Download now!">
   <meta property="og:type" content="website">
@@ -37,7 +58,7 @@
   <!-- Font Awesome 图标库（用于社交媒体等图标） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- 引入自定义CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.0.7">
   
   <!-- 移动端菜单修复由 mobile-menu-fix.js 处理 -->
   
@@ -489,7 +510,146 @@
   </footer>
 
   <!-- 引入自定义JS -->
-  <script src="main.js"></script>
-  <script src="mobile-menu-fix.js"></script>
+  <!-- AITDK SEO Extension 调试和兼容性脚本 -->
+  <script>
+    // AITDK SEO Extension 完全兼容性脚本
+    console.log('🔍 AITDK SEO Extension 完全兼容模式启动');
+    
+    // 1. 强制设置全局扩展程序支持属性
+    window.extensionFriendly = true;
+    window.seoToolsCompatible = true;
+    window.AITDKSEOExtensionEnabled = true;
+    window.chromeExtensionCompatible = true;
+    window.extensionSafeMode = true;
+    
+    // 2. 创建全局兼容性标识
+    Object.defineProperty(window, 'AITDK_COMPATIBLE', {
+      value: true,
+      writable: false,
+      enumerable: true,
+      configurable: false
+    });
+    
+    // 3. 禁用可能干扰扩展程序的功能
+    try {
+      // 防止某些安全策略阻止扩展程序
+      if (window.origin && window.origin !== 'null') {
+        document.domain = document.domain;
+      }
+    } catch (e) {
+      console.log('域名设置跳过:', e.message);
+    }
+    
+    // 4. 监听扩展程序消息和事件
+    window.addEventListener('message', function(event) {
+      console.log('📨 收到消息:', event);
+      if (event.data && (event.data.type === 'AITDK_SEO_EXTENSION' || event.data.source === 'AITDK')) {
+        console.log('✅ 检测到AITDK SEO Extension访问');
+        
+        // 标记页面为扩展程序活跃状态
+        document.documentElement.setAttribute('data-extension-active', 'true');
+        document.body.setAttribute('data-extension-active', 'true');
+        document.documentElement.classList.add('extension-detected');
+        document.body.classList.add('extension-detected');
+      }
+    });
+    
+    // 5. 监听DOM变化，确保扩展程序元素不被移除
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            // 检查是否是扩展程序相关元素
+            if (node.id && (node.id.includes('aitdk') || node.id.includes('seo')) ||
+                node.className && (node.className.includes('aitdk') || node.className.includes('seo'))) {
+              console.log('✅ 检测到扩展程序元素添加:', node);
+              
+              // 确保扩展程序元素具有最高优先级
+              node.style.setProperty('z-index', '2147483647', 'important');
+              node.style.setProperty('position', 'relative', 'important');
+              node.style.setProperty('visibility', 'visible', 'important');
+              node.style.setProperty('opacity', '1', 'important');
+            }
+          }
+        });
+      });
+    });
+    
+    // 6. 确保DOM完全可访问
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('✅ DOM加载完成，扩展程序可以安全访问');
+      
+      // 创建多个扩展程序友好的标识元素
+      const markers = [
+        'aitdk-seo-extension-marker',
+        'seo-tools-ready-marker',
+        'extension-friendly-marker'
+      ];
+      
+      markers.forEach(function(markerId) {
+        if (!document.getElementById(markerId)) {
+          const marker = document.createElement('div');
+          marker.id = markerId;
+          marker.style.display = 'none';
+          marker.setAttribute('data-extension-friendly', 'true');
+          marker.setAttribute('data-seo-tools-ready', 'true');
+          marker.setAttribute('data-page-type', 'main-homepage');
+          marker.setAttribute('data-aitdk-compatible', 'true');
+          document.body.appendChild(marker);
+        }
+      });
+      
+      // 开始监听DOM变化
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['id', 'class']
+      });
+      
+      console.log('🎯 扩展程序标识元素已创建，DOM监听已启动');
+    });
+    
+    // 7. 导出调试函数
+    window.debugAITDKExtension = function() {
+      return {
+        extensionFriendly: window.extensionFriendly,
+        seoToolsCompatible: window.seoToolsCompatible,
+        chromeExtensionCompatible: window.chromeExtensionCompatible,
+        AITDK_COMPATIBLE: window.AITDK_COMPATIBLE,
+        domReady: document.readyState,
+        url: window.location.href,
+        title: document.title,
+        extensionElements: document.querySelectorAll('[id*="aitdk"], [class*="aitdk"], [id*="seo"], [class*="seo"]').length,
+        markers: document.querySelectorAll('[data-extension-friendly="true"]').length,
+        metaTags: Array.from(document.querySelectorAll('meta[name*="extension"], meta[name*="seo"], meta[name*="aitdk"]')).map(meta => ({
+          name: meta.name,
+          content: meta.content
+        }))
+      };
+    };
+    
+    // 8. 定期检查扩展程序状态
+    setInterval(function() {
+      const extensionElements = document.querySelectorAll('[id*="aitdk"], [class*="aitdk"], [id*="seo"], [class*="seo"]');
+      if (extensionElements.length > 0) {
+        console.log('🔍 检测到', extensionElements.length, '个扩展程序元素');
+        
+        // 确保扩展程序元素保持可见
+        extensionElements.forEach(function(el) {
+          if (el.style.visibility === 'hidden' || el.style.opacity === '0') {
+            el.style.setProperty('visibility', 'visible', 'important');
+            el.style.setProperty('opacity', '1', 'important');
+            console.log('✅ 修复扩展程序元素可见性');
+          }
+        });
+      }
+    }, 3000);
+    
+    console.log('🚀 AITDK SEO Extension 完全兼容性脚本加载完成');
+  </script>
+  
+  <script src="main.js?v=2.0.6"></script>
+  <script src="mobile-menu-fix.js?v=2.0.1"></script>
 </body>
 </html> 

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器缓存检测 - Hide All</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .check-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .status-good {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .version-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .clear-cache-btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        
+        .clear-cache-btn:hover {
+            background: #0056b3;
+        }
+        
+        .hard-refresh-btn {
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        
+        .hard-refresh-btn:hover {
+            background: #1e7e34;
+        }
+        
+        code {
+            background: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .instructions h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+        
+        .os-specific {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="check-container">
+        <h1>🔍 浏览器缓存状态检测</h1>
+        <p>检测您的浏览器是否在使用旧版本的CSS和JavaScript文件</p>
+        
+        <div class="version-info">
+            <h3>📊 当前资源版本信息</h3>
+            <p><strong>CSS版本:</strong> <span id="css-version">检测中...</span></p>
+            <p><strong>JS版本:</strong> <span id="js-version">检测中...</span></p>
+            <p><strong>页面加载时间:</strong> <span id="load-time"></span></p>
+            <p><strong>用户代理:</strong> <span id="user-agent"></span></p>
+        </div>
+        
+        <div id="cache-status">
+            <h3>🎯 缓存状态分析</h3>
+            <div id="status-result">分析中...</div>
+        </div>
+        
+        <div class="instructions">
+            <h3>🛠️ 强制刷新方法</h3>
+            
+            <div id="windows-instructions" class="os-specific">
+                <h4>Windows / Linux:</h4>
+                <ul>
+                    <li><strong>硬刷新:</strong> <code>Ctrl + Shift + R</code> 或 <code>Ctrl + F5</code></li>
+                    <li><strong>清除缓存:</strong> <code>Ctrl + Shift + Delete</code></li>
+                </ul>
+            </div>
+            
+            <div id="mac-instructions" class="os-specific">
+                <h4>Mac:</h4>
+                <ul>
+                    <li><strong>硬刷新:</strong> <code>Cmd + Shift + R</code></li>
+                    <li><strong>清除缓存:</strong> <code>Cmd + Option + E</code> (开发者工具中)</li>
+                </ul>
+            </div>
+            
+            <h4>开发者工具方法:</h4>
+            <ol>
+                <li>按 <code>F12</code> 打开开发者工具</li>
+                <li>进入 <strong>Network</strong> 标签页</li>
+                <li>勾选 <strong>"Disable cache"</strong></li>
+                <li>刷新页面</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <button class="hard-refresh-btn" onclick="performHardRefresh()">
+                🔄 执行硬刷新
+            </button>
+            <button class="clear-cache-btn" onclick="goToMainSite()">
+                🏠 返回主站
+            </button>
+        </div>
+        
+        <div class="version-info">
+            <h3>📋 技术说明</h3>
+            <p><strong>期望版本:</strong> v2.0.1</p>
+            <p><strong>旧版本:</strong> v1.0.4 或无版本参数</p>
+            <p><strong>缓存原因:</strong> 浏览器保存了旧版本的CSS和JS文件</p>
+            <p><strong>解决方案:</strong> 强制刷新或清除缓存</p>
+        </div>
+    </div>
+    
+    <script>
+        const EXPECTED_VERSION = '2.0.1';
+        
+        function detectOS() {
+            const userAgent = navigator.userAgent;
+            if (userAgent.indexOf('Mac') !== -1) {
+                document.getElementById('mac-instructions').style.display = 'block';
+            } else {
+                document.getElementById('windows-instructions').style.display = 'block';
+            }
+        }
+        
+        function checkResourceVersions() {
+            const cssLinks = document.querySelectorAll('link[rel="stylesheet"]');
+            const scripts = document.querySelectorAll('script[src]');
+            
+            let cssVersion = '未知';
+            let jsVersion = '未知';
+            
+            // 检查页面中是否有引用主站的CSS
+            const mainCSS = Array.from(cssLinks).find(link => 
+                link.href.includes('styles.css')
+            );
+            
+            if (mainCSS) {
+                const url = new URL(mainCSS.href);
+                cssVersion = url.searchParams.get('v') || '无版本参数';
+            }
+            
+            // 检查页面中是否有引用主站的JS
+            const mainJS = Array.from(scripts).find(script => 
+                script.src.includes('main.js')
+            );
+            
+            if (mainJS) {
+                const url = new URL(mainJS.src);
+                jsVersion = url.searchParams.get('v') || '无版本参数';
+            }
+            
+            return { cssVersion, jsVersion };
+        }
+        
+        function analyzeCache(cssVersion, jsVersion) {
+            let status = '';
+            let className = '';
+            
+            if (cssVersion === EXPECTED_VERSION && jsVersion === EXPECTED_VERSION) {
+                status = `
+                    <div class="status-good">
+                        ✅ <strong>缓存状态良好</strong><br>
+                        您的浏览器正在使用最新版本的资源文件。
+                    </div>
+                `;
+            } else if (cssVersion === '无版本参数' || jsVersion === '无版本参数') {
+                status = `
+                    <div class="status-error">
+                        ❌ <strong>发现缓存问题</strong><br>
+                        您的浏览器正在使用没有版本参数的旧文件。这会导致样式和功能异常。
+                        <br><strong>建议:</strong> 立即执行硬刷新 (Ctrl+Shift+R 或 Cmd+Shift+R)
+                    </div>
+                `;
+            } else {
+                status = `
+                    <div class="status-warning">
+                        ⚠️ <strong>版本不匹配</strong><br>
+                        您的浏览器使用的版本可能不是最新的。
+                        <br><strong>建议:</strong> 执行硬刷新以获取最新版本
+                    </div>
+                `;
+            }
+            
+            return status;
+        }
+        
+        function performHardRefresh() {
+            // 尝试多种硬刷新方法
+            if (navigator.userAgent.indexOf('Mac') !== -1) {
+                alert('请按 Cmd + Shift + R 进行硬刷新');
+            } else {
+                alert('请按 Ctrl + Shift + R 或 Ctrl + F5 进行硬刷新');
+            }
+            
+            // 尝试程序化刷新
+            window.location.reload(true);
+        }
+        
+        function goToMainSite() {
+            // 添加时间戳参数强制刷新
+            const timestamp = new Date().getTime();
+            window.location.href = `index.html?t=${timestamp}`;
+        }
+        
+        // 页面加载完成后执行检测
+        document.addEventListener('DOMContentLoaded', function() {
+            // 显示基本信息
+            document.getElementById('load-time').textContent = new Date().toLocaleString();
+            document.getElementById('user-agent').textContent = navigator.userAgent;
+            
+            // 检测操作系统
+            detectOS();
+            
+            // 检查资源版本
+            const { cssVersion, jsVersion } = checkResourceVersions();
+            document.getElementById('css-version').textContent = cssVersion;
+            document.getElementById('js-version').textContent = jsVersion;
+            
+            // 分析缓存状态
+            const analysis = analyzeCache(cssVersion, jsVersion);
+            document.getElementById('status-result').innerHTML = analysis;
+        });
+    </script>
+</body>
+</html> 
