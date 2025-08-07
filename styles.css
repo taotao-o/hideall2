@@ -151,10 +151,41 @@ body {
   justify-content: space-between;
   gap: 48px;
 }
+/* 评分徽章样式 */
+.rating-badge {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2px;
+  margin-top: -25px;
+  margin-left: -20px;
+  order: 0; /* 桌面端默认顺序 */
+}
+
+/* 桌面端：隐藏banner-flex中的评分图片，显示banner-left中的评分图片 */
+@media (min-width: 769px) {
+  .banner-flex > .rating-badge {
+    display: none;
+  }
+  .banner-left .rating-badge {
+    display: flex;
+  }
+}
+
+.rating-badge img {
+  max-width: 209px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.rating-badge img:hover {
+  transform: scale(1.02);
+}
+
 .banner-left {
   flex: 1 1 0;
   min-width: 320px;
   max-width: 600px;
+  margin-top: -25px;
 }
 .banner-left h1 {
   font-family: var(--font-title);
@@ -1767,11 +1798,31 @@ body.dark-mode {
   
   .banner-flex {
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
   }
   
   .banner-left {
     order: 2;
+  }
+  
+  .rating-badge {
+    order: 2;
+    margin-bottom: 20px;
+    margin-top: 0;
+    margin-left: 0;
+    justify-content: center;
+  }
+  
+  /* 移动端：显示banner-flex中的评分图片，隐藏banner-left中的评分图片 */
+  .banner-flex > .rating-badge {
+    display: flex;
+  }
+  .banner-left .rating-badge {
+    display: none;
+  }
+  
+  .rating-badge img {
+    max-width: 180px;
   }
   
   .banner-right {

@@ -317,7 +317,7 @@ const translations = {
     // Banner区域
     banner_title: "Hide All: The Ultimate Solution to Hide Apps & Protect Your Privacy",
     banner_subtitle: "Take control of your digital privacy with Hide All. Our cutting-edge technology ensures your personal apps, photos, and data remain completely invisible and secure from prying eyes.",
-    btn_download: "Download Now",
+    btn_download: "Try for free",
     btn_watch_demo: "Watch Demo",
     
     // Why Choose区域
