@@ -9,12 +9,24 @@ Allow: /faq.html
 Allow: /changelog.html
 Allow: /blog.html
 Allow: /feedback.html
-Allow: /blog-post-1.html
-Allow: /blog-post-2.html
-Allow: /blog-post-3.html
-Allow: /blog-post-4.html
-Allow: /blog-post-5.html
-Allow: /blog-post-6.html
+
+# 博客文章
+Allow: /blog-app-hiding.html
+Allow: /blog-app-cloak-technology.html
+Allow: /blog-dual-accounts.html
+Allow: /blog-anti-detection-tactics.html
+Allow: /blog-beyond-hiding.html
+Allow: /blog-hide-apps.html
+Allow: /blog-hide-apps-on-android.html
+Allow: /blog-hide-apps-on-samsung.html
+Allow: /blog-hide-apps-on-oneplus.html
+Allow: /blog-hide-apps-on-vivo.html
+Allow: /blog-hide-apps-on-oppo.html
+Allow: /blog-hide-apps-on-huawei.html
+Allow: /blog-hide-apps-on-xiaomi.html
+Allow: /blog-hide-apps-on-iphone.html
+Allow: /blog-hide-apps-on-pixel.html
+Allow: /blog-hide-apps-on-motorola.html
 
 # 允许爬取资源文件
 Allow: /assets/

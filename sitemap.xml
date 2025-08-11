@@ -4,7 +4,7 @@
   <!-- 主页 -->
   <url>
     <loc>https://hideall.cc/</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- 用户评价页面 -->
   <url>
     <loc>https://hideall.cc/reviews.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- 联系我们页面 -->
   <url>
     <loc>https://hideall.cc/contact.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- FAQ页面 -->
   <url>
     <loc>https://hideall.cc/faq.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- 更新日志页面 -->
   <url>
     <loc>https://hideall.cc/changelog.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- 博客列表页面 -->
   <url>
     <loc>https://hideall.cc/blog.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,55 +52,135 @@
   <!-- 反馈页面 -->
   <url>
     <loc>https://hideall.cc/feedback.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
-  <!-- 博客文章1 -->
+  <!-- 博客文章1：App Hiding -->
   <url>
-    <loc>https://hideall.cc/blog-post-1.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-app-hiding.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 博客文章2 -->
+  <!-- 博客文章2：App Cloak Technology -->
   <url>
-    <loc>https://hideall.cc/blog-post-2.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-app-cloak-technology.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 博客文章3 -->
+  <!-- 博客文章3：Dual Accounts -->
   <url>
-    <loc>https://hideall.cc/blog-post-3.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-dual-accounts.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 博客文章4 -->
+  <!-- 博客文章4：Anti Detection Tactics -->
   <url>
-    <loc>https://hideall.cc/blog-post-4.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-anti-detection-tactics.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 博客文章5 -->
+  <!-- 博客文章5：Beyond Hiding -->
   <url>
-    <loc>https://hideall.cc/blog-post-5.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-beyond-hiding.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 博客文章6 -->
+  <!-- 博客文章6：Hide Apps -->
   <url>
-    <loc>https://hideall.cc/blog-post-6.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <loc>https://hideall.cc/blog-hide-apps.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章7：Hide Apps on Android -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-android.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章8：Hide Apps on Samsung -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-samsung.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章9：Hide Apps on OnePlus -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-oneplus.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章10：Hide Apps on Vivo -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-vivo.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章11：Hide Apps on Oppo -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-oppo.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章12：Hide Apps on Huawei -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-huawei.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章13：Hide Apps on Xiaomi -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-xiaomi.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章14：Hide Apps on iPhone -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-iphone.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章15：Hide Apps on Pixel -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-pixel.html</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章16：Hide Apps on Motorola -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-apps-on-motorola.html</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
