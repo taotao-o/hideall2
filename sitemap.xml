@@ -4,7 +4,7 @@
   <!-- 主页 -->
   <url>
     <loc>https://hideall.cc/</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- 博客列表页面 -->
   <url>
     <loc>https://hideall.cc/blog.html</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
