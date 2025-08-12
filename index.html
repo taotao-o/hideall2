@@ -62,31 +62,283 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L4TZR7XQN"></script>
   <script>
+    // 页面加载状态管理
+    document.documentElement.classList.add('loading');
+    
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-6L4TZR7XQN');
   </script>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo-placeholder.png">
   <link rel="shortcut icon" type="image/png" href="assets/logo-placeholder.png">
   <link rel="apple-touch-icon" href="assets/logo-placeholder.png">
-  <!-- Font Awesome 图标库（用于社交媒体等图标） -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
   <!-- 预加载关键资源 -->
   <link rel="preload" href="assets/banner-image.png" as="image" type="image/png">
   <link rel="preload" href="assets/image-rating.png" as="image" type="image/png">
+  <link rel="preload" href="assets/image1.png" as="image" type="image/png">
+  <link rel="preload" href="assets/image2.png" as="image" type="image/png">
+  <link rel="preload" href="assets/image3.png" as="image" type="image/png">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <!-- 关键CSS内联 -->
+  <style>
+    /* 防止页面闪烁的关键CSS */
+    html { 
+      background: #F6F8FB; 
+      font-size: 16px;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body { 
+      margin: 0; 
+      padding: 0;
+      font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; 
+      background: #F6F8FB; 
+      color: #222B45; 
+      line-height: 1.7; 
+      min-height: 100vh; 
+      overflow-x: hidden;
+      /* 防止内容闪烁 */
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    /* 页面加载完成前隐藏内容 */
+    html.loading body { 
+      opacity: 0; 
+    }
+    
+    html:not(.loading) body { 
+      opacity: 1; 
+    }
+    
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 24px; 
+      min-width: 320px; 
+    }
+    
+    /* 导航栏样式 */
+    #main-header { 
+      background: #181C32; 
+      box-shadow: 0 2px 8px rgba(30,34,90,0.04); 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      min-height: 80px;
+      width: 100%;
+    }
+    
+    .nav-container { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      height: 80px; 
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+    }
+    
+    .logo img { 
+      height: 48px; 
+      width: auto;
+    }
+    
+    .logo-handwrite { 
+      font-family: 'Pacifico', cursive; 
+      font-size: 2rem; 
+      color: #fff; 
+      letter-spacing: 1px; 
+      font-weight: 400; 
+    }
+    
+    .nav-menu { 
+      display: flex; 
+      align-items: center; 
+      gap: 40px; 
+      margin: 0; 
+      padding: 0; 
+      list-style: none; 
+    }
+    
+    .nav-menu li { 
+      margin: 0; 
+    }
+    
+    .nav-menu li a { 
+      color: #fff; 
+      text-decoration: none; 
+      font-weight: 500; 
+      transition: color 0.3s ease; 
+      font-size: 1rem;
+    }
+    
+    .nav-menu li a:hover, 
+    .nav-menu li a.active { 
+      color: #1DE9B6; 
+    }
+    
+    /* 移动端菜单按钮 */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    /* Banner区域样式 */
+    .banner { 
+      padding: 80px 0; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+      color: white;
+      width: 100%;
+      position: relative;
+    }
+    
+    .banner-flex { 
+      display: flex; 
+      align-items: center; 
+      gap: 60px; 
+    }
+    
+    .banner-left { 
+      flex: 1; 
+    }
+    
+    .banner-right { 
+      flex: 1; 
+      display: flex; 
+      justify-content: center; 
+    }
+    
+    .banner-img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 16px; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+    }
+    
+    .rating-badge { 
+      margin-bottom: 16px; 
+    }
+    
+    .rating-badge img { 
+      max-width: 209px; 
+      height: auto; 
+      margin-bottom: 2px; 
+    }
+    
+    /* 按钮样式 */
+    .btn { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      padding: 12px 24px; 
+      border-radius: 50px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: all 0.3s ease; 
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn-primary { 
+      background: #1DE9B6; 
+      color: #222B45; 
+    }
+    
+    .btn-secondary { 
+      background: rgba(255,255,255,0.1); 
+      color: white; 
+      border: 1px solid rgba(255,255,255,0.2); 
+    }
+    
+    .banner-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    
+    /* 语言切换 */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+    }
+    
+    .lang-switch select {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) { 
+      .nav-menu { 
+        display: none; 
+      }
+      
+      .mobile-menu-toggle { 
+        display: block; 
+      }
+      
+      .banner-flex { 
+        flex-direction: column; 
+        gap: 40px; 
+      } 
+      
+      .banner-left { 
+        order: 2; 
+      } 
+      
+      .banner-right { 
+        order: 1; 
+      }
+      
+      .banner-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+  
+  <!-- Font Awesome 图标库（用于社交媒体等图标） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
   
   <!-- 引入自定义CSS -->
-  <link rel="stylesheet" href="styles.css?v=2.0.35" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles.css?v=2.0.38" media="print" onload="this.media='all'">
   <!-- 备用CSS加载 -->
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=2.0.35">
+    <link rel="stylesheet" href="styles.css?v=2.0.38">
   </noscript>
   
   <!-- 移动端菜单修复由 mobile-menu-fix.js 处理 -->
@@ -1008,7 +1260,7 @@
     console.log('🚀 AITDK SEO Extension 完全兼容性脚本加载完成');
   </script>
   
-          <script src="main.js?v=2.1.16" defer></script>
+          <script src="main.js?v=2.1.19" defer></script>
     <script src="mobile-menu-fix.js?v=2.0.1" defer></script>
 </body>
 </html> 

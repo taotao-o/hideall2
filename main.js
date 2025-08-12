@@ -1706,15 +1706,47 @@ function initMobileOptimizations() {
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM loaded, initializing all features...');
   
-  // 初始化现有功能
-  initLanguageSwitch();
-  initTestimonials();
-  initVideoPlayer();
+  // 延迟移除页面加载状态，确保CSS完全加载
+  setTimeout(() => {
+    document.documentElement.classList.remove('loading');
+  }, 50);
   
-  // 初始化新的性能优化功能
+  // 使用requestIdleCallback优化初始化时机
+  const initFeatures = () => {
+    // 初始化现有功能
+    initLanguageSwitch();
+    initTestimonials();
+    initVideoPlayer();
+    
+    // 初始化新的性能优化功能
+    initImageOptimization();
+    initMobileOptimizations();
+    
+    console.log('All features initialized successfully');
+  };
+  
+  // 优先初始化关键功能
   initImageOptimization();
-  initMobileOptimizations();
   
-  console.log('All features initialized successfully');
+  // 延迟初始化非关键功能
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initFeatures);
+  } else {
+    // 降级处理
+    setTimeout(initFeatures, 100);
+  }
 });
+
+// 确保页面完全加载后移除加载状态
+window.addEventListener('load', function() {
+  // 双重保险，确保加载状态被移除
+  setTimeout(() => {
+    document.documentElement.classList.remove('loading');
+  }, 100);
+});
+
+// 额外的保险：如果页面加载时间过长，强制移除加载状态
+setTimeout(() => {
+  document.documentElement.classList.remove('loading');
+}, 3000);
 
