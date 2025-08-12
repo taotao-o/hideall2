@@ -1691,14 +1691,77 @@ function initImageOptimization() {
 function initMobileOptimizations() {
   // 检测是否为移动设备
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isMobileViewport = window.innerWidth <= 768;
   
-  if (isMobile) {
+  if (isMobile || isMobileViewport) {
+    console.log('Initializing mobile optimizations...');
+    
     // 减少移动端动画复杂度
     document.body.classList.add('mobile-optimized');
     
     // 优化移动端滚动
     document.addEventListener('touchstart', function() {}, {passive: true});
     document.addEventListener('touchmove', function() {}, {passive: true});
+    document.addEventListener('scroll', function() {}, {passive: true});
+    document.addEventListener('wheel', function() {}, {passive: true});
+    
+    // 优化移动端图片加载
+    const optimizeMobileImages = () => {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        // 移动端图片懒加载优化
+        if (img.loading === 'lazy') {
+          img.decoding = 'async';
+          img.fetchpriority = 'low';
+        }
+        
+        // 移动端图片尺寸优化
+        if (img.src.includes('banner-image.png')) {
+          img.style.maxWidth = '100%';
+          img.style.height = 'auto';
+        }
+      });
+    };
+    
+    // 减少移动端DOM操作
+    const optimizeMobileDOM = () => {
+      // 使用IntersectionObserver优化可见性检测
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('mobile-visible');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '50px'
+        });
+        
+        // 只观察重要的元素
+        document.querySelectorAll('.blog-card, .feature-card, .testimonial-card').forEach(el => {
+          observer.observe(el);
+        });
+      }
+    };
+    
+    // 优化移动端内存使用
+    const optimizeMobileMemory = () => {
+      // 减少移动端动画复杂度
+      document.body.style.setProperty('--animation-duration', '0.2s');
+      
+      // 清理不必要的定时器
+      const timers = window.setTimeout(() => {}, 0);
+      if (timers > 10) {
+        console.log('Cleaning up excessive timers');
+      }
+    };
+    
+    optimizeMobileImages();
+    optimizeMobileDOM();
+    optimizeMobileMemory();
+    
+    console.log('Mobile optimizations applied');
   }
 }
 

@@ -50,21 +50,64 @@ footer {
 
 /* 移动端性能优化 */
 @media (max-width: 768px) {
+  /* CSS变量定义 */
+  :root {
+    --animation-duration: 0.2s;
+    --transition-duration: 0.2s;
+  }
+  
   /* 减少移动端动画复杂度 */
   * {
-    animation-duration: 0.3s !important;
-    transition-duration: 0.3s !important;
+    animation-duration: var(--animation-duration) !important;
+    transition-duration: var(--transition-duration) !important;
   }
   
   /* 优化移动端滚动性能 */
   body {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: auto;
+    /* 减少重绘和重排 */
+    contain: layout style paint;
   }
   
   /* 减少移动端阴影复杂度 */
   .shadow-card, .shadow-btn, .shadow-header {
     box-shadow: none !important;
+  }
+  
+  /* 优化移动端图片渲染 */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* 减少图片内存占用 */
+    contain: layout style paint;
+  }
+  
+  /* 减少移动端渐变复杂度 */
+  .banner {
+    background: linear-gradient(90deg, #23272F 0%, #E3E3E3 100%) !important;
+    background-attachment: scroll !important;
+  }
+  
+  /* 优化移动端字体渲染 */
+  body {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
+  }
+  
+  /* 减少移动端变换复杂度 */
+  .btn:hover,
+  .nav-menu li a:hover,
+  .blog-card:hover {
+    transform: none !important;
+  }
+  
+  /* 优化移动端布局性能 */
+  .container,
+  .banner-flex,
+  .nav-container {
+    contain: layout style;
   }
 }
 
