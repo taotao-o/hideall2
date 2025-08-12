@@ -1671,13 +1671,13 @@ function initImageOptimization() {
     // 移动端图片尺寸优化
     if (isMobile) {
       if (img.src.includes('banner-image.png')) {
-        img.style.maxHeight = '250px';
+        img.style.maxHeight = '220px';
         img.style.objectFit = 'contain';
       } else if (img.classList.contains('blog-image') || img.classList.contains('feature-image')) {
-        img.style.maxHeight = '200px';
+        img.style.maxHeight = '180px';
         img.style.objectFit = 'cover';
       } else {
-        img.style.maxHeight = '300px';
+        img.style.maxHeight = '200px';
         img.style.objectFit = 'contain';
       }
     }
@@ -1740,13 +1740,16 @@ function initMobileOptimizations() {
         if (img.src.includes('banner-image.png')) {
           img.style.maxWidth = '100%';
           img.style.height = 'auto';
-          img.style.maxHeight = '250px';
+          img.style.maxHeight = '220px';
         }
         
         // 限制所有图片的最大尺寸
         if (img.classList.contains('blog-image') || img.classList.contains('feature-image')) {
-          img.style.maxHeight = '200px';
+          img.style.maxHeight = '180px';
           img.style.objectFit = 'cover';
+        } else {
+          img.style.maxHeight = '200px';
+          img.style.objectFit = 'contain';
         }
       });
     };
@@ -1764,12 +1767,12 @@ function initMobileOptimizations() {
             }
           });
         }, {
-          threshold: 0.1,
-          rootMargin: '100px'
+          threshold: 0.05,
+          rootMargin: '300px'
         });
         
-        // 只观察重要的元素，减少观察器数量
-        const importantElements = document.querySelectorAll('.blog-card, .feature-card, .testimonial-card, .why-card');
+        // 只观察最重要的元素，进一步减少观察器数量
+        const importantElements = document.querySelectorAll('.blog-card, .feature-card');
         importantElements.forEach(el => {
           observer.observe(el);
         });
@@ -1778,9 +1781,9 @@ function initMobileOptimizations() {
     
     // 优化移动端内存使用
     const optimizeMobileMemory = () => {
-      // 减少移动端动画复杂度
-      document.body.style.setProperty('--animation-duration', '0.1s');
-      document.body.style.setProperty('--transition-duration', '0.1s');
+      // 优化移动端动画
+      document.body.style.setProperty('--animation-duration', '0.2s');
+      document.body.style.setProperty('--transition-duration', '0.2s');
       
       // 清理不必要的定时器
       const timers = window.setTimeout(() => {}, 0);
@@ -1793,6 +1796,7 @@ function initMobileOptimizations() {
       elementsToOptimize.forEach(el => {
         el.style.transform = 'translateZ(0)';
         el.style.backfaceVisibility = 'hidden';
+        el.style.willChange = 'auto';
       });
     };
     
@@ -1804,14 +1808,14 @@ function initMobileOptimizations() {
           optimizeMobileImages();
           optimizeMobileDOM();
           optimizeMobileMemory();
-        }, { timeout: 1000 });
+        }, { timeout: 2000 });
       } else {
         // 降级处理
         setTimeout(() => {
           optimizeMobileImages();
           optimizeMobileDOM();
           optimizeMobileMemory();
-        }, 100);
+        }, 200);
       }
     };
     

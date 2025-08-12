@@ -52,11 +52,11 @@ footer {
 @media (max-width: 768px) {
   /* CSS变量定义 */
   :root {
-    --animation-duration: 0.1s;
-    --transition-duration: 0.1s;
+    --animation-duration: 0.2s;
+    --transition-duration: 0.2s;
   }
   
-  /* 减少移动端动画复杂度 */
+  /* 优化移动端动画 */
   * {
     animation-duration: var(--animation-duration) !important;
     transition-duration: var(--transition-duration) !important;
@@ -69,7 +69,7 @@ footer {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: auto;
     /* 减少重绘和重排 */
-    contain: layout style paint;
+    contain: layout style;
     /* 减少主线程工作 */
     transform: translateZ(0);
   }
@@ -82,17 +82,16 @@ footer {
   
   /* 优化移动端图片渲染 */
   img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto;
     /* 减少图片内存占用 */
     contain: layout style paint;
     /* 限制图片最大尺寸 */
-    max-height: 300px !important;
+    max-height: 200px !important;
   }
   
   /* Banner图片特殊优化 */
   .banner-img {
-    max-height: 250px !important;
+    max-height: 220px !important;
     object-fit: contain;
   }
   
@@ -104,11 +103,11 @@ footer {
   
   /* 优化移动端字体渲染 */
   body {
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-    text-rendering: auto;
-    /* 减少字体渲染工作 */
-    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* 保持字体渲染质量 */
+    font-display: auto;
   }
   
   /* 减少移动端变换复杂度 */
@@ -152,8 +151,18 @@ footer {
   /* 减少移动端图片加载压力 */
   .blog-image img,
   .feature-image img {
-    max-height: 200px !important;
+    max-height: 180px !important;
     object-fit: cover;
+  }
+  
+  /* 移动端字体优化 */
+  body {
+    font-display: auto;
+  }
+  
+  /* 移动端滚动优化 */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -167,24 +176,24 @@ footer {
 
 /* 移动端图片优化 */
 .mobile-optimized img {
-  max-height: 300px !important;
+  max-height: 200px !important;
   object-fit: contain;
 }
 
 .mobile-optimized .banner-img {
-  max-height: 250px !important;
+  max-height: 220px !important;
 }
 
 .mobile-optimized .blog-image img,
 .mobile-optimized .feature-image img {
-  max-height: 200px !important;
+  max-height: 180px !important;
   object-fit: cover;
 }
 
 /* 移动端动画优化 */
 .mobile-optimized * {
-  animation-duration: 0.1s !important;
-  transition-duration: 0.1s !important;
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
 }
 
 /* 移动端阴影优化 */
