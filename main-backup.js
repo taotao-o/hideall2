@@ -356,7 +356,7 @@ const translations = {
     feature7_title: "Seamless Account Switching",
     feature7_desc: "Instantly toggle between accounts with a single tap, all protected by app lock.",
     feature8_title: "Enhanced Productivity and Flexibility",
-    feature8_desc: "Boost productivity with quick access to storage stats, notes, and shortcuts to your encrypted vault. Organize apps your way for maximum efficiency.",
+    feature8_desc: "Boost productivity with quick access to storage stats, notes, and encrypted vault shortcuts—all secured by app lock. Organize apps your way for maximum efficiency, with app lock guarding the setup.",
     
     // Footer
     footer_slogan: "The Most Powerful App Hiding and Privacy Protection Tool",
