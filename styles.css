@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* Google Fonts - 使用font-display: swap优化加载 */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap&display=swap');
 
 /* 页面加载状态管理 */
 html.loading {
@@ -52,8 +53,8 @@ footer {
 @media (max-width: 768px) {
   /* CSS变量定义 */
   :root {
-    --animation-duration: 0.2s;
-    --transition-duration: 0.2s;
+    --animation-duration: 0.15s;
+    --transition-duration: 0.15s;
   }
   
   /* 优化移动端动画 */
@@ -86,12 +87,12 @@ footer {
     /* 减少图片内存占用 */
     contain: layout style paint;
     /* 限制图片最大尺寸 */
-    max-height: 200px !important;
+    max-height: 180px !important;
   }
   
   /* Banner图片特殊优化 */
   .banner-img {
-    max-height: 220px !important;
+    max-height: 250px !important;
     object-fit: contain;
   }
   
@@ -155,9 +156,25 @@ footer {
     object-fit: cover;
   }
   
+  /* How Hide All Works模块图片特殊处理 - 确保不被裁剪 */
+  .aspect-\[9\/16\] img {
+    max-height: none !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* 更具体的选择器，确保How Hide All Works模块图片不被裁剪 */
+  .bg-white.shadow-lg.rounded-2xl.border-2.border-slate-200 .aspect-\[9\/16\] img {
+    max-height: none !important;
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
   /* 移动端字体优化 */
   body {
-    font-display: auto;
+    font-display: swap;
   }
   
   /* 移动端滚动优化 */
@@ -181,7 +198,7 @@ footer {
 }
 
 .mobile-optimized .banner-img {
-  max-height: 220px !important;
+  max-height: 250px !important;
 }
 
 .mobile-optimized .blog-image img,
@@ -192,8 +209,8 @@ footer {
 
 /* 移动端动画优化 */
 .mobile-optimized * {
-  animation-duration: 0.2s !important;
-  transition-duration: 0.2s !important;
+  animation-duration: 0.15s !important;
+  transition-duration: 0.15s !important;
 }
 
 /* 移动端阴影优化 */
@@ -1022,7 +1039,7 @@ footer {
   }
   .banner-img {
     max-width: 90vw;
-    max-height: 260px;
+    max-height: 400px;
   }
   .banner-left h1 {
     font-size: 2rem;
@@ -2307,7 +2324,7 @@ body.dark-mode {
   .banner-img {
     max-width: 100%;
     height: auto;
-    max-height: 250px;
+    max-height: 300px;
     margin: 0 auto;
   }
   

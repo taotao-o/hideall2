@@ -1697,8 +1697,8 @@ function initImageOptimization() {
       });
     }, {
       // 移动端优化：减少观察器负担
-      threshold: isMobile ? 0.05 : 0.1,
-      rootMargin: isMobile ? '200px' : '100px'
+      threshold: isMobile ? 0.01 : 0.1,
+      rootMargin: isMobile ? '400px' : '200px'
     });
 
     // 只观察懒加载的图片
@@ -1767,8 +1767,8 @@ function initMobileOptimizations() {
             }
           });
         }, {
-          threshold: 0.05,
-          rootMargin: '300px'
+          threshold: 0.01,
+          rootMargin: '500px'
         });
         
         // 只观察最重要的元素，进一步减少观察器数量
@@ -1782,8 +1782,8 @@ function initMobileOptimizations() {
     // 优化移动端内存使用
     const optimizeMobileMemory = () => {
       // 优化移动端动画
-      document.body.style.setProperty('--animation-duration', '0.2s');
-      document.body.style.setProperty('--transition-duration', '0.2s');
+      document.body.style.setProperty('--animation-duration', '0.15s');
+      document.body.style.setProperty('--transition-duration', '0.15s');
       
       // 清理不必要的定时器
       const timers = window.setTimeout(() => {}, 0);
