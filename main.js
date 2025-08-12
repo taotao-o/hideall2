@@ -1654,6 +1654,9 @@ function initVideoPlayer() {
 
 // 图片加载优化
 function initImageOptimization() {
+  // 检测是否为移动设备
+  const isMobile = window.innerWidth <= 768;
+  
   // 为所有图片添加加载完成事件
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('load', function() {
@@ -1663,6 +1666,20 @@ function initImageOptimization() {
     // 如果图片已经加载完成，直接添加loaded类
     if (img.complete) {
       img.classList.add('loaded');
+    }
+    
+    // 移动端图片尺寸优化
+    if (isMobile) {
+      if (img.src.includes('banner-image.png')) {
+        img.style.maxHeight = '250px';
+        img.style.objectFit = 'contain';
+      } else if (img.classList.contains('blog-image') || img.classList.contains('feature-image')) {
+        img.style.maxHeight = '200px';
+        img.style.objectFit = 'cover';
+      } else {
+        img.style.maxHeight = '300px';
+        img.style.objectFit = 'contain';
+      }
     }
   });
   
@@ -1678,6 +1695,10 @@ function initImageOptimization() {
           }
         }
       });
+    }, {
+      // 移动端优化：减少观察器负担
+      threshold: isMobile ? 0.05 : 0.1,
+      rootMargin: isMobile ? '200px' : '100px'
     });
 
     // 只观察懒加载的图片
@@ -1699,11 +1720,11 @@ function initMobileOptimizations() {
     // 减少移动端动画复杂度
     document.body.classList.add('mobile-optimized');
     
-    // 优化移动端滚动
-    document.addEventListener('touchstart', function() {}, {passive: true});
-    document.addEventListener('touchmove', function() {}, {passive: true});
-    document.addEventListener('scroll', function() {}, {passive: true});
-    document.addEventListener('wheel', function() {}, {passive: true});
+    // 优化移动端滚动 - 使用更高效的事件监听器
+    const passiveEvents = ['touchstart', 'touchmove', 'scroll', 'wheel', 'resize'];
+    passiveEvents.forEach(eventType => {
+      document.addEventListener(eventType, function() {}, {passive: true, capture: false});
+    });
     
     // 优化移动端图片加载
     const optimizeMobileImages = () => {
@@ -1719,11 +1740,18 @@ function initMobileOptimizations() {
         if (img.src.includes('banner-image.png')) {
           img.style.maxWidth = '100%';
           img.style.height = 'auto';
+          img.style.maxHeight = '250px';
+        }
+        
+        // 限制所有图片的最大尺寸
+        if (img.classList.contains('blog-image') || img.classList.contains('feature-image')) {
+          img.style.maxHeight = '200px';
+          img.style.objectFit = 'cover';
         }
       });
     };
     
-    // 减少移动端DOM操作
+    // 减少移动端DOM操作 - 使用更高效的观察器
     const optimizeMobileDOM = () => {
       // 使用IntersectionObserver优化可见性检测
       if ('IntersectionObserver' in window) {
@@ -1731,15 +1759,18 @@ function initMobileOptimizations() {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('mobile-visible');
+              // 减少观察器负担
+              observer.unobserve(entry.target);
             }
           });
         }, {
           threshold: 0.1,
-          rootMargin: '50px'
+          rootMargin: '100px'
         });
         
-        // 只观察重要的元素
-        document.querySelectorAll('.blog-card, .feature-card, .testimonial-card').forEach(el => {
+        // 只观察重要的元素，减少观察器数量
+        const importantElements = document.querySelectorAll('.blog-card, .feature-card, .testimonial-card, .why-card');
+        importantElements.forEach(el => {
           observer.observe(el);
         });
       }
@@ -1748,18 +1779,47 @@ function initMobileOptimizations() {
     // 优化移动端内存使用
     const optimizeMobileMemory = () => {
       // 减少移动端动画复杂度
-      document.body.style.setProperty('--animation-duration', '0.2s');
+      document.body.style.setProperty('--animation-duration', '0.1s');
+      document.body.style.setProperty('--transition-duration', '0.1s');
       
       // 清理不必要的定时器
       const timers = window.setTimeout(() => {}, 0);
       if (timers > 10) {
         console.log('Cleaning up excessive timers');
       }
+      
+      // 减少重绘和重排
+      const elementsToOptimize = document.querySelectorAll('.blog-card, .why-card, .feature-card, .testimonial-card');
+      elementsToOptimize.forEach(el => {
+        el.style.transform = 'translateZ(0)';
+        el.style.backfaceVisibility = 'hidden';
+      });
     };
     
-    optimizeMobileImages();
-    optimizeMobileDOM();
-    optimizeMobileMemory();
+    // 减少主线程工作
+    const reduceMainThreadWork = () => {
+      // 使用requestIdleCallback延迟非关键操作
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          optimizeMobileImages();
+          optimizeMobileDOM();
+          optimizeMobileMemory();
+        }, { timeout: 1000 });
+      } else {
+        // 降级处理
+        setTimeout(() => {
+          optimizeMobileImages();
+          optimizeMobileDOM();
+          optimizeMobileMemory();
+        }, 100);
+      }
+    };
+    
+    // 立即执行关键优化
+    document.body.classList.add('mobile-optimized');
+    
+    // 延迟执行非关键优化
+    reduceMainThreadWork();
     
     console.log('Mobile optimizations applied');
   }

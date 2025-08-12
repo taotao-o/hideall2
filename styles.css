@@ -52,14 +52,16 @@ footer {
 @media (max-width: 768px) {
   /* CSS变量定义 */
   :root {
-    --animation-duration: 0.2s;
-    --transition-duration: 0.2s;
+    --animation-duration: 0.1s;
+    --transition-duration: 0.1s;
   }
   
   /* 减少移动端动画复杂度 */
   * {
     animation-duration: var(--animation-duration) !important;
     transition-duration: var(--transition-duration) !important;
+    /* 减少主线程工作 */
+    will-change: auto !important;
   }
   
   /* 优化移动端滚动性能 */
@@ -68,10 +70,13 @@ footer {
     scroll-behavior: auto;
     /* 减少重绘和重排 */
     contain: layout style paint;
+    /* 减少主线程工作 */
+    transform: translateZ(0);
   }
   
   /* 减少移动端阴影复杂度 */
-  .shadow-card, .shadow-btn, .shadow-header {
+  .shadow-card, .shadow-btn, .shadow-header,
+  .blog-card, .why-card, .feature-card {
     box-shadow: none !important;
   }
   
@@ -81,6 +86,14 @@ footer {
     image-rendering: crisp-edges;
     /* 减少图片内存占用 */
     contain: layout style paint;
+    /* 限制图片最大尺寸 */
+    max-height: 300px !important;
+  }
+  
+  /* Banner图片特殊优化 */
+  .banner-img {
+    max-height: 250px !important;
+    object-fit: contain;
   }
   
   /* 减少移动端渐变复杂度 */
@@ -94,20 +107,53 @@ footer {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
+    /* 减少字体渲染工作 */
+    font-display: swap;
   }
   
   /* 减少移动端变换复杂度 */
   .btn:hover,
   .nav-menu li a:hover,
-  .blog-card:hover {
+  .blog-card:hover,
+  .why-card:hover,
+  .feature-card:hover {
     transform: none !important;
+    box-shadow: none !important;
   }
   
   /* 优化移动端布局性能 */
   .container,
   .banner-flex,
-  .nav-container {
+  .nav-container,
+  .blog-grid,
+  .why-grid,
+  .features-grid {
     contain: layout style;
+    /* 减少布局计算 */
+    transform: translateZ(0);
+  }
+  
+  /* 减少移动端重绘 */
+  .blog-card,
+  .why-card,
+  .feature-card,
+  .testimonial-card {
+    contain: layout style paint;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* 优化移动端按钮性能 */
+  .btn {
+    contain: layout style;
+    transform: translateZ(0);
+  }
+  
+  /* 减少移动端图片加载压力 */
+  .blog-image img,
+  .feature-image img {
+    max-height: 200px !important;
+    object-fit: cover;
   }
 }
 
@@ -117,6 +163,36 @@ footer {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* 移动端图片优化 */
+.mobile-optimized img {
+  max-height: 300px !important;
+  object-fit: contain;
+}
+
+.mobile-optimized .banner-img {
+  max-height: 250px !important;
+}
+
+.mobile-optimized .blog-image img,
+.mobile-optimized .feature-image img {
+  max-height: 200px !important;
+  object-fit: cover;
+}
+
+/* 移动端动画优化 */
+.mobile-optimized * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+/* 移动端阴影优化 */
+.mobile-optimized .blog-card,
+.mobile-optimized .why-card,
+.mobile-optimized .feature-card,
+.mobile-optimized .testimonial-card {
+  box-shadow: none !important;
 }
 
 /* 全局图片懒加载优化 */
