@@ -1652,3 +1652,59 @@ function initVideoPlayer() {
   });
 }
 
+// 图片懒加载优化
+function initLazyLoading() {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    // 观察所有懒加载的图片
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  } else {
+    // 降级处理：为不支持IntersectionObserver的浏览器添加loaded类
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+      img.classList.add('loaded');
+    });
+  }
+}
+
+// 移动端性能优化
+function initMobileOptimizations() {
+  // 检测是否为移动设备
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // 减少移动端动画复杂度
+    document.body.classList.add('mobile-optimized');
+    
+    // 优化移动端滚动
+    document.addEventListener('touchstart', function() {}, {passive: true});
+    document.addEventListener('touchmove', function() {}, {passive: true});
+  }
+}
+
+// 页面加载完成后初始化所有功能
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, initializing all features...');
+  
+  // 初始化现有功能
+  initLanguageSwitch();
+  initTestimonials();
+  initVideoPlayer();
+  
+  // 初始化新的性能优化功能
+  initLazyLoading();
+  initMobileOptimizations();
+  
+  console.log('All features initialized successfully');
+});
+

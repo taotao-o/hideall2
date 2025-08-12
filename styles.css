@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+/* 移动端性能优化 */
+@media (max-width: 768px) {
+  /* 减少移动端动画复杂度 */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* 优化移动端滚动性能 */
+  body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+  
+  /* 减少移动端阴影复杂度 */
+  .shadow-card, .shadow-btn, .shadow-header {
+    box-shadow: none !important;
+  }
+}
+
+/* 移动端优化类 */
+.mobile-optimized {
+  /* 减少移动端重绘 */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 全局图片懒加载优化 */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
 /* Hide All 官网主页样式 - Figma风格还原 */
 :root {
   /* 颜色变量 */
