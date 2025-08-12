@@ -74,12 +74,19 @@
   <link rel="apple-touch-icon" href="assets/logo-placeholder.png">
   <!-- Font Awesome 图标库（用于社交媒体等图标） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
+  <!-- 预加载关键资源 -->
+  <link rel="preload" href="assets/banner-image.png" as="image" type="image/png">
+  <link rel="preload" href="assets/image-rating.png" as="image" type="image/png">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  
   <!-- 引入自定义CSS -->
-  <link rel="stylesheet" href="styles.css?v=2.0.34" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles.css?v=2.0.35" media="print" onload="this.media='all'">
   <!-- 备用CSS加载 -->
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=2.0.34">
+    <link rel="stylesheet" href="styles.css?v=2.0.35">
   </noscript>
   
   <!-- 移动端菜单修复由 mobile-menu-fix.js 处理 -->
@@ -216,7 +223,7 @@
       <div class="banner-left">
         <!-- 评分徽章（桌面端显示） -->
         <div class="rating-badge">
-          <img src="assets/image-rating.png" alt="Over 80% 5-stars rating" style="max-width: 209px; height: auto; margin-bottom: 2px;" loading="lazy" decoding="async">
+          <img src="assets/image-rating.png" alt="Over 80% 5-stars rating" style="max-width: 209px; height: auto; margin-bottom: 2px;" loading="eager" decoding="async" fetchpriority="high">
         </div>
         <h1>Hide All: The Ultimate Solution to Hide Apps & Protect Your Privacy</h1>
         <p>
@@ -229,7 +236,7 @@
       </div>
       <!-- 右侧图片 -->
       <div class="banner-right">
-        <img src="assets/banner-image.png" alt="App Privacy Demo" class="banner-img" loading="lazy" decoding="async">
+        <img src="assets/banner-image.png" alt="App Privacy Demo" class="banner-img" loading="eager" decoding="async" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -471,7 +478,7 @@
           <div class="text-5xl mb-4">🏠</div>
           <h3 class="text-base font-bold text-slate-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">Customizable Home Screen</h3>
           <div class="aspect-[9/16] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center mb-4">
-                            <img src="assets/image1.png" alt="Customizable Home Screen" class="h-full w-auto object-contain" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/image1.png" alt="Customizable Home Screen" class="h-full w-auto object-contain" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <svg class="w-12 h-12 text-slate-300 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -483,7 +490,7 @@
           <div class="text-5xl mb-4">🔒</div>
           <h3 class="text-base font-bold text-slate-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">Privacy Protection</h3>
           <div class="aspect-[9/16] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center mb-4">
-                            <img src="assets/image2.png" alt="Privacy Protection" class="h-full w-auto object-contain" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/image2.png" alt="Privacy Protection" class="h-full w-auto object-contain" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <svg class="w-12 h-12 text-slate-300 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -495,7 +502,7 @@
           <div class="text-5xl mb-4">👻</div>
           <h3 class="text-base font-bold text-slate-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">App Hiding</h3>
           <div class="aspect-[9/16] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center mb-4">
-                            <img src="assets/image3.png" alt="App Hiding" class="h-full w-auto object-contain" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/image3.png" alt="App Hiding" class="h-full w-auto object-contain" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <svg class="w-12 h-12 text-slate-300 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -507,7 +514,7 @@
           <div class="text-5xl mb-4">🔐</div>
           <h3 class="text-base font-bold text-slate-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">Lock Calc</h3>
           <div class="aspect-[9/16] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center mb-4">
-                            <img src="assets/image4.png" alt="Lock Calc" class="h-full w-auto object-contain" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/image4.png" alt="Lock Calc" class="h-full w-auto object-contain" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <svg class="w-12 h-12 text-slate-300 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -519,7 +526,7 @@
           <div class="text-5xl mb-4">🧮</div>
           <h3 class="text-base font-bold text-slate-800 mb-4 whitespace-nowrap overflow-hidden text-ellipsis">Disguise as a Calculator</h3>
           <div class="aspect-[9/16] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center mb-4">
-                            <img src="assets/image5.png" alt="Disguise as a Calculator" class="h-full w-auto object-contain" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/image5.png" alt="Disguise as a Calculator" class="h-full w-auto object-contain" loading="eager" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <svg class="w-12 h-12 text-slate-300 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -1001,7 +1008,7 @@
     console.log('🚀 AITDK SEO Extension 完全兼容性脚本加载完成');
   </script>
   
-          <script src="main.js?v=2.1.15" defer></script>
+          <script src="main.js?v=2.1.16" defer></script>
     <script src="mobile-menu-fix.js?v=2.0.1" defer></script>
 </body>
 </html> 

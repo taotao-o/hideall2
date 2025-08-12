@@ -1652,27 +1652,37 @@ function initVideoPlayer() {
   });
 }
 
-// 图片懒加载优化
-function initLazyLoading() {
+// 图片加载优化
+function initImageOptimization() {
+  // 为所有图片添加加载完成事件
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('load', function() {
+      this.classList.add('loaded');
+    });
+    
+    // 如果图片已经加载完成，直接添加loaded类
+    if (img.complete) {
+      img.classList.add('loaded');
+    }
+  });
+  
+  // 懒加载优化（仅对非关键图片）
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const img = entry.target;
-          img.classList.add('loaded');
-          observer.unobserve(img);
+          if (img.loading === 'lazy') {
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
         }
       });
     });
 
-    // 观察所有懒加载的图片
+    // 只观察懒加载的图片
     document.querySelectorAll('img[loading="lazy"]').forEach(img => {
       imageObserver.observe(img);
-    });
-  } else {
-    // 降级处理：为不支持IntersectionObserver的浏览器添加loaded类
-    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-      img.classList.add('loaded');
     });
   }
 }
@@ -1702,7 +1712,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initVideoPlayer();
   
   // 初始化新的性能优化功能
-  initLazyLoading();
+  initImageOptimization();
   initMobileOptimizations();
   
   console.log('All features initialized successfully');

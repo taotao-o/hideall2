@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+/* 桌面端性能优化 */
+@media (min-width: 769px) {
+  /* 优化桌面端图片渲染 */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* 优化桌面端动画性能 */
+  * {
+    will-change: auto;
+  }
+  
+  /* 优化桌面端滚动性能 */
+  body {
+    scroll-behavior: smooth;
+  }
+}
+
 /* 移动端性能优化 */
 @media (max-width: 768px) {
   /* 减少移动端动画复杂度 */
