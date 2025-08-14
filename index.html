@@ -796,135 +796,136 @@
 
   <!-- VideoPlayerSection - Complete Feature Walkthrough -->
   <section class="py-16 bg-gradient-to-br from-slate-50 to-blue-50" id="video-walkthrough-section">
-    <div class="container mx-auto px-4">
-      <!-- 主标题和副标题 -->
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-slate-800 mb-4 video-walkthrough-title">Complete Feature Walkthrough</h2>
-        <p class="text-lg text-slate-600 max-w-3xl mx-auto video-walkthrough-subtitle">
-          Watch our comprehensive demo video to see all of Hide All's powerful privacy features in action
-        </p>
-      </div>
+      <div class="container mx-auto px-4">
+        <!-- 主标题和副标题 -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-800 mb-4 video-walkthrough-title">Complete Feature Walkthrough</h2>
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto video-walkthrough-subtitle">
+            Watch our comprehensive demo video to see all of Hide All's powerful privacy features in action
+          </p>
+        </div>
 
-      <!-- 响应式网格布局 -->
-      <div class="max-w-6xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          
-          <!-- 左侧：视频播放器 -->
-          <div class="overflow-hidden shadow-lg bg-white rounded-2xl border-2 border-slate-200">
-            <div class="max-w-sm mx-auto">
-              <div class="aspect-[9/16] bg-blue-500 cursor-pointer group relative" id="video-container">
-                <!-- 视频标签 -->
-                <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium z-10 video-demo-label">
-                  App Demo
-                </div>
-                
-                <!-- 播放按钮 -->
-                <div class="absolute inset-0 flex items-center justify-center play-button">
-                  <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all duration-300 shadow-lg">
-                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
+        <!-- 响应式网格布局 -->
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- 左侧：视频播放器 -->
+            <div class="overflow-hidden shadow-lg bg-white rounded-2xl border-2 border-slate-200">
+              <div class="max-w-sm mx-auto">
+                <div class="aspect-[9/16] bg-blue-500 cursor-pointer group relative" id="video-container">
+                  <!-- 视频标签 -->
+                  <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium z-10 video-demo-label">
+                    App Demo
                   </div>
+                  
+                  <!-- 播放按钮 -->
+                  <div class="absolute inset-0 flex items-center justify-center play-button">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-all duration-300 shadow-lg">
+                      <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <!-- 视频元素 -->
+                  <video id="demo-video" class="w-full h-full object-cover hidden" controls autoplay muted playsinline loop>
+                    <source src="assets/video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
-                
-                <!-- 视频元素 -->
-                <video id="demo-video" class="w-full h-full object-cover hidden" controls autoplay muted playsinline loop>
-                  <source src="assets/video1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
               </div>
             </div>
-          </div>
 
-          <!-- 右侧：核心安全功能 -->
-          <div>
-            <h3 class="text-3xl font-bold text-slate-800 mb-6 core-security-features-title">Core Security Features</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start feature-item-1">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Industry-Leading Hide Apps System</div>
-                  <div class="text-slate-600 text-base feature-desc">Completely conceal applications (50+ support)</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-2">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Military App Lock Protection</div>
-                  <div class="text-slate-600 text-base feature-desc">Biometric/PIN security (16 layers)</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-3">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Stealth Calculator Vault</div>
-                  <div class="text-slate-600 text-base feature-desc">Disguised entry point</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-4">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Cross-Profile Isolation</div>
-                  <div class="text-slate-600 text-base feature-desc">Securely hide apps in workspaces</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-5">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Auto-Cloaking Technology</div>
-                  <div class="text-slate-600 text-base feature-desc">Smart triggers to hide apps during risks</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-6">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Zero Digital Footprint</div>
-                  <div class="text-slate-600 text-base feature-desc">No traces when you hide apps</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-7">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Private Media Encryption</div>
-                  <div class="text-slate-600 text-base feature-desc">Lock galleries after you hide apps</div>
-                </div>
-              </li>
-              
-              <li class="flex items-start feature-item-8">
-                <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                  <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Custom Security Profiles</div>
-                  <div class="text-slate-600 text-base feature-desc">Save configurations to hide apps</div>
-                </div>
-              </li>
-            </ul>
+            <!-- 右侧：核心安全功能 -->
+            <div>
+              <h3 class="text-3xl font-bold text-slate-800 mb-6 core-security-features-title">Core Security Features</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start feature-item-1">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Industry-Leading Hide Apps System</div>
+                    <div class="text-slate-600 text-base feature-desc">Completely conceal applications (50+ support)</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-2">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Military App Lock Protection</div>
+                    <div class="text-slate-600 text-base feature-desc">Biometric/PIN security (16 layers)</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-3">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Stealth Calculator Vault</div>
+                    <div class="text-slate-600 text-base feature-desc">Disguised entry point</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-4">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Cross-Profile Isolation</div>
+                    <div class="text-slate-600 text-base feature-desc">Securely hide apps in workspaces</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-5">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Auto-Cloaking Technology</div>
+                    <div class="text-slate-600 text-base feature-desc">Smart triggers to hide apps during risks</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-6">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Zero Digital Footprint</div>
+                    <div class="text-slate-600 text-base feature-desc">No traces when you hide apps</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-7">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Private Media Encryption</div>
+                    <div class="text-slate-600 text-base feature-desc">Lock galleries after you hide apps</div>
+                  </div>
+                </li>
+                
+                <li class="flex items-start feature-item-8">
+                  <svg class="w-6 h-6 text-green-500 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <div class="font-bold text-slate-800 text-lg mb-1 feature-title">Custom Security Profiles</div>
+                    <div class="text-slate-600 text-base feature-desc">Save configurations to hide apps</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Expert Tips and App Hiding Section -->
   <section class="py-8 bg-white">
@@ -1268,6 +1269,7 @@
           <script src="main.js?v=2.1.30" defer></script>
     <script src="mobile-menu-fix.js?v=2.0.1" defer></script>
     
+
 
 </body>
 </html> 
