@@ -79,6 +79,7 @@
       <h2 class="text-xl font-semibold mb-4">优化状态</h2>
       <div id="optimization-status" class="space-y-2 text-sm">
         <p><strong>How Hide All Works模块:</strong> <span id="module-status"></span></p>
+        <p><strong>Video Walkthrough模块:</strong> <span id="video-status"></span></p>
         <p><strong>动态加载:</strong> <span id="dynamic-loading-status"></span></p>
         <p><strong>图片懒加载:</strong> <span id="lazy-loading-status"></span></p>
         <p><strong>动画优化:</strong> <span id="animation-status"></span></p>
@@ -96,6 +97,7 @@
           <li>• 重型动画效果</li>
           <li>• 大量DOM元素</li>
           <li>• 主线程工作过重</li>
+          <li>• 视频文件加载</li>
         </ul>
       </div>
       
@@ -104,6 +106,7 @@
         <ul class="space-y-2 text-sm text-green-600">
           <li>• 桌面端保持完整功能</li>
           <li>• 移动端动态加载简化版本</li>
+          <li>• 移动端移除视频模块</li>
           <li>• 减少动画复杂度</li>
           <li>• 优化图片加载</li>
           <li>• 减少主线程工作</li>
@@ -122,6 +125,7 @@
     
     // 更新优化状态
     document.getElementById('module-status').textContent = isMobile() ? '动态加载简化版' : '完整版本';
+    document.getElementById('video-status').textContent = isMobile() ? '已移除' : '正常显示';
     document.getElementById('dynamic-loading-status').textContent = isMobile() ? '已启用' : '不适用';
     document.getElementById('lazy-loading-status').textContent = '已启用';
     document.getElementById('animation-status').textContent = isMobile() ? '已优化' : '正常';

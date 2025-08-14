@@ -4641,6 +4641,11 @@ div[class^="seo"] {
 
 /* 移动端性能优化 - 动态加载优化 */
 @media (max-width: 768px) {
+  /* 移动端隐藏Video Walkthrough模块 */
+  #video-walkthrough-section {
+    display: none !important;
+  }
+  
   /* 移动端图片加载优化 */
   img {
     max-height: 120px !important;

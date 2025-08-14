@@ -1933,6 +1933,18 @@ const mobileOptimizations = {
         }
       }
     }
+  },
+  
+  // 移动端移除Video Walkthrough模块
+  removeVideoWalkthroughSection: () => {
+    if (isMobile()) {
+      const videoSection = document.getElementById('video-walkthrough-section');
+      if (videoSection) {
+        // 移除整个Video Walkthrough模块
+        videoSection.remove();
+        console.log('移动端Video Walkthrough模块已移除');
+      }
+    }
   }
 };
 
@@ -1945,6 +1957,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 延迟执行模块替换，确保页面基本内容已加载
   setTimeout(() => {
     mobileOptimizations.replaceHowWorksSection();
+    mobileOptimizations.removeVideoWalkthroughSection();
   }, 100);
 });
 

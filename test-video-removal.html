@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Walkthrough移除测试 - Hide All</title>
+  <meta name="description" content="测试Video Walkthrough模块在移动端的移除效果">
+  
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .test-info {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1000;
+    }
+    
+    .performance-info {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1000;
+      max-width: 200px;
+    }
+    
+    .section-status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    
+    .section-removed {
+      background: #fee2e2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
+    
+    .section-visible {
+      background: #dcfce7;
+      color: #16a34a;
+      border: 1px solid #bbf7d0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- 测试信息 -->
+  <div class="test-info">
+    <div>当前模式: <span id="current-mode">检测中...</span></div>
+    <div>屏幕宽度: <span id="screen-width">检测中...</span></div>
+    <div>设备类型: <span id="device-type">检测中...</span></div>
+  </div>
+  
+  <!-- 性能信息 -->
+  <div class="performance-info">
+    <div>页面加载时间: <span id="load-time">计算中...</span></div>
+    <div>DOM元素数量: <span id="dom-count">计算中...</span></div>
+    <div>视频元素: <span id="video-count">计算中...</span></div>
+  </div>
+
+  <!-- 测试内容 -->
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Video Walkthrough移除测试</h1>
+    
+    <!-- 说明 -->
+    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+      <h2 class="text-xl font-semibold mb-4">测试说明</h2>
+      <ul class="space-y-2 text-sm">
+        <li>• <strong>桌面端模式</strong>：显示完整的Video Walkthrough模块，包含视频和8个功能列表</li>
+        <li>• <strong>移动端模式</strong>：完全移除Video Walkthrough模块以提升性能</li>
+        <li>• 调整浏览器窗口大小或使用开发者工具切换设备模式</li>
+        <li>• 观察控制台输出，查看模块移除过程</li>
+      </ul>
+    </div>
+    
+    <!-- 模块状态显示 -->
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+      <div id="how-works-status" class="section-status section-visible">
+        How Hide All Works模块: 正常显示
+      </div>
+      <div id="video-status" class="section-status section-visible">
+        Video Walkthrough模块: 正常显示
+      </div>
+    </div>
+    
+    <!-- How Hide All Works 模块测试区域 -->
+    <div id="how-hide-all-works-section">
+      <!-- 这里将被动态替换 -->
+    </div>
+    
+    <!-- Video Walkthrough 模块测试区域 -->
+    <div id="video-walkthrough-section">
+      <!-- 这里将被动态移除 -->
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+  <script>
+    let startTime = performance.now();
+    
+    // 更新测试信息
+    function updateTestInfo() {
+      document.getElementById('current-mode').textContent = isMobile() ? '移动端模式' : '桌面端模式';
+      document.getElementById('screen-width').textContent = window.innerWidth + 'px';
+      document.getElementById('device-type').textContent = isMobile() ? '移动设备' : '桌面设备';
+    }
+    
+    // 更新性能信息
+    function updatePerformanceInfo() {
+      const loadTime = (performance.now() - startTime).toFixed(2);
+      const domCount = document.querySelectorAll('*').length;
+      const videoCount = document.querySelectorAll('video').length;
+      
+      document.getElementById('load-time').textContent = loadTime + 'ms';
+      document.getElementById('dom-count').textContent = domCount;
+      document.getElementById('video-count').textContent = videoCount;
+    }
+    
+    // 更新模块状态
+    function updateSectionStatus() {
+      const howWorksSection = document.getElementById('how-hide-all-works-section');
+      const videoSection = document.getElementById('video-walkthrough-section');
+      
+      const howWorksStatus = document.getElementById('how-works-status');
+      const videoStatus = document.getElementById('video-status');
+      
+      if (howWorksSection) {
+        howWorksStatus.textContent = 'How Hide All Works模块: ' + (isMobile() ? '简化版本' : '完整版本');
+        howWorksStatus.className = 'section-status ' + (isMobile() ? 'section-removed' : 'section-visible');
+      }
+      
+      if (videoSection) {
+        videoStatus.textContent = 'Video Walkthrough模块: 正常显示';
+        videoStatus.className = 'section-status section-visible';
+      } else {
+        videoStatus.textContent = 'Video Walkthrough模块: 已移除';
+        videoStatus.className = 'section-status section-removed';
+      }
+    }
+    
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTestInfo();
+      updatePerformanceInfo();
+      updateSectionStatus();
+      
+      // 延迟执行，确保模块加载
+      setTimeout(() => {
+        if (isMobile()) {
+          mobileOptimizations.replaceHowWorksSection();
+          mobileOptimizations.removeVideoWalkthroughSection();
+          
+          // 延迟更新状态
+          setTimeout(() => {
+            updateSectionStatus();
+            updatePerformanceInfo();
+          }, 200);
+        }
+      }, 500);
+    });
+    
+    // 监听窗口大小变化
+    window.addEventListener('resize', () => {
+      updateTestInfo();
+      updatePerformanceInfo();
+      updateSectionStatus();
+    });
+    
+    // 定期更新性能信息
+    setInterval(updatePerformanceInfo, 1000);
+  </script>
+</body>
+</html> 
