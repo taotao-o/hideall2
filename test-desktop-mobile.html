@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>桌面端/移动端测试 - Hide All</title>
+  <meta name="description" content="测试桌面端和移动端的不同显示效果">
+  
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .test-info {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1000;
+    }
+    
+    .device-switch {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #3B5AFB;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- 测试信息 -->
+  <div class="test-info">
+    <div>当前模式: <span id="current-mode">检测中...</span></div>
+    <div>屏幕宽度: <span id="screen-width">检测中...</span></div>
+    <div>设备类型: <span id="device-type">检测中...</span></div>
+  </div>
+  
+  <!-- 设备切换按钮 -->
+  <div class="device-switch" onclick="toggleDeviceMode()">
+    切换设备模式
+  </div>
+
+  <!-- 测试内容 -->
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">桌面端/移动端测试</h1>
+    
+    <!-- 说明 -->
+    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+      <h2 class="text-xl font-semibold mb-4">测试说明</h2>
+      <ul class="space-y-2 text-sm">
+        <li>• <strong>桌面端模式</strong>：显示完整的"How Hide All Works"模块，包含5张图片</li>
+        <li>• <strong>移动端模式</strong>：动态加载简化版本，包含4个轻量级卡片</li>
+        <li>• 点击右上角按钮可以切换设备模式进行测试</li>
+        <li>• 观察控制台输出，查看动态加载过程</li>
+      </ul>
+    </div>
+    
+    <!-- How Hide All Works 模块测试区域 -->
+    <div id="how-hide-all-works-section">
+      <!-- 这里将被动态替换 -->
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+  <script>
+    let isMobileMode = false;
+    
+    // 更新测试信息
+    function updateTestInfo() {
+      document.getElementById('current-mode').textContent = isMobileMode ? '移动端模式' : '桌面端模式';
+      document.getElementById('screen-width').textContent = window.innerWidth + 'px';
+      document.getElementById('device-type').textContent = isMobile() ? '移动设备' : '桌面设备';
+    }
+    
+    // 切换设备模式
+    function toggleDeviceMode() {
+      isMobileMode = !isMobileMode;
+      
+      // 模拟屏幕尺寸变化
+      if (isMobileMode) {
+        // 模拟移动端
+        Object.defineProperty(window, 'innerWidth', {
+          writable: true,
+          configurable: true,
+          value: 375
+        });
+      } else {
+        // 模拟桌面端
+        Object.defineProperty(window, 'innerWidth', {
+          writable: true,
+          configurable: true,
+          value: 1200
+        });
+      }
+      
+      updateTestInfo();
+      
+      // 重新执行移动端优化
+      if (isMobileMode) {
+        mobileOptimizations.replaceHowWorksSection();
+      } else {
+        // 重新加载完整版本
+        location.reload();
+      }
+    }
+    
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      updateTestInfo();
+      
+      // 延迟执行，确保模块加载
+      setTimeout(() => {
+        if (isMobile()) {
+          mobileOptimizations.replaceHowWorksSection();
+        }
+      }, 500);
+    });
+    
+    // 监听窗口大小变化
+    window.addEventListener('resize', updateTestInfo);
+  </script>
+</body>
+</html> 

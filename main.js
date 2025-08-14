@@ -1877,3 +1877,83 @@ setTimeout(() => {
   document.documentElement.classList.remove('loading');
 }, 3000);
 
+// 移动端性能优化 - 检测设备类型并优化加载
+const isMobile = () => {
+  return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+// 移动端性能优化配置
+const mobileOptimizations = {
+  // 移动端禁用重型动画
+  disableHeavyAnimations: () => {
+    if (isMobile()) {
+      document.documentElement.style.setProperty('--animation-duration', '0.1s');
+      document.documentElement.style.setProperty('--transition-duration', '0.1s');
+    }
+  },
+  
+  // 移动端图片懒加载优化
+  optimizeImageLoading: () => {
+    if (isMobile()) {
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      images.forEach(img => {
+        img.setAttribute('fetchpriority', 'low');
+        img.setAttribute('decoding', 'async');
+      });
+    }
+  },
+  
+  // 移动端减少重绘
+  reduceRepaints: () => {
+    if (isMobile()) {
+      const elements = document.querySelectorAll('.bg-white, .shadow-lg, .rounded-2xl');
+      elements.forEach(el => {
+        el.style.transform = 'translateZ(0)';
+        el.style.backfaceVisibility = 'hidden';
+      });
+    }
+  },
+  
+  // 移动端动态替换How Hide All Works模块
+  replaceHowWorksSection: async () => {
+    if (isMobile()) {
+      const howWorksSection = document.getElementById('how-hide-all-works-section');
+      if (howWorksSection) {
+        try {
+          // 加载移动端简化版本
+          const response = await fetch('mobile-how-works-simplified.html');
+          const simplifiedContent = await response.text();
+          
+          // 替换内容
+          howWorksSection.outerHTML = simplifiedContent;
+          
+          console.log('移动端How Hide All Works模块已优化');
+        } catch (error) {
+          console.warn('无法加载移动端简化版本，使用原始版本:', error);
+        }
+      }
+    }
+  }
+};
+
+// 页面加载时执行移动端优化
+document.addEventListener('DOMContentLoaded', async () => {
+  mobileOptimizations.disableHeavyAnimations();
+  mobileOptimizations.optimizeImageLoading();
+  mobileOptimizations.reduceRepaints();
+  
+  // 延迟执行模块替换，确保页面基本内容已加载
+  setTimeout(() => {
+    mobileOptimizations.replaceHowWorksSection();
+  }, 100);
+});
+
+// 窗口大小改变时重新检测
+window.addEventListener('resize', () => {
+  mobileOptimizations.disableHeavyAnimations();
+  mobileOptimizations.reduceRepaints();
+});
+
+// 页面加载状态管理
+document.documentElement.classList.add('loading');
+
