@@ -59,27 +59,38 @@
   <!-- 规范链接 - 避免重复内容 -->
   <link rel="canonical" href="https://hideall.cc/">
   
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L4TZR7XQN"></script>
+  <!-- Google tag (gtag.js) - 延迟加载 -->
   <script>
     // 页面加载状态管理
     document.documentElement.classList.add('loading');
     
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6L4TZR7XQN');
+    // 延迟加载Google Analytics
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6L4TZR7XQN';
+        document.head.appendChild(script);
+        
+        script.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6L4TZR7XQN');
+        };
+      }, 2000); // 延迟2秒加载
+    });
   </script>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo-placeholder.png">
   <link rel="shortcut icon" type="image/png" href="assets/logo-placeholder.png">
   <link rel="apple-touch-icon" href="assets/logo-placeholder.png">
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="assets/banner-image.png" as="image" type="image/png" media="(min-width: 769px)">
-  <link rel="preload" href="assets/image-rating.png" as="image" type="image/png" media="(min-width: 769px)">
-  <link rel="preload" href="assets/image1.png" as="image" type="image/png" media="(min-width: 769px)">
-  <link rel="preload" href="assets/image2.png" as="image" type="image/png" media="(min-width: 769px)">
-  <link rel="preload" href="assets/image3.png" as="image" type="image/png" media="(min-width: 769px)">
+  <!-- 预加载关键资源 - 优化版本 -->
+  <link rel="preload" href="assets/banner-image.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" href="assets/image-rating.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
+  <link rel="preload" href="assets/image1.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
+  <link rel="preload" href="assets/image2.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
+  <link rel="preload" href="assets/image3.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
   
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -1246,28 +1257,30 @@
       };
     };
     
-    // 8. 定期检查扩展程序状态
-    setInterval(function() {
-      const extensionElements = document.querySelectorAll('[id*="aitdk"], [class*="aitdk"], [id*="seo"], [class*="seo"]');
-      if (extensionElements.length > 0) {
-        console.log('🔍 检测到', extensionElements.length, '个扩展程序元素');
-        
-        // 确保扩展程序元素保持可见
-        extensionElements.forEach(function(el) {
-          if (el.style.visibility === 'hidden' || el.style.opacity === '0') {
-            el.style.setProperty('visibility', 'visible', 'important');
-            el.style.setProperty('opacity', '1', 'important');
-            console.log('✅ 修复扩展程序元素可见性');
-          }
-        });
-      }
-    }, 3000);
+    // 8. 简化扩展程序状态检查 - 只在需要时检查
+    let extensionCheckInterval;
+    
+    // 延迟启动扩展程序检查
+    setTimeout(function() {
+      extensionCheckInterval = setInterval(function() {
+        const extensionElements = document.querySelectorAll('[id*="aitdk"], [class*="aitdk"], [id*="seo"], [class*="seo"]');
+        if (extensionElements.length > 0) {
+          // 简化检查逻辑，减少DOM操作
+          extensionElements.forEach(function(el) {
+            if (el.style.visibility === 'hidden' || el.style.opacity === '0') {
+              el.style.setProperty('visibility', 'visible', 'important');
+              el.style.setProperty('opacity', '1', 'important');
+            }
+          });
+        }
+      }, 5000); // 增加到5秒间隔
+    }, 5000); // 延迟5秒启动
     
     console.log('🚀 AITDK SEO Extension 完全兼容性脚本加载完成');
   </script>
   
-          <script src="main.js?v=2.1.30" defer></script>
-    <script src="mobile-menu-fix.js?v=2.0.1" defer></script>
+          <script src="main.js?v=2.1.31" defer></script>
+    <script src="mobile-menu-fix.js?v=2.0.2" defer></script>
     
 
 

@@ -1954,19 +1954,16 @@ const mobileOptimizations = {
 
 };
 
-// 页面加载时执行移动端优化 - 简化版本
+// 页面加载时执行移动端优化 - 最小化版本
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('🚀 开始移动端性能优化...');
-  console.log('isMobile():', isMobile());
-  console.log('屏幕宽度:', window.innerWidth);
   
-  // 只执行必要的优化，避免阻塞渲染
+  // 只执行最关键的优化，完全避免阻塞渲染
   if (isMobile()) {
     // 延迟执行，确保不阻塞关键渲染路径
     setTimeout(() => {
       mobileOptimizations.optimizePreloading();
-      mobileOptimizations.optimizeImages();
-    }, 1000);
+    }, 2000); // 延迟到2秒后执行
   }
   
   console.log('✅ 移动端性能优化完成');
