@@ -1914,34 +1914,9 @@ const mobileOptimizations = {
     }
   },
   
-  // 安全的移动端Video Walkthrough模块优化
-  optimizeVideoWalkthrough: () => {
-    if (isMobile()) {
-      const videoSection = document.getElementById('video-walkthrough-section');
-      if (videoSection) {
-        // 只隐藏，不删除，避免页面空白
-        videoSection.style.display = 'none';
-        console.log('✅ 移动端Video Walkthrough模块已隐藏');
-      }
-    }
-  },
+
   
-  // 安全的移动端How Hide All Works模块优化
-  optimizeHowWorksSection: () => {
-    if (isMobile()) {
-      const howWorksSection = document.getElementById('how-hide-all-works-section');
-      if (howWorksSection) {
-        // 简化移动端显示，不替换内容
-        const cards = howWorksSection.querySelectorAll('.bg-white.rounded-2xl');
-        cards.forEach((card, index) => {
-          if (index >= 4) { // 只显示前4个卡片
-            card.style.display = 'none';
-          }
-        });
-        console.log('✅ 移动端How Hide All Works模块已优化');
-      }
-    }
-  },
+
   
   // 移动端图片优化
   optimizeImages: () => {
@@ -1976,94 +1951,33 @@ const mobileOptimizations = {
     }
   },
   
-  // 移动端CSS优化
-  optimizeCSS: () => {
-    if (isMobile()) {
-      // 添加移动端专用CSS优化
-      const style = document.createElement('style');
-      style.textContent = `
-        @media (max-width: 768px) {
-          /* 移动端性能优化 */
-          * {
-            animation-duration: 0.1s !important;
-            transition-duration: 0.1s !important;
-          }
-          
-          /* 移动端图片优化 */
-          img {
-            max-height: 120px !important;
-            object-fit: cover;
-          }
-          
-          /* 移动端阴影简化 */
-          .bg-white {
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
-          }
-          
-          /* 移动端字体优化 */
-          h2 {
-            font-size: 1.5rem !important;
-            line-height: 1.3 !important;
-          }
-          
-          h3 {
-            font-size: 0.875rem !important;
-            line-height: 1.2 !important;
-          }
-          
-          p {
-            font-size: 0.75rem !important;
-            line-height: 1.4 !important;
-          }
-          
-          /* 移动端网格优化 */
-          .grid {
-            gap: 0.5rem !important;
-          }
-          
-          /* 移动端间距优化 */
-          .py-16 {
-            padding-top: 2rem !important;
-            padding-bottom: 2rem !important;
-          }
-          
-          .py-12 {
-            padding-top: 1.5rem !important;
-            padding-bottom: 1.5rem !important;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-      console.log('✅ 移动端CSS优化已应用');
-    }
-  }
+
 };
 
-// 页面加载时执行移动端优化
+// 页面加载时执行移动端优化 - 简化版本
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('🚀 开始移动端性能优化...');
   console.log('isMobile():', isMobile());
   console.log('屏幕宽度:', window.innerWidth);
   
-  // 执行所有优化
-  mobileOptimizations.disableHeavyAnimations();
-  mobileOptimizations.optimizeImageLoading();
-  mobileOptimizations.reduceRepaints();
-  mobileOptimizations.optimizeVideoWalkthrough();
-  mobileOptimizations.optimizeHowWorksSection();
-  mobileOptimizations.optimizeImages();
-  mobileOptimizations.optimizePreloading();
-  mobileOptimizations.optimizeCSS();
+  // 只执行必要的优化，避免阻塞渲染
+  if (isMobile()) {
+    // 延迟执行，确保不阻塞关键渲染路径
+    setTimeout(() => {
+      mobileOptimizations.optimizePreloading();
+      mobileOptimizations.optimizeImages();
+    }, 1000);
+  }
   
   console.log('✅ 移动端性能优化完成');
 });
 
 // 窗口大小改变时重新检测
 window.addEventListener('resize', () => {
-  mobileOptimizations.disableHeavyAnimations();
-  mobileOptimizations.reduceRepaints();
-  mobileOptimizations.optimizeVideoWalkthrough();
-  mobileOptimizations.optimizeHowWorksSection();
+  // 简化resize处理，避免频繁DOM操作
+  if (isMobile()) {
+    mobileOptimizations.optimizeImages();
+  }
 });
 
 // 页面加载状态管理

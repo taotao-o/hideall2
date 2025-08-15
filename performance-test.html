@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>性能测试 - Hide All</title>
+  <meta name="description" content="测试移动端性能优化效果">
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background: #f8fafc;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #1e293b;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .status-card {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #3b82f6;
+    }
+    
+    .status-card.success {
+      border-left-color: #16a34a;
+      background: #dcfce7;
+    }
+    
+    .status-card.warning {
+      border-left-color: #f59e0b;
+      background: #fef3c7;
+    }
+    
+    .status-card.error {
+      border-left-color: #ef4444;
+      background: #fee2e2;
+    }
+    
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .metric:last-child {
+      border-bottom: none;
+    }
+    
+    .metric-label {
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    .metric-value {
+      font-weight: bold;
+      color: #1e293b;
+    }
+    
+    .metric-value.improved {
+      color: #16a34a;
+    }
+    
+    .metric-value.warning {
+      color: #f59e0b;
+    }
+    
+    .metric-value.error {
+      color: #ef4444;
+    }
+    
+    .test-button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 10px;
+      transition: background 0.2s;
+    }
+    
+    .test-button:hover {
+      background: #2563eb;
+    }
+    
+    .test-button.success {
+      background: #16a34a;
+    }
+    
+    .test-button.success:hover {
+      background: #15803d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 性能测试</h1>
+    
+    <!-- 优化状态 -->
+    <div class="status-card success">
+      <h3>✅ 性能优化已实施</h3>
+      <p>已实施高效的CSS方案和简化的JavaScript优化，避免阻塞渲染。</p>
+    </div>
+    
+    <!-- 性能指标 -->
+    <div class="status-card">
+      <h3>📈 性能指标</h3>
+      <div class="metric">
+        <span class="metric-label">页面加载时间:</span>
+        <span class="metric-value" id="load-time">计算中...</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">DOM元素数量:</span>
+        <span class="metric-value" id="dom-count">计算中...</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">JavaScript执行时间:</span>
+        <span class="metric-value" id="js-time">计算中...</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">优化状态:</span>
+        <span class="metric-value" id="optimization-status">检测中...</span>
+      </div>
+    </div>
+    
+    <!-- 优化说明 -->
+    <div class="status-card warning">
+      <h3>🔧 优化措施</h3>
+      <ul>
+        <li><strong>CSS方案</strong>：使用静态CSS隐藏Video Walkthrough模块</li>
+        <li><strong>JavaScript简化</strong>：移除阻塞渲染的DOM操作</li>
+        <li><strong>执行时机优化</strong>：延迟执行非关键优化</li>
+        <li><strong>图片优化</strong>：懒加载和尺寸优化</li>
+        <li><strong>预加载优化</strong>：移除不必要的资源预加载</li>
+      </ul>
+    </div>
+    
+    <!-- 测试按钮 -->
+    <div style="text-align: center; margin: 30px 0;">
+      <button class="test-button" onclick="testMainPage()">测试主页面</button>
+      <button class="test-button success" onclick="runLighthouse()">运行Lighthouse</button>
+      <button class="test-button" onclick="checkConsole()">检查控制台</button>
+    </div>
+    
+    <!-- 预期效果 -->
+    <div class="status-card success">
+      <h3>🎯 预期效果</h3>
+      <div class="metric">
+        <span class="metric-label">LCP (Largest Contentful Paint):</span>
+        <span class="metric-value improved">目标: < 2.5秒</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">FCP (First Contentful Paint):</span>
+        <span class="metric-value improved">目标: < 1.8秒</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">CLS (Cumulative Layout Shift):</span>
+        <span class="metric-value improved">目标: < 0.1</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">TBT (Total Blocking Time):</span>
+        <span class="metric-value improved">目标: < 200ms</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let startTime = performance.now();
+    let jsStartTime = performance.now();
+    
+    // 更新性能指标
+    function updateMetrics() {
+      const loadTime = (performance.now() - startTime).toFixed(2);
+      const jsTime = (performance.now() - jsStartTime).toFixed(2);
+      
+      document.getElementById('load-time').textContent = loadTime + 'ms';
+      document.getElementById('js-time').textContent = jsTime + 'ms';
+      
+      const domCount = document.querySelectorAll('*').length;
+      document.getElementById('dom-count').textContent = domCount;
+      
+      // 检测优化状态
+      const isMobile = window.innerWidth <= 768;
+      const videoSection = document.getElementById('video-walkthrough-section');
+      const videoHidden = videoSection && window.getComputedStyle(videoSection).display === 'none';
+      
+      let status = '未优化';
+      let statusClass = 'error';
+      
+      if (isMobile && videoHidden) {
+        status = '已优化';
+        statusClass = 'improved';
+      } else if (!isMobile) {
+        status = '桌面模式';
+        statusClass = 'warning';
+      }
+      
+      const statusElement = document.getElementById('optimization-status');
+      statusElement.textContent = status;
+      statusElement.className = 'metric-value ' + statusClass;
+    }
+    
+    // 测试主页面
+    function testMainPage() {
+      window.open('index.html', '_blank');
+    }
+    
+    // 运行Lighthouse
+    function runLighthouse() {
+      alert('请打开Chrome DevTools，切换到Lighthouse面板，然后点击"Generate report"按钮。');
+    }
+    
+    // 检查控制台
+    function checkConsole() {
+      alert('请打开浏览器开发者工具的控制台，查看优化执行日志。');
+    }
+    
+    // 页面加载时初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      updateMetrics();
+    });
+    
+    // 监听窗口大小变化
+    window.addEventListener('resize', () => {
+      updateMetrics();
+    });
+    
+    // 定期更新指标
+    setInterval(updateMetrics, 2000);
+  </script>
+</body>
+</html> 

@@ -4639,12 +4639,19 @@ div[class^="seo"] {
   margin-bottom: 0.25rem;
 }
 
-/* 移动端性能优化 - 基础优化 */
+/* 移动端性能优化 - 高效优化 */
 @media (max-width: 768px) {
+  /* 移动端隐藏Video Walkthrough模块 */
+  #video-walkthrough-section {
+    display: none !important;
+  }
+  
   /* 移动端图片加载优化 */
   img {
     max-height: 120px !important;
     object-fit: cover;
+    max-width: 100% !important;
+    height: auto !important;
   }
   
   /* 减少移动端动画复杂度 */
@@ -4672,6 +4679,38 @@ div[class^="seo"] {
   p {
     font-size: 0.75rem !important;
     line-height: 1.4 !important;
+  }
+  
+  /* 移动端网格优化 */
+  .grid {
+    gap: 0.5rem !important;
+  }
+  
+  /* 移动端间距优化 */
+  .py-16 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .py-12 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  /* 移动端布局优化 */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* 移动端图片懒加载优化 */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  img[loading="lazy"].loaded {
+    opacity: 1;
   }
 }
 
