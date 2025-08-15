@@ -86,7 +86,7 @@
   <link rel="shortcut icon" type="image/png" href="assets/logo-placeholder.png">
   <link rel="apple-touch-icon" href="assets/logo-placeholder.png">
   <!-- 预加载关键资源 - 优化版本 -->
-  <link rel="preload" href="assets/banner-image.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" href="assets/banner-image.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
   <link rel="preload" href="assets/image-rating.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
   <link rel="preload" href="assets/image1.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
   <link rel="preload" href="assets/image2.png" as="image" type="image/png" media="(min-width: 769px)" fetchpriority="low">
@@ -105,6 +105,78 @@
     html { 
       background: #F6F8FB; 
       font-size: 16px;
+    }
+    
+    /* 关键渲染路径优化 */
+    body { 
+      margin: 0; 
+      padding: 0;
+      font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif; 
+      background: #F6F8FB; 
+      color: #222B45; 
+      line-height: 1.7; 
+      min-height: 100vh; 
+      overflow-x: hidden;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    /* 关键布局样式 */
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 24px; 
+      min-width: 320px; 
+    }
+    
+    /* 关键导航样式 */
+    #main-header { 
+      background: #181C32; 
+      box-shadow: 0 2px 8px rgba(30,34,90,0.04); 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      min-height: 80px;
+      width: 100%;
+    }
+    
+    /* 关键Banner样式 */
+    .banner {
+      background: linear-gradient(90deg, #23272F 0%, #E3E3E3 100%);
+      padding: 100px 0 80px 0;
+    }
+    
+    .banner-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    
+    /* 关键标题样式 */
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    /* 移动端关键样式 */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+      }
+      
+      .banner {
+        padding: 60px 0 40px 0;
+      }
+      
+      .banner-flex {
+        flex-direction: column;
+        gap: 24px;
+      }
     }
     
     * {
@@ -487,7 +559,7 @@
       <div class="banner-left">
         <!-- 评分徽章（桌面端显示） -->
         <div class="rating-badge">
-          <img src="assets/image-rating.png" alt="Over 80% 5-stars rating" style="max-width: 209px; height: auto; margin-bottom: 2px;" loading="eager" decoding="async" fetchpriority="high">
+          <img src="assets/image-rating.png" alt="Over 80% 5-stars rating" style="max-width: 209px; height: auto; margin-bottom: 2px;" loading="lazy" decoding="async" fetchpriority="low">
         </div>
         <h1>Hide All: The Ultimate Solution to Hide Apps & Protect Your Privacy</h1>
         <p>
