@@ -4,7 +4,7 @@
   <!-- 主页 -->
   <url>
     <loc>https://hideall.cc/</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- 博客列表页面 -->
   <url>
     <loc>https://hideall.cc/blog.html</loc>
-    <lastmod>2025-01-22</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -108,7 +108,7 @@
   <!-- 博客文章7：Hide Apps on Android -->
   <url>
     <loc>https://hideall.cc/blog-hide-apps-on-android.html</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -116,7 +116,7 @@
   <!-- 博客文章8：Hide Apps on Samsung -->
   <url>
     <loc>https://hideall.cc/blog-hide-apps-on-samsung.html</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -164,7 +164,7 @@
   <!-- 博客文章14：Hide Apps on iPhone -->
   <url>
     <loc>https://hideall.cc/blog-hide-apps-on-iphone.html</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -180,7 +180,103 @@
   <!-- 博客文章16：Hide Apps on Motorola -->
   <url>
     <loc>https://hideall.cc/blog-hide-apps-on-motorola.html</loc>
-    <lastmod>2025-01-07</lastmod>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章17：How App Locks Shield -->
+  <url>
+    <loc>https://hideall.cc/blog-how-app-locks-shield.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章18：Calculator Hide Apps -->
+  <url>
+    <loc>https://hideall.cc/blog-calculator-hide-apps.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章19：Hide WhatsApp Chats -->
+  <url>
+    <loc>https://hideall.cc/blog-hide-whatsapp-chats.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章20：Game Hider Apps -->
+  <url>
+    <loc>https://hideall.cc/blog-game-hider-apps.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章21：Calculator Vault App Hider -->
+  <url>
+    <loc>https://hideall.cc/blog-calculator-vault-app-hider.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章22：Calculator App Locks -->
+  <url>
+    <loc>https://hideall.cc/blog-calculator-app-locks.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章23：How to Hide the Emperor's Child -->
+  <url>
+    <loc>https://hideall.cc/blog-how-to-hide-the-emperors-child.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章24：Apps Icon Hider -->
+  <url>
+    <loc>https://hideall.cc/blog-apps-icon-hider.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章25：Disguise App on Android -->
+  <url>
+    <loc>https://hideall.cc/blog-disguise-app-on-android.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章26：Password Apps on iPhone -->
+  <url>
+    <loc>https://hideall.cc/blog-password-apps-on-iphone.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章27：Secure Folder Technology -->
+  <url>
+    <loc>https://hideall.cc/blog-secure-folder-technolog.html</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章28：Apps Icon Hider Application -->
+  <url>
+    <loc>https://hideall.cc/blog-apps-icon-hider-application.html</loc>
+    <lastmod>2025-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
