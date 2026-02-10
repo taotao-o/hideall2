@@ -337,4 +337,20 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- 博客文章36：Calculator Vault Ironclad Privacy -->
+  <url>
+    <loc>https://hideall.cc/blog-calculator-vault-ironclad-privacy.html</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章37：ASO Experience -->
+  <url>
+    <loc>https://hideall.cc/blog-aso-experience.html</loc>
+    <lastmod>2026-02-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset> 
