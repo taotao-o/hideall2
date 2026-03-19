@@ -353,4 +353,28 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- 博客文章38：App Hiding Growth India -->
+  <url>
+    <loc>https://hideall.cc/blog-apphide-achieve-analysis.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章39：App Clone -->
+  <url>
+    <loc>https://hideall.cc/blog-app-clone.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章40：Game Space -->
+  <url>
+    <loc>https://hideall.cc/blog-game-space.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
 </urlset> 
