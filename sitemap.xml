@@ -44,7 +44,7 @@
   <!-- 博客列表页面 -->
   <url>
     <loc>https://hideall.cc/blog.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -397,6 +397,30 @@
   <url>
     <loc>https://hideall.cc/blog-how-to-hide-photo.html</loc>
     <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章44：Photo Vault -->
+  <url>
+    <loc>https://hideall.cc/blog-why-need-photo-vault.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章45：Digital Locker -->
+  <url>
+    <loc>https://hideall.cc/blog-digital-locker.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章47：Gallery Vault -->
+  <url>
+    <loc>https://hideall.cc/blog-gallery-vault.html</loc>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
