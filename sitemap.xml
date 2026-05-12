@@ -44,7 +44,7 @@
   <!-- 博客列表页面 -->
   <url>
     <loc>https://hideall.cc/blog.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -421,6 +421,14 @@
   <url>
     <loc>https://hideall.cc/blog-gallery-vault.html</loc>
     <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- 博客文章48：Keep Safe -->
+  <url>
+    <loc>https://hideall.cc/blog-keep-safe.html</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
