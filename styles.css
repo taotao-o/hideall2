@@ -1728,7 +1728,12 @@ body.dark-mode {
   color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
-} 
+}
+
+.blog-card-content[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
 
 /* RTL (从右到左) 语言支持 - 主要用于阿拉伯语 */
 [dir="rtl"] {
@@ -1858,6 +1863,7 @@ body.dark-mode {
   .testimonials-fade-right {
     background: linear-gradient(to left, #ffffff 0%, transparent 100%);
   }
+
 }
 
 /* 桌面端隐藏汉堡菜单 */

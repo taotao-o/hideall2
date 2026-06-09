@@ -979,9 +979,12 @@ function changeLanguage(lang) {
   const currentPageHeight = document.documentElement.scrollHeight;
   document.body.style.minHeight = currentPageHeight + 'px';
   
-  // 设置HTML语言属性
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // 设置HTML语言属性（data-shell-ltr 页面仅翻译文案，导航/页脚保持 LTR 布局）
+  const keepShellLtr = document.documentElement.hasAttribute('data-shell-ltr');
+  if (!keepShellLtr) {
+    document.documentElement.lang = lang;
+  }
+  document.documentElement.dir = keepShellLtr ? 'ltr' : (lang === 'ar' ? 'rtl' : 'ltr');
   
   // 使用DocumentFragment减少DOM操作
   const fragment = document.createDocumentFragment();
@@ -1365,17 +1368,13 @@ if (feedbackForm) {
 function initLanguageSwitch() {
   const languageSelect = document.getElementById('language-select');
   if (languageSelect) {
-    // 设置初始语言
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
     languageSelect.value = savedLanguage;
-    
-    // 绑定语言切换事件
+
     languageSelect.addEventListener('change', function() {
-      const selectedLanguage = this.value;
-      changeLanguage(selectedLanguage);
+      changeLanguage(this.value);
     });
-    
-    // 初始化语言
+
     changeLanguage(savedLanguage);
   }
 }
